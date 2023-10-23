@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'props-types';
+import React from "react";
+import PropTypes from "props-types";
 const ProductCard = (props) => {
   return (
     <li>
