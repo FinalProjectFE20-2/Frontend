@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const PopularDishesMenu = (props) => {
   const products = [
     {
       _id: 1,
-      title: 'Хачапурі по-аджарськи',
-      weight: '430г',
+      title: "Хачапурі по-аджарськи",
+      weight: "430г",
       description:
         'Хачапурі "Човник"  із начинкою з розплавленого сиру сулугуні, яйця та масла.',
       price: 470,
       discountPrice: 0,
-      imgUrl: 'https://',
+      imgUrl: "https://",
     },
   ];
   return (
