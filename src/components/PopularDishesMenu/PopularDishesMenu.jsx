@@ -9,7 +9,7 @@ const PopularDishesMenu = (props) => {
       weight: "430г",
       description:
         'Хачапурі "Човник"  із начинкою з розплавленого сиру сулугуні, яйця та масла.',
-      price: 4700,
+      price: 470,
       discountPrice: 0,
       imgUrl: "https://",
     },
