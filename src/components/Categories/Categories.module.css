@@ -1,0 +1,14 @@
+.container {
+    width: 96%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    color: white;
+    gap: 50px;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -1,0 +1,45 @@
+.menuItems {
+    list-style: none;
+    position: relative;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.button {
+    background-color: transparent;
+    color: white;
+    padding: 0;
+}
+
+.button:hover {
+    color: #FBD13E;
+    border-color: transparent;
+}
+
+.button:hover path {
+    fill: #FBD13E;
+
+}
+
+.button:focus {
+    outline: none;
+    color: #FBD13E;
+}
+
+.button:focus path {
+    fill: #FBD13E;
+
+}
+
+.button:focus svg {
+    rotate: 180deg;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: #FBD13E;
+}
