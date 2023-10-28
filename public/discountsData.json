@@ -1,0 +1,23 @@
+[
+  {
+      "id": 1,
+      "price": 420,
+      "image": "./img/img1.jpg",
+      "alt": "1st slide",
+      "url": "https://unsplash.com/photos/vegetable-and-meat-on-bowl-kcA-c3f_3FE"
+  },
+  {
+      "id": 2,
+      "price": 350,
+      "image": "./img/img2.jpg",
+      "alt": "2nd slide",
+      "url": "https://unsplash.com/photos/silver-spoon-on-black-ceramic-bowl-with-vegetables-1SPu0KT-Ejg"
+  },
+  {
+      "id": 3,
+      "price": 250,
+      "image": "./img/img3.jpg",
+      "alt": "3rd slide",
+      "url": "https://unsplash.com/photos/meat-balls-on-oval-white-plate-OFismyezPnY"
+  }
+]
