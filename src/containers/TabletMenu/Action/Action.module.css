@@ -7,6 +7,14 @@
     align-items: center;
 
 }
+@media (max-width: 768px) {
+    .link {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
 
 .link:hover {
     color: #FBD13E;
