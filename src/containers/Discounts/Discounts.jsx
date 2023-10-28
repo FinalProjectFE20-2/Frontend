@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from './Discounts.module.scss';
 import Slider from '../../components/Slider/Slider.jsx';
 
@@ -8,9 +7,5 @@ const Discounts = () => (
     <Slider />
   </div>
 );
-
-Discounts.propTypes = {};
-
-Discounts.defaultProps = {};
 
 export default Discounts;
