@@ -1,1 +1,18 @@
 @import "reset.scss";
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+#root {
+    font-family: 'Montserrat', sans-serif;;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #fff;
+    min-height: 100vh;
+    background-color: #0f0f11;
+}
