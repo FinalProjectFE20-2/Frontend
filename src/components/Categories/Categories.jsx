@@ -5,7 +5,7 @@ import { menuItems } from '@/assets/data.js';
 
 export default function Categories() {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.menu}>
         {' '}
         {menuItems.map((menu, index) => (

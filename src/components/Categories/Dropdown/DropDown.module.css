@@ -19,5 +19,20 @@
     color: #FBD13E;
 }
 .menuItems {
+
     list-style: none;
+}
+@media (max-width: 467px) {
+    .linkWrapper {
+        width: 100%;
+    }
+    .show{
+        position: static;
+        padding: 10px 0;
+        background-color: transparent;
+        width: 70%;
+        text-align: left;
+        display: block;
+        margin: 0 auto;
+    }
 }

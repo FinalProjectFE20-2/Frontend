@@ -1,16 +1,25 @@
-import { Link } from 'react-router-dom';
-import styles from './DropDown.module.css';
+import styles from "./DropDown.module.css";
+import { useMediaQuery } from "react-responsive";
+import ProdCategoriesItem
+  from "../../../containers/TabletMenu/ProductsCatigories/ProdCategoriesItem/ProdCategoriesItem.jsx";
+import { Link } from "react-router-dom";
+import ResponsiveComponent from "../ResponsiveComponent/ResponsiveComponent.jsx";
 
-const Dropdown = ({ submenus, dropdown }) => (
-  <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
-    {submenus.map((submenu, index) => (
-      <li key={index} className={styles.menuItems}>
-        <Link className={styles.link} to={submenu.url}>
-          {submenu.title}
-        </Link>
-      </li>
-    ))}
-  </ul>
-);
+const Dropdown = ({ submenus, dropdown }) => {
 
-export default Dropdown;
+  return <ul className={`${styles.dropdown} ${dropdown ? styles.show : ""}`}>
+    {submenus.map((submenu, index) => {
+    return   <ResponsiveComponent className={styles.linkWrapper} submenu={submenu}><li key={index} className={styles.menuItems}>
+      <Link className={styles.link} to={submenu.url}>
+        {submenu.title}
+      </Link>
+    </li></ResponsiveComponent>
+
+
+
+      })}
+      </ul>;
+    };
+
+
+      export default Dropdown;;;;

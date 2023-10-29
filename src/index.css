@@ -1,6 +1,9 @@
 @import 'reset-css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
 body{
     height: 100vh;
+    font-family: Montserrat;
 }
 a {
     text-decoration: none;
@@ -9,3 +12,6 @@ a {
 button{
     border:none;
 }
+.container {
+
+ }
