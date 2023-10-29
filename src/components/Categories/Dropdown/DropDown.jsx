@@ -1,7 +1,4 @@
 import styles from "./DropDown.module.css";
-import { useMediaQuery } from "react-responsive";
-import ProdCategoriesItem
-  from "../../../containers/TabletMenu/ProductsCatigories/ProdCategoriesItem/ProdCategoriesItem.jsx";
 import { Link } from "react-router-dom";
 import ResponsiveComponent from "../ResponsiveComponent/ResponsiveComponent.jsx";
 
@@ -22,4 +19,4 @@ const Dropdown = ({ submenus, dropdown }) => {
     };
 
 
-      export default Dropdown;;;;
+      export default Dropdown;
