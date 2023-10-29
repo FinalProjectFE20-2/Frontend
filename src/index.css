@@ -1,11 +1,20 @@
+
 @import 'reset-css';
-body{
-    height: 100vh;
+
+#root {
+    position: relative;
 }
+
+body {
+    height: 100vh;
+    font-family: Montserrat;
+}
+
 a {
     text-decoration: none;
 
 }
-button{
-    border:none;
+
+button {
+    border: none;
 }
