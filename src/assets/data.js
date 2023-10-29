@@ -1,4 +1,3 @@
-import fire from '@/assets/products/fire.png'
 import img17 from '@/assets/products/17.png';
 import img19 from '@/assets/products/19.png';
 import img21 from '@/assets/products/21.png';
@@ -11,7 +10,6 @@ export const menuItems = [
   {
     title: 'Акції',
     url: '/action',
-    img: fire,
   },
   {
     title: 'Гарячі',

@@ -4,7 +4,6 @@ import Burger from '@/assets/svg_icon/burger_menu/burger.svg?react';
 import Cross from '@/assets/svg_icon/burger_menu/cross.svg?react';
 import TabletMenu from '../../containers/TabletMenu/TabletMenu.jsx';
 import styles from './BurgerMenu.module.css';
-import Categories from "../Categories/Categories.jsx";
 
 export default function BurgerMenu() {
   const [isOpen, setOpen] = useState(false);
@@ -18,7 +17,7 @@ export default function BurgerMenu() {
     <div className={styles.wrapper}>
       <Burger onClick={handleClick} />
       {isTablet ? <h2 className={styles.title}>МЕНЮ</h2> : null}
-      {isOpen ? isTablet ? <TabletMenu /> : <Categories/> : null}
+      {isOpen ? isTablet ? <TabletMenu /> : 'Mobile' : null}
     </div>
   );
 }

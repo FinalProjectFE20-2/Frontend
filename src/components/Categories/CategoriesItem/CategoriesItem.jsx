@@ -1,30 +1,25 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import Dropdown from "../Dropdown/DropDown.jsx";
-import styles from "./CategoriesItem.module.css";
-import Arrow from "@/assets/svg_icon/arrow.svg?react";
-import { useMediaQuery } from "react-responsive";
-import ResponsiveComponent from "../ResponsiveComponent/ResponsiveComponent.jsx";
+import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import Dropdown from '../Dropdown/DropDown.jsx';
+import styles from './CategoriesItem.module.css';
+import Arrow from '@/assets/svg_icon/arrow.svg?react';
 
 const CategoriesItem = ({ items }) => {
   const [dropdown, setDropdown] = useState(false);
   const ref = useRef();
-  const isMobile = useMediaQuery({
-    query: "(max-width: 468px)",
-  });
   useEffect(() => {
     const handler = (event) => {
       if (dropdown && ref.current && !ref.current.contains(event.target)) {
         setDropdown(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
+    document.addEventListener('mousedown', handler);
+    document.addEventListener('touchstart', handler);
     return () => {
       // Cleanup the event listener
-      document.removeEventListener("mousedown", handler);
-      document.removeEventListener("touchstart", handler);
+      document.removeEventListener('mousedown', handler);
+      document.removeEventListener('touchstart', handler);
     };
   }, [dropdown]);
   const closeDropdown = () => {
@@ -40,17 +35,16 @@ const CategoriesItem = ({ items }) => {
             className={styles.button}
             type="button"
             aria-haspopup="menu"
-            aria-expanded={dropdown ? "true" : "false"}
+            aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}>
-            {isMobile ? <><Arrow className={styles.arrow}/> {items.title}</> : <>{items.title} <Arrow /></>}
+            {items.title} <Arrow />
           </button>
           <Dropdown submenus={items.submenu} dropdown={dropdown} />
         </>
       ) : (
-        <ResponsiveComponent submenu={items} ><Link className={styles.link} to={items.url}>
+        <Link className={styles.link} to={items.url}>
           {items.title}
-        </Link></ResponsiveComponent>
-
+        </Link>
       )}
     </li>
   );

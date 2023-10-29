@@ -12,20 +12,3 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-@media (max-width: 468px) {
-    .nav {
-        top: 120px;
-        height: 100%;
-        left: 0;
-        right: 0;
-        position: absolute;
-        background-color: black;
-        background: rgba(0, 0, 0, 0.80);
-        backdrop-filter: blur(25px);
-
-    }
-.menu {
-    flex-direction: column;
-    gap: 0;
-}
-}
