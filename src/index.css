@@ -1,0 +1,11 @@
+@import 'reset-css';
+body{
+    height: 100vh;
+}
+a {
+    text-decoration: none;
+
+}
+button{
+    border:none;
+}
