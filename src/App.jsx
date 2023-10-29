@@ -8,7 +8,6 @@ import Header from '@/containers/Header/Header.jsx';
 function App() {
   return (
     <>
-
       <Header />
       <PopularDishesMenu />
       <Discounts />
