@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 const ProductCard = ({ id }) => {
   const product1 = {
     _id: 1,
-    imgUrl: './img/image14.png',
+    imgUrl:
+      'https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434573/yrbl3vv3q8krgw4agu0n.png',
     title: 'Хачапурі по-аджарськи',
     weight: '430г',
     description:
