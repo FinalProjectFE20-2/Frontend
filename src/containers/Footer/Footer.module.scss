@@ -1,1 +1,124 @@
-.Footer {}
+.container {
+    width: 96%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.Footer {
+    padding-top: 50px;
+    padding-bottom: 35px;
+    background-color: #000;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.innerWrapper, .wrapperPolitics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    margin-left: 120px;
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+    color: #FBD13E;
+    transition: color .3s;
+}
+
+.phone {
+    font-size: 20px;
+}
+
+.email {
+    margin-left: 30px;
+}
+
+.politics {
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+}
+
+@media (max-width: 1400px) {
+    .link {
+        font-size: 12px;
+    }
+    .links {
+        margin-left: 50px;
+        width: 350px;
+    }
+    .phone {
+        font-size: 16px;
+    }
+    .politics {
+        width: 400px;
+    }
+}
+
+@media (max-width: 980px) {
+    .innerWrapper {
+        flex-flow: column;
+    }
+    .rights{
+        font-size: 12px;
+    }
+    .links {
+        margin-left: 0;
+        margin-top: 30px;
+        width: 350px;
+    }
+    .contacts{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+    }
+    .wrapperPolitics{
+        flex-flow: column;
+    }
+    .politics {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 565px) {
+    .Footer{
+        position: relative;
+    }
+    .links {
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        align-items: start;
+        margin-top: 60px;
+        width: 200px;
+    }
+    .link {
+        margin-top: 30px;
+    }
+    .contacts{
+        position: absolute;
+        top: 100px;
+        align-items: center;
+    }
+    .email {
+        margin-left: 15px;
+    }
+    .wrapperPolitics{
+        flex-flow: column;
+    }
+    .politics {
+        margin-top: 0;
+        width: 300px;
+        flex-wrap: wrap;
+    }
+}

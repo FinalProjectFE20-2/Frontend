@@ -3,6 +3,7 @@ import "./styles/index.scss"
 import Header from '@/containers/Header/Header.jsx';
 import PopularDishesMenu from './components/PopularDishesMenu';
 import Discounts from './containers/Discounts/Discounts.jsx';
+import Footer from './containers/Footer/Footer.jsx';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <PopularDishesMenu />
       <Discounts />
+      <Footer />
     </>
   );
 }
