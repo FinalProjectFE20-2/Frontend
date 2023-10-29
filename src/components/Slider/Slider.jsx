@@ -11,8 +11,6 @@ function Slider() {
           .then((response) => setDiscounts(response.data));
   }
 
-  console.log(discounts);
-
   useEffect(() => {
     fetchDiscountsData();
   },[]);

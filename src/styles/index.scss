@@ -9,24 +9,19 @@
 }
 
 #root {
-    font-family: 'Montserrat', sans-serif;;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
     font-weight: 500;
     color: #fff;
     min-height: 100vh;
     background-color: #0f0f11;
 }
-#root{
-    position: relative;
-}
+
 body{
     height: 100vh;
-    font-family: Montserrat;
 }
-a {
-    text-decoration: none;
 
-}
 button{
     border:none;
 }
