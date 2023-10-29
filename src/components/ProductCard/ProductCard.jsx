@@ -8,7 +8,7 @@ const ProductCard = ({ id }) => {
     weight: '430г',
     description:
       'Хачапурі "Човник"  із начинкою з розплавленого сиру сулугуні, яйця та масла',
-    price: 470,
+    price: 270,
     discountPrice: 0,
   };
   return (
