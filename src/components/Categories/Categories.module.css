@@ -15,7 +15,7 @@
 @media (max-width: 468px) {
     .nav {
         top: 120px;
-        height: 100vh;
+        height: 100%;
         left: 0;
         right: 0;
         position: absolute;
