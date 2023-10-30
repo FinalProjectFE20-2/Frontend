@@ -1,27 +1,30 @@
-@import "reset.scss";
+@import 'reset.scss';
 
 :root {
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
-    position: relative;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.5;
-    font-weight: 500;
-    color: #fff;
-    min-height: 100vh;
-    background-color: #0f0f11;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff;
+  min-height: 100vh;
+  background-color: #0f0f11;
+  background-image: url('https://res.cloudinary.com/dk4wwlrws/image/upload/v1698440613/nz1oipckv0ynf2fzgmzb.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body{
-    height: 100vh;
+body {
+  height: 100%;
 }
 
-button{
-    border:none;
+button {
+  border: none;
 }

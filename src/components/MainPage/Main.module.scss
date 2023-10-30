@@ -1,0 +1,16 @@
+main {
+  &__content {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .container {
+    min-width: 1500px;
+    margin: 0 auto;
+  }
+  .content__text {
+    margin-top: 96px;
+    width: 258px;
+    height: 98px;
+  }
+}
