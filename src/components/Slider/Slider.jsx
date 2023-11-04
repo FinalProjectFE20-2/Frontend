@@ -7,11 +7,11 @@ function Slider() {
   const [discounts, setDiscounts] = useState([]);
 
   const fetchDiscountsData = () => {
-<<<<<<< HEAD
     return axios
       .get('discountsData.json')
       .then(response => setDiscounts(response.data));
   };
+
   useEffect(() => {
     fetchDiscountsData();
   }, []);
