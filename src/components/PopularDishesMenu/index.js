@@ -1,3 +1,3 @@
-import PopularDishesMenu from "./PopularDishesMenu";
+import PopularDishesMenu from './PopularDishesMenu';
 
 export default PopularDishesMenu;
