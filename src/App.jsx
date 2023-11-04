@@ -5,8 +5,14 @@ import MainPage from './components/MainPage/MainPage';
 import PopularDishesMenu from './components/PopularDishesMenu';
 import Discounts from './containers/Discounts/Discounts.jsx';
 import Footer from './containers/Footer/Footer.jsx';
-
+import { useDispatch } from 'react-redux';
+import { getAllProducts } from './store/action/product/actionProduct';
+import { useEffect } from 'react';
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    dispatch(getAllProducts())
+  },[dispatch]);
   return (
     <>
       <Header />

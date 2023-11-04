@@ -1,5 +1,13 @@
+<<<<<<< HEAD:src/components/PageContainer/PageContainer.module.css
 .container {
   width: 96%;
   max-width: 1600px;
   margin: 0 auto;
 }
+=======
+.container {
+  width: 96%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+>>>>>>> dev:src/components/PageConteiner/PageContainer.module.css

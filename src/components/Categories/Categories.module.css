@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 @media (max-width: 468px) {
   .nav {
     top: 120px;
@@ -23,6 +24,10 @@
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(25px);
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
   .menu {
     flex-direction: column;
     gap: 0;

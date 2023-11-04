@@ -6,7 +6,7 @@ import Slider from './Slider';
 describe('<Slider />', () => {
   test('it should mount', () => {
     render(<Slider />);
-    
+
     const slider = screen.getByTestId('Slider');
 
     expect(slider).toBeInTheDocument();
