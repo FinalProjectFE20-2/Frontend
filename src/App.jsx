@@ -7,12 +7,11 @@ import Footer from './containers/Footer/Footer.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from './store/action/product/actionProduct';
 import { useEffect } from 'react';
-
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=> {
-    dispatch(getAllProducts())
-  },[dispatch]);
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
   return (
     <>
       <Header />
