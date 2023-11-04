@@ -7,6 +7,7 @@ describe('<Footer />', () => {
   test('it should mount', () => {
     render(<Footer />);
 
+
     const footer = screen.getByTestId('Footer');
 
     expect(footer).toBeInTheDocument();
