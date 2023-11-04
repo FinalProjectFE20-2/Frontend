@@ -24,10 +24,6 @@
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(25px);
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
   .menu {
     flex-direction: column;
     gap: 0;
