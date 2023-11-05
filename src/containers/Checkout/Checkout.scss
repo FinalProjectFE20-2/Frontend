@@ -1,0 +1,109 @@
+.container__checkout_kosss {
+    width: 96%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title__checkout_kosss {
+    h1 {
+      font-family: Montserrat;
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 55px;
+      letter-spacing: 0em;
+      text-align: left;
+  
+      p {
+        font-family: Montserrat;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #9EA2AA;
+      }
+    }
+  }
+  
+  .details__checkout_kosss {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    border-top: 1px solid #3D3D3D;
+  
+    h2 {
+      font-family: Montserrat;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 30px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #FFFFFF;
+    }
+  
+    p {
+      font-family: Montserrat;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #FFFFFF;
+    }
+  }
+  
+  .delivery-option__checkout_kosss, .payment-option__checkout_kosss {
+    width: 390px;
+    height: 140px;
+    border: 1px dashed #9EA2AA;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+  
+    &.active {
+      border-color: #FBD13E;
+      background-color: #FBD13E;
+    }
+  
+    p {
+      font-family: Montserrat;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #FFFFFF;
+    }
+  }
+  
+  .confirm-button__checkout_kosss {
+    width: 234px;
+    height: 42px;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    background: #FBD13E;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  // Input labels and styles
+  input[type="text"], input[type="number"], input[type="email"] {
+    width: 360px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #000000;
+  
+    & [type="number"], & [type="email"] {
+      width: 360px;
+    }
+  }
+  
