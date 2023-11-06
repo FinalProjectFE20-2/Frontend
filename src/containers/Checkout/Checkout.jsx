@@ -67,16 +67,17 @@ const Checkout = () => {
                 <span>Після підтвердження замовлення <br /> Доступний з 12:00 до 22:00 <br /> За адресою вул. Степана Бандери, 125</span>
               </div>
             </div>
-            <div className="delivery-input__checkout_kosss">
-              <div className="guest-adress__wraper_input">
-                <input type="text" placeholder="Адреса доставки" />
+              <div className="delivery-input__checkout_kosss">
+                <div className="guest-adress__wraper_input">
+                  <input type="text" />
+                </div>
+              <div className="number-app__checkout_kosss">
+                <input type="text" placeholder="" />
+                <input type="number" placeholder="" />
+              </div >
+              <div className="guest-coment__wraper_input">
+                <input type="text" placeholder="" />
               </div>
-            <div className="number-app__checkout_kosss">
-              <input type="text" placeholder="" />
-              <input type="number" placeholder="" />
-            </div >
-            <input type="text" placeholder="" />
-
             </div>
           </div>
 
@@ -98,6 +99,13 @@ const Checkout = () => {
         </div>
 
         <button className="confirm-button__checkout_kosss">Замовити</button>
+      </div>
+      <div className="go_cart__checkout_kosss">
+        <div>1
+ 
+        </div>
+        <div><h3>Ваше замовлення тут :)</h3></div>
+        <div><p>Розкрити</p></div>
       </div>
 
       <Footer />
