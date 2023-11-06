@@ -25,33 +25,48 @@ const Checkout = () => {
       <div className="container__checkout_kosss">
         <div className="title__checkout_kosss">
           <h1>Оформлення замовлення</h1>
-          <p>Головна  /  Корзина  / <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span></p>
+          <p>Головна / Корзина / <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span></p>
         </div>
 
         <div className="details__checkout_kosss">
-          <div>
+          <div className="details_contact__checkout_kosss">
             <h2>01. Контактні данні</h2>
-            <p><u>Вже купляли у нас?</u></p>
-            <p>Увійдіть до личного кабинету, та всі ваші данні автоматично заповняться</p>
-            <input type="text" placeholder="" />
-            <input type="text" placeholder="" />
-            <input type="email" placeholder="" />
-            <input type="number" placeholder="" min="1" max="30" />
+            <div className="content_contact__checkout_kosss">
+              <p><u><span style={{ cursor: 'pointer' }}>Вже купляли у нас?</span></u></p>
+              <p>Увійдіть до личного кабинету, та всі ваші  данні заповняться автоматично</p>
+              <input type="text" placeholder="" />
+              <input type="text" placeholder="" />
+              <input type="email" placeholder="" />
+              <input type="number" placeholder="" min="1" max="30" />
+            </div>
           </div>
 
-          <div>
+          <div className="details_delivery__checkout_kosss">
             <h2>02. Спосіб доставки</h2>
-            <div
-              className={`delivery-option__checkout_kosss ${deliveryMethod === 'delivery' ? 'active' : ''}`}
-              onClick={() => handleDeliveryMethodChange('delivery')}
-            >
-              <p>Безконтактна доставка 100грн</p>
+            <div className="type_delivery__checkout_kosss">
+              <div
+                className={`delivery-option__checkout_kosss ${deliveryMethod === 'delivery' ? 'active' : ''}`}
+                onClick={() => handleDeliveryMethodChange('delivery')}
+              >
+                <p>Безконтактна доставка 100грн</p>
+              </div>
+              <div
+                className={`delivery-option__checkout_kosss ${deliveryMethod === 'pickup' ? 'active' : ''}`}
+                onClick={() => handleDeliveryMethodChange('pickup')}
+              >
+                <p>Самовивіз 0 грн</p>
+              </div>
             </div>
-            <div
-              className={`delivery-option__checkout_kosss ${deliveryMethod === 'pickup' ? 'active' : ''}`}
-              onClick={() => handleDeliveryMethodChange('pickup')}
-            >
-              <p>Самовивіз 0 грн</p>
+            <div className="delivery-input__checkout_kosss">
+             
+            <input type="text" placeholder="Адреса доставки" />
+              
+            <div className="number-app__checkout_kosss">
+              <input type="text" placeholder="" />
+              <input type="number" placeholder="" />
+            </div >
+            <input type="text" placeholder="" />
+
             </div>
           </div>
 
