@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import styles from './Header.module.css';
-import PageContainer from '../../components/PageConteiner/PageContainer.jsx';
+import PageContainer from '../../components/PageContainer/PageContainer.jsx';
 import HeaderLogo from './components/HeaderLogo/HeaderLogo';
 
 import Navigation from '../Navigation/Navigation';
