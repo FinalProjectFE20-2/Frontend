@@ -18,7 +18,8 @@ const ProductCard = ({ itemNo }) => {
   //   categories: 'Горячі закуски',
   //   quantity: 100,
   // };
-  const product = useSelector(state => state.products.products[itemNo] || {});
+  const products = useSelector(state => state.products.products || []);
+const product = products.find(product => product.itemNo===itemNo)
   console.log(product, 11);
 
   return (
