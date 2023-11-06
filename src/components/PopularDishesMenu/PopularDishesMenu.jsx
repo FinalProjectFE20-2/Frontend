@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const PopularDishesMenu = props => {
   //
   const products = useSelector(
-    state => Object.values(state.products.products) || [],
+    state => state.products.products || [],
   );
   return (
     <section>
