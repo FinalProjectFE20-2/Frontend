@@ -1,0 +1,12 @@
+.title {
+    margin-bottom: 50px;
+    font-size: 80px;
+    line-height: 90px;
+    text-align: center;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: (repeat(6, 1fr));
+}

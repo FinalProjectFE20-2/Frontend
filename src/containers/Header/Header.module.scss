@@ -1,0 +1,17 @@
+.header {
+/*   background-color: #0f0f12; */
+  padding: 50px 0;
+}
+
+.headerWrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconWrapper {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}

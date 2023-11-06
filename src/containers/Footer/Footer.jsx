@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import HeaderLogo from '../Header/components/HeaderLogo/HeaderLogo';
+import Logo from '../../components/Logo/Logo';
 
 const Footer = () => (
   <section className={styles.Footer} data-testid="Footer">
-    <div className={styles.container}>
+    <div className='container'>
       <div className={styles.wrapper}>
         <div className={styles.innerWrapper}>
-          <HeaderLogo />
+          <Logo />
           <div className={styles.links}>
             <a href="#" className={styles.link}>
               Зворотній зв'язок
@@ -39,6 +39,12 @@ const Footer = () => (
       <hr />
       <div className={styles.wrapperPolitics}>
         <p className={styles.rights}>©2023 «MIDAS», DAN IT</p>
+        <ul className={styles.social}>
+            <li><a href="#" className={`${styles.socialItem} svg ${styles.inst}`}></a></li>
+            <li><a href="#" className={`${styles.socialItem} svg ${styles.fb}`}></a></li>
+            <li><a href="#" className={`${styles.socialItem} svg ${styles.linkin}`}></a></li>
+            <li><a href="https://github.com/FinalProjectFE20-2/Frontend" className={`${styles.socialItem} svg ${styles.git}`}></a></li>
+        </ul>
         <div className={styles.politics}>
           <a href="#" className={styles.link}>
             Політика конфіденційності і оферта

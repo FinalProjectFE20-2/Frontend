@@ -19,6 +19,7 @@
 .wrapperPolitics {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .links {
@@ -48,6 +49,39 @@
   display: flex;
   justify-content: space-between;
   width: 550px;
+}
+
+.social {
+  width: 188px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialItem {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter .3s;
+}
+
+
+
+.inst {
+  background-image: url('./icons/inst.svg');
+}
+
+.fb {
+  background-image: url('./icons/fb.svg');
+}
+
+.linkin {
+  background-image: url('./icons/linkin.svg');
+}
+
+.git {
+  background-image: url('./icons/git.svg');
 }
 
 @media (max-width: 1400px) {

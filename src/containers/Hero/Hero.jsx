@@ -1,11 +1,9 @@
-import React from 'react';
-import style from './MainPage.module.scss';
+import style from './Hero.module.scss';
 import {GrBasket} from 'react-icons/gr';
 
-
-function MainPage() {
+function Hero() {
   return (
-    <section className={style.main}>
+    <section className={`${style.main} container`}>
       <div className={style.container}>
         <div className={style.main__content}>
           <div>
@@ -54,7 +52,7 @@ function MainPage() {
             <br /> смажених фермерських овочів.
           </p>
           <p className={style.red__price}>  1200 &#8372;</p>
-           <GrBasket  className={style.red__cart}/>
+            <GrBasket  className={style.red__cart}/>
         </div>
         <div className={style.content__card}>
           <img
@@ -73,4 +71,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default Hero;
