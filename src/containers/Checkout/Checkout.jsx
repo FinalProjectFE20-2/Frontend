@@ -34,10 +34,18 @@ const Checkout = () => {
             <div className="content_contact__checkout_kosss">
               <p><u><span style={{ cursor: 'pointer' }}>Вже купляли у нас?</span></u></p>
               <p>Увійдіть до личного кабинету, та всі ваші  данні заповняться автоматично</p>
-              <input type="text" placeholder="" />
-              <input type="text" placeholder="" />
-              <input type="email" placeholder="" />
-              <input type="number" placeholder="" min="1" max="30" />
+              <div className="guest-name__wraper_input">
+                <input type="text" />
+              </div>
+              <div className="guest-phone__wraper_input">
+                <input type="text" />
+              </div>
+              <div className="guest-email__wraper_input">
+                <input type="email" placeholder="" />
+              </div>
+              <div className="guest-number__wraper_input">
+                <input type="number" placeholder="" min="1" max="30" />
+              </div>
             </div>
           </div>
 
@@ -48,19 +56,21 @@ const Checkout = () => {
                 className={`delivery-option__checkout_kosss ${deliveryMethod === 'delivery' ? 'active' : ''}`}
                 onClick={() => handleDeliveryMethodChange('delivery')}
               >
-                <p>Безконтактна доставка 100грн</p>
+                <div className="type_delivery__cost_delivery"><p>Безконтактна доставка</p> <h3>100 грн</h3></div>
+                <span>Доставка по Києву <br />Здійснюється: щодня з 12:00 до 22:00 <br /> Діапозон часу: від 1 до 1.5 годин</span>
               </div>
               <div
                 className={`delivery-option__checkout_kosss ${deliveryMethod === 'pickup' ? 'active' : ''}`}
                 onClick={() => handleDeliveryMethodChange('pickup')}
               >
-                <p>Самовивіз 0 грн</p>
+                <div className="type_delivery__cost_delivery"><p>Самовивіз</p> <h3>0 грн</h3></div>
+                <span>Після підтвердження замовлення <br /> Доступний з 12:00 до 22:00 <br /> За адресою вул. Степана Бандери, 125</span>
               </div>
             </div>
             <div className="delivery-input__checkout_kosss">
-             
-            <input type="text" placeholder="Адреса доставки" />
-              
+              <div className="guest-adress__wraper_input">
+                <input type="text" placeholder="Адреса доставки" />
+              </div>
             <div className="number-app__checkout_kosss">
               <input type="text" placeholder="" />
               <input type="number" placeholder="" />
@@ -70,7 +80,7 @@ const Checkout = () => {
             </div>
           </div>
 
-          <div>
+          <div className="details_payment__checkout_kosss">
             <h2>03. Оплата</h2>
             <div
               className={`payment-option__checkout_kosss ${paymentMethod === 'cash' ? 'active' : ''}`}
