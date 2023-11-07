@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './Action.module.css';
+import styles from './Action.module.scss';
 
 export default function Action({ upPrice, downprice, obj }) {
   return (

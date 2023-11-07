@@ -1,11 +1,11 @@
 .main {
-  position: relative;
+  overflow: hidden;
+  padding-bottom: 50px;
   &__content {
     display: flex;
   }
   .container {
-    min-width: 1500px;
-    margin: 0 25px auto;
+    position: relative;
   }
   .content__text {
     margin-top: 45px;
@@ -42,11 +42,12 @@
     margin-top: 70px;
   }
   .content__image {
-    margin-left: 92px;
+    position: absolute;
+    right: 0;
   }
   .image__decor {
     position: absolute;
-    right: 0;
+    right: -200px;
     top: 555px;
   }
   .image__red {
@@ -137,8 +138,43 @@
     padding: 0;
   }
 }
-@media (max-width: 1023px){
-    .content__image{
-      background-image: url("https://res.cloudinary.com/dk4wwlrws/image/upload/v1698590003/e3wqqqkdjbtoazqv97in.png");
-    }
+@media (max-width: 1200px){
+  .main .image__decor {
+    right: -300px;
   }
+  .main .content__decor {
+    left: -200px;
+  }
+}
+@media (max-width: 990px){
+  .main{
+    padding-bottom: 0;
+  }
+  .main .image__decor {
+    display: none;
+  }
+  .main .content__decor {
+    display: none;
+  }
+  .content__card {
+    visibility: hidden;
+  }
+  .main .image__red {
+    left: 0;
+  }
+  .main .red__title {
+    left: 55px;
+  }
+  .main .red__weight {
+    left: 55px;
+  }
+  .main .red__description {
+    left: 55px;
+  }
+  .main .red__price {
+    left: 115px;
+  }
+  .main .red__cart {
+    left: 55px;
+  }
+}

@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import styles from './Header.module.scss';
-import PageContainer from '../../components/PageContainer/PageContainer.jsx';
+import HeaderContainer from '../../components/HeaderContainer/HeaderContainer.jsx';
 import Logo from '../../components/Logo/Logo';
 
 import Navigation from '../../components/Navigation/Navigation.jsx';
@@ -9,12 +9,12 @@ import BurgerMenu from '../../components/BurgerMenu/BurgerMenu.jsx';
 
 export default function Header() {
   const isDekstop = useMediaQuery({
-    query: '(min-width: 1024px)',
+    query: '(min-width: 1200px)',
   });
 
   return (
     <header className={`${styles.header} container`}>
-      <PageContainer classAdd={styles.headerWrapper}>
+      <HeaderContainer classAdd={styles.headerWrapper}>
         <div className={styles.iconWrapper}>
           <Logo />
           {!isDekstop && <BurgerMenu />}
@@ -22,7 +22,7 @@ export default function Header() {
         {isDekstop && <Categories />}
 
         <Navigation></Navigation>
-      </PageContainer>
+      </HeaderContainer>
       {/* <Header/> */}
     </header>
   );

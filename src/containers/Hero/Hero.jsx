@@ -3,8 +3,13 @@ import {GrBasket} from 'react-icons/gr';
 
 function Hero() {
   return (
-    <section className={`${style.main} container`}>
-      <div className={style.container}>
+    <section className={style.main}>
+      <img
+        className={style.content__image}
+        src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png"
+        alt="image"
+      />
+      <div className={`${style.container} container`}>
         <div className={style.main__content}>
           <div>
             <p className={style.content__text}>
@@ -27,11 +32,7 @@ function Hero() {
               </a>
             </div>
           </div>
-          <img
-            className={style.content__image}
-            src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png"
-            alt="image"
-          />
+
           <img
             className={style.image__decor}
             src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1699044085/Desktop/glcxflqz3deku2twepn1.png"

@@ -3,11 +3,6 @@
   padding: 150px 200px 0 200px;
   height: 33%;
 }
-/* 
-.slider{
-  width: 700px;
-  margin: 0 auto;
-} */
 
 .title {
   margin-left: 25px;
@@ -24,9 +19,16 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .title {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .Discounts {
+    padding: 0;
+    padding-top: 50px;
   }
 }
 
@@ -48,9 +50,8 @@
 
   .title {
     margin-bottom: 105px;
-    line-height: 3rem;
-    font-size: 2.5rem;
+
   }
-}
+} 
 
 

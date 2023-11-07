@@ -21,13 +21,14 @@
   background-image: url('https://res.cloudinary.com/dk4wwlrws/image/upload/v1698440613/nz1oipckv0ynf2fzgmzb.png');
   background-repeat: no-repeat;
   background-size: cover; */
-  background: rgb(15,15,17);
+  background: rgb(0,0,0);
   background: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgba(9,36,80,1) 100%);
 }
 
 body {
   margin: 0 auto;
   height: 100%;
+  overflow: clip;
 }
 
 .svg:hover {

@@ -1,9 +1,3 @@
-.container {
-  width: 96%;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
 .Footer {
   padding-top: 50px;
   padding-bottom: 35px;
@@ -66,8 +60,6 @@
   transition: filter .3s;
 }
 
-
-
 .inst {
   background-image: url('./icons/inst.svg');
 }
@@ -100,12 +92,14 @@
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 990px) {
   .innerWrapper {
     flex-flow: column;
+    align-items: start;
   }
   .rights {
     font-size: 12px;
+    margin-bottom: 25px;
   }
   .links {
     margin-left: 0;
@@ -150,6 +144,7 @@
   }
   .wrapperPolitics {
     flex-flow: column;
+    align-items: start;
   }
   .politics {
     margin-top: 0;

@@ -7,3 +7,9 @@
 .item {
   list-style: none;
 }
+
+@media (max-width: 355px) {
+  .list {
+    gap: 15px;
+  }
+}

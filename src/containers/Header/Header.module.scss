@@ -15,3 +15,12 @@
   gap: 80px;
   align-items: center;
 }
+
+@media (max-width: 565px) {
+  .iconWrapper {
+    gap: 20px;
+  }
+  .headerWrapper {
+    gap: 4px;
+  }
+}
