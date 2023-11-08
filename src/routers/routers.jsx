@@ -7,7 +7,7 @@ import Checkout from '@/containers/Checkout/Checkout.jsx';
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '*',
     element: <App />,
   },
   {

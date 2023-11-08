@@ -1,7 +1,7 @@
 import { menuItems } from '@/assets/data.js';
 import Action from '../Action/Action.jsx';
 import ProdCategoriesItem from './ProdCategoriesItem/ProdCategoriesItem.jsx';
-import styles from './ProductsCatigories.module.css';
+import styles from './ProductsCatigories.module.scss';
 
 export default function ProductsCatigories() {
   const { withSubmenu, withoutSubmenu, action } = menuItems.reduce(

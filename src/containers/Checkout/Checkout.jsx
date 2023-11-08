@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 
-import styles from './Checkout.scss';
+import './Checkout.scss';
 
 
 

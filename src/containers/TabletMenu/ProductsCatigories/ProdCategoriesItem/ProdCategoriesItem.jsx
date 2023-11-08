@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-
-import styles from './ProdCategoriesItem.module.css';
+import styles from './ProdCategoriesItem.module.scss';
 
 export default function ProdCategoriesItem({ item,className }) {
   return (
