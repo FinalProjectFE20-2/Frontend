@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ProductCard from '../../components/ProductCard';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './PopularDishesMenu.module.scss';
 import { useSelector } from 'react-redux';
 
