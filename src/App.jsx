@@ -1,10 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.scss';
-import Header from '@/containers/Header/Header.jsx';
-import MainPage from './components/MainPage/MainPage';
-import PopularDishesMenu from './components/PopularDishesMenu';
-import Discounts from './containers/Discounts/Discounts.jsx';
-import Footer from './containers/Footer/Footer.jsx';
+import Container from './containers/Container/Container.jsx';
+import Home from './pages/Home/Home.jsx';
+import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from './store/action/product/actionProduct';
 import { useEffect } from 'react';
@@ -13,14 +11,14 @@ function App() {
   useEffect(()=> {
     dispatch(getAllProducts())
   },[dispatch]);
+
   return (
-    <>
-      <Header />
-      <MainPage />
-      <PopularDishesMenu />
-      <Discounts />
-      <Footer />
-    </>
+  // Routing
+    <Container>
+      <Routes>
+        <Route index element={<Home/>}/>
+      </Routes>
+    </Container>
   );
 }
 
