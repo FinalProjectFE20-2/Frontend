@@ -86,11 +86,13 @@
     line-height: 21px;
   }
   .red__price {
+    display: block;
     position: absolute;
     left: 560px;
     top: 740px;
     font-size: 23px;
     font-weight: 800;
+    align-self: center;
   }
   .red__cart {
     position: absolute;
@@ -118,16 +120,17 @@
     font-weight: 500;
   }
   .card__price {
+    display: inline-block;
     font-size: 23px;
     font-weight: 800;
+    margin-right: 25px;
   }
   .card__cart {
     position: absolute;
     top: 1064px;
     left: 140px;
     width: 42px;
-    height: 42px;
-    z-index: 1000;
+    height: 42px;  
     background-color: #FBD13E;
   }
   .card__cart:hover {
@@ -137,8 +140,5 @@
     padding: 0;
   }
 }
-@media (max-width: 1023px){
-    .content__image{
-      background-image: url("https://res.cloudinary.com/dk4wwlrws/image/upload/v1698590003/e3wqqqkdjbtoazqv97in.png");
-    }
-  }
+
+

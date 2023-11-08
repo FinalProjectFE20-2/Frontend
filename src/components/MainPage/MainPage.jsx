@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './MainPage.module.scss';
 import {GrBasket} from 'react-icons/gr';
+import CartButton from '../CartButton/CartButton';
 
 
 function MainPage() {
@@ -53,8 +54,8 @@ function MainPage() {
             <br /> лосося, пропитаний соком та ароматом легко
             <br /> смажених фермерських овочів.
           </p>
-          <p className={style.red__price}>  1200 &#8372;</p>
-           <GrBasket  className={style.red__cart}/>
+          <p className={style.red__price}>  1200 &#8372; <CartButton/> </p>
+          
         </div>
         <div className={style.content__card}>
           <img
@@ -64,9 +65,7 @@ function MainPage() {
           <h2 className={style.card__title}>Тірамісу</h2>
           <p className={style.card__weight}>430 г</p>
           <p className={style.card__price}> 370 &#8372;</p>
-          <a>
-              <GrBasket className={style.card__cart}/>
-          </a>
+          <CartButton/>
         </div>
       </div>
     </section>
