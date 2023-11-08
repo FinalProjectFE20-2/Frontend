@@ -1,6 +1,6 @@
 import style from './Hero.module.scss';
 import {GrBasket} from 'react-icons/gr';
-import CartButton from '../CartButton/CartButton';
+import CartButton from '../../components/CartButton/CartButton';
 
 function Hero() {
   return (
@@ -53,13 +53,8 @@ function Hero() {
             <br /> лосося, пропитаний соком та ароматом легко
             <br /> смажених фермерських овочів.
           </p>
-<<<<<<< HEAD:src/components/MainPage/MainPage.jsx
           <p className={style.red__price}>  1200 &#8372; <CartButton/> </p>
           
-=======
-          <p className={style.red__price}>  1200 &#8372;</p>
-            <GrBasket  className={style.red__cart}/>
->>>>>>> main:src/containers/Hero/Hero.jsx
         </div>
         <div className={style.content__card}>
           <img
