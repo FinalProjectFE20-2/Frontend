@@ -9,6 +9,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: (repeat(5, 1fr));
+    gap: 40px 30px;
 }
 
 @media (max-width: 1400px) {
