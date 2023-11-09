@@ -38,7 +38,7 @@ const ProductCard = ({ itemNo }) => {
       <div className={styles.footer}>
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
-        <Link to={`/product/${product.id}`} ><Basket className='svg'/></Link>
+        <Basket className='svg'/>
       </div>
     </li>
   );
