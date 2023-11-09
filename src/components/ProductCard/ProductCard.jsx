@@ -28,7 +28,9 @@ const ProductCard = ({ itemNo }) => {
   return (
     <li className={styles.card}>
       {product.imageUrls?.length > 0 && (
-        <img className={styles.img} src={product?.imageUrls[0]} alt={product?.name} />
+        <Link to="/product">
+          <img className={styles.img} src={product?.imageUrls[0]} alt={product?.name} />
+        </Link>
       )}
       <h4 className={styles.title}>{product?.name}</h4>
       <p className={styles.weight}>{product.sizes}</p>
