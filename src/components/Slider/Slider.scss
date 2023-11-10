@@ -1,6 +1,6 @@
 .carousel-control-prev, .carousel-control-next {
     position: absolute;
-    top: -130px;
+    top: -105px;
     width: 56px;
     height: 56px;
     border: solid 1px #fff;
@@ -19,6 +19,24 @@
   height: 30px;
   margin: 0 20px;
   border-radius: 100%;
+}
+
+@media (max-width: 1200px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    margin: 0 8px;
+  }
+
+  .carousel-control-prev {
+    right: 65px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 768px) {

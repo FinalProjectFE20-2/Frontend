@@ -4,9 +4,9 @@ const getProducts = data => ({
   payload: data,
 });
 
-export const getAllProducts = () => async dispatch => {
+export const getAllProducts = (perPage,startPage) => async dispatch => {
   const res = await fetch(
-    `https://backend-zeta-sandy.vercel.app/api/products?perPage=7&startPage=2`,
+    `https://backend-zeta-sandy.vercel.app/api/products?perPage=${perPage}&startPage=${startPage}`,
   );
   // const res = await fetch('http://localhost:4000/api/products');
   const products = await res.json();

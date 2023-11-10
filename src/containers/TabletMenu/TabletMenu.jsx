@@ -1,14 +1,14 @@
-import styles from './TabletMenu.module.css';
+import styles from './TabletMenu.module.scss';
 import Action from './Action/Action.jsx';
 import ProductsCatigories from './ProductsCatigories/ProductsCatigories';
-import PageContainer from '../../components/PageConteiner/PageContainer.jsx';
+import HeaderContainer from '../../components/HeaderContainer/HeaderContainer.jsx';
 
 export default function TabletMenu() {
   return (
     <div className={styles.wrapper}>
-      <PageContainer>
+      <HeaderContainer>
         <ProductsCatigories />
-      </PageContainer>
+      </HeaderContainer>
     </div>
   );
 }
