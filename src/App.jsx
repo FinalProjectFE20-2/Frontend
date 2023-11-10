@@ -3,6 +3,7 @@ import './styles/index.scss';
 import Container from './containers/Container/Container.jsx';
 import Home from './pages/Home/Home.jsx';
 import Product from './pages/Product/Product.jsx';
+import NoPage from './pages/NoPage/NoPage.jsx';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from './store/action/product/actionProduct';
@@ -20,8 +21,9 @@ function App() {
     // Routing
     <Container>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route index element={<Home/>}/>
+        <Route path="/product/:productId" element={<Product/>}/>
+        <Route path="*" element={<NoPage />}/>
       </Routes>
     </Container>
   );
