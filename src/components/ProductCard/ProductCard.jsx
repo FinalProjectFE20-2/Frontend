@@ -23,12 +23,12 @@ const ProductCard = ({ itemNo }) => {
   // };
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo===itemNo);
-  console.log(product, 11);
+  // console.log(product, 11);
 
   return (
     <li className={styles.card}>
       {product.imageUrls?.length > 0 && (
-        <Link to="/product">
+        <Link to={`product/${product._id}`}>
           <img className={styles.img} src={product?.imageUrls[0]} alt={product?.name} />
         </Link>
       )}

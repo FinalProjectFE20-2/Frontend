@@ -18,7 +18,8 @@ function App() {
     <Container>
       <Routes>
         <Route index element={<Home/>}/>
-        <Route path="/product" element={<Product/>}/>
+        <Route path="/product/:productId" element={<Product/>}/>
+        {/* <Route path="*" element={<NoPage />}/> */}
       </Routes>
     </Container>
   );
