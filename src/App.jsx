@@ -10,12 +10,15 @@ import { getAllProducts } from './store/action/product/actionProduct';
 import { useEffect } from 'react';
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=> {
-    dispatch(getAllProducts())
-  },[dispatch]);
+  useEffect(() => {
+    const perPage = 15;
+    const startPage = Math.floor(Math.random() * 5) + 1;
+
+    dispatch(getAllProducts(perPage, startPage));
+  }, [dispatch]);
 
   return (
-  // Routing
+    // Routing
     <Container>
       <Routes>
         <Route index element={<Home/>}/>
