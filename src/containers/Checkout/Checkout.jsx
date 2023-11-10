@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-
-import Header from '@/containers/Header/Header.jsx';
-import Footer from '@/containers/Footer/Footer.jsx';
-
 import './Checkout.scss';
 
 const Checkout = () => {
@@ -18,8 +14,7 @@ const Checkout = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <div className="container">
       <div className="container__checkout_kosss">
         <div className="title__checkout_kosss">
           <h1>Оформлення замовлення</h1>
@@ -105,8 +100,6 @@ const Checkout = () => {
         <div><h3>Ваше замовлення тут :)</h3></div>
         <div><p>Розкрити</p></div>
       </div>
-
-      <Footer />
     </div>
   );
 };

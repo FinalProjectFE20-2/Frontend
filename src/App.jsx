@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route index element={<Home/>}/>
         <Route path="/product/:productId" element={<Product/>}/>
-        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="basket/checkout" element={<Checkout/>}/>
         <Route path="*" element={<NoPage />}/>
       </Routes>
     </Container>
