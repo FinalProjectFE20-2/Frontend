@@ -12,7 +12,7 @@ const ProductCard = ({ itemNo }) => {
   return (
     <li className={styles.card}>
       {product.imageUrls?.length > 0 && (
-        <Link to={`product/${product._id}`}>
+        <Link to={`./product/${product._id}`}>
           <img
             className={styles.img}
             src={product?.imageUrls[0]}

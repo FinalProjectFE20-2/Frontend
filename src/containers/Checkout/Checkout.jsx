@@ -5,8 +5,6 @@ import Footer from '@/containers/Footer/Footer.jsx';
 
 import './Checkout.scss';
 
-
-
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
