@@ -1,12 +1,11 @@
 .wrapper {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 100;
 }
 
-
 .title {
-    font-weight: 500;
-    color: white;
+  font-weight: 500;
+  color: white;
 }

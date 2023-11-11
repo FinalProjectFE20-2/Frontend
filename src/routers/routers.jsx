@@ -2,6 +2,9 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import App from '@/App.jsx';
 import Header from '@/containers/Header/Header.jsx';
+import Footer from '@/containers/Footer/Footer.jsx';
+import Cart from '@/pages/Cart/Cart';
+import Checkout from '@/containers/Checkout/Checkout.jsx';
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([{
@@ -9,6 +12,7 @@ export const router = createBrowserRouter([{
       <>
         <Header />
         <Outlet />
+        <Footer />
       </>,
     children: [
       {
@@ -54,6 +58,14 @@ export const router = createBrowserRouter([{
       {
         element: <div>Напої</div>,
         path: '/drinks',
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
       },
     ],
   }],
