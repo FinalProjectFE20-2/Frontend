@@ -59,17 +59,24 @@ export default function Navigation() {
     debounceTimer.current = setTimeout(func, delay);
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (query) => {
     try {
+      // Check if the query is empty, and if so, clear the results
+      if (!query.trim()) {
+        setSearchResults([]);
+        setSearchResultsVisible(false);
+        return;
+      }
+  
       // Make an API request to fetch the items.
       const response = await fetch('https://backend-zeta-sandy.vercel.app/api/products');
       if (response.ok) {
         const data = await response.json();
         // Filter the data based on the search query.
         const filteredResults = data.filter((item) =>
-          item.name.toLowerCase().includes(searchQuery.toLowerCase())
+          item.name.toLowerCase().includes(query.toLowerCase())
         );
-
+  
         // Update the search results and make them visible.
         setSearchResults(filteredResults);
         setSearchResultsVisible(true);
@@ -80,19 +87,14 @@ export default function Navigation() {
       console.error('An error occurred while fetching items:', error);
     }
   };
+  
 
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    
-    // Trigger search only if at least 2 letters were typed
-    if (query.length >= 2) {
-      debounce(() => handleSearch(query), 300); // Delay the search by 300ms after the user stops typing.
-    } else {
-      setSearchResults([]); // Clear the search results if the query is less than 2 letters.
-      setSearchResultsVisible(false);
-    }
-  };
+  
+    debounce(() => handleSearch(query), 300); // Adjust the delay as needed
+  };  
 
   const links = [
     {
