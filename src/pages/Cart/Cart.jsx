@@ -6,7 +6,6 @@ import styles from './Cart.module.scss'
 const Cart = () => {
     return (
         <div>
-            <Header />
             <div className='container'>
                 <div className={styles.title}>
                     <h1>Корзина</h1>
@@ -14,7 +13,6 @@ const Cart = () => {
                 </div>
                 <CartEmpty />
             </div>
-            <Footer />
         </div>
     );
 }
