@@ -4,6 +4,7 @@ import App from '@/App.jsx';
 import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import Cart from '@/pages/Cart/Cart';
+import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -18,6 +19,18 @@ export const router = createBrowserRouter([{
       {
         path: '/',
         element: <App />,
+      },
+      {
+        path: '*',
+        element: <NoPage />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
+      },
+      {
+        path: '/cart/checkout',
+        element: <Checkout />,
       },
       {
         element: <div>Акції</div>,
@@ -58,14 +71,6 @@ export const router = createBrowserRouter([{
       {
         element: <div>Напої</div>,
         path: '/drinks',
-      },
-      {
-        path: '/cart',
-        element: <Cart />,
-      },
-      {
-        path: '/checkout',
-        element: <Checkout />,
       },
     ],
   }],

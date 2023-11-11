@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./styles/index.scss"
-import PopularDishesMenu from './components/PopularDishesMenu';
+import "./styles/index.scss";
+import Hero from './containers/Hero/Hero.jsx';
+import PopularDishesMenu from './containers/PopularDishesMenu/PopularDishesMenu.jsx';
 import Discounts from './containers/Discounts/Discounts.jsx';
-import Footer from './containers/Footer/Footer.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from './store/action/product/actionProduct';
 import { useEffect } from 'react';
@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
+      <Hero />
       <PopularDishesMenu />
       <Discounts />
-      <Footer />
     </>
   );
 }
