@@ -6,7 +6,7 @@ import styles from './Navigation.module.scss';
 export default function Navigation() {
   const links = [
     { icon: <SearchUrl className={`${styles.svgIcon} svg`} />, link: '/search' },
-    { icon: <BasketUrl className='svg'/>, link: '/basket/checkout' },
+    { icon: <BasketUrl className='svg'/>, link: '/cart' },
   ];
   return (
     <ul className={styles.list}>
