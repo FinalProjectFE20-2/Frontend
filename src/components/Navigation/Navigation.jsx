@@ -19,31 +19,31 @@ export default function Navigation() {
     }
   };
 
-  // Function to handle closing item details
-  const handleItemDetailsClose = () => {
-    setSelectedItem(null);
-  };
-
-  // Add event listener to handle clicks outside of search results and item details
-  useEffect(() => {
-    document.addEventListener('mousedown', (event) => {
-      handleSearchResultsVisibility(event);
-
-      if (selectedItem) {
-        handleItemDetailsClose();
-      }
-    });
-
-    return () => {
-      document.removeEventListener('mousedown', (event) => {
+    // Function to handle closing item details
+    const handleItemDetailsClose = () => {
+      setSelectedItem(null);
+    };
+  
+    // Add event listener to handle clicks outside of search results and item details
+    useEffect(() => {
+      document.addEventListener('mousedown', (event) => {
         handleSearchResultsVisibility(event);
-
+  
         if (selectedItem) {
           handleItemDetailsClose();
         }
       });
-    };
-  }, [selectedItem]);
+  
+      return () => {
+        document.removeEventListener('mousedown', (event) => {
+          handleSearchResultsVisibility(event);
+  
+          if (selectedItem) {
+            handleItemDetailsClose();
+          }
+        });
+      };
+    }, [selectedItem]);
 
   // Add event listener to handle clicks outside of search results
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function Navigation() {
         setSearchResultsVisible(false);
         return;
       }
-
+  
       // Make an API request to fetch the items.
       const response = await fetch('https://backend-zeta-sandy.vercel.app/api/products');
       if (response.ok) {
@@ -76,7 +76,7 @@ export default function Navigation() {
         const filteredResults = data.filter((item) =>
           item.name.toLowerCase().includes(query.toLowerCase())
         );
-
+  
         // Update the search results and make them visible.
         setSearchResults(filteredResults);
         setSearchResultsVisible(true);
@@ -87,12 +87,12 @@ export default function Navigation() {
       console.error('An error occurred while fetching items:', error);
     }
   };
-
+    
 
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-
+  
     debounce(() => handleSearch(query, false), 300); // Pass false to indicate search icon is not clicked
   };
 
@@ -110,56 +110,45 @@ export default function Navigation() {
       id: 'searchIcon',
     },
     { icon: <SearchUrl className={styles.svgIcon} />, link: '/searchResult' },
-    { icon: <BasketUrl />, link: '/basket' },
+    { icon: <BasketUrl />, link: '/cart' },
   ];
 
   return (
     <div>
       <ul className={styles.list}>
-        {links.map(({ link, icon }) => (
-          <li key={link} className={styles.item}>
-            {link === '/searchResult' ? (
-              <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
-            ) : (
-              <Link to={link}>{icon}</Link>
-            )}
-          </li>
+      { links.map(({ link, icon }) => (
+  <li key={link} className={styles.item}>
+    {link === '/searchResult' ? (
+      <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
+    ) : (
+      <Link to={link}>{icon}</Link>
+    )}
+  </li>
         ))}
       </ul>
 
       {/* Display search results */}
-      <div ref={searchResultsRef} className="search-results" style={{ display: searchResultsVisible ? 'block' : 'none', background: 'rgba(25, 24, 24, 0.84)', borderRadius: '5px', position: 'absolute', width: '350px', padding: '10px', zIndex: 1000 }}>
+      <div ref={searchResultsRef} className={styles.searchResults} style={{ display: searchResultsVisible ? 'block' : 'none'}}>
         {searchResults.map((result) => (
           <div key={result._id}>
             {/* Render the search results */}
-            <p onClick={() => setSelectedItem(result)}>{result.name}</p>
+            <p className={styles.searchResult} onClick={() => setSelectedItem(result)}>{result.name}</p>
           </div>
         ))}
       </div>
 
       {/* Item details if a selected item exists */}
       {selectedItem && (
-        <div className="item-details" style={{
-          width: '350px',
-          position: 'fixed',
-          zIndex: 1001,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          padding: '40px',
-          background: 'rgba(14, 22, 36, 0.91)',
-          border: '3px solid rosybrown'
-        }}>
-          {selectedItem.imageUrls?.length > 0 && (
-            <img src={selectedItem.imageUrls[0]} alt={selectedItem.name} style={{ width: '100%' }} />
-          )}
-          <h2>{selectedItem.name}</h2>
-          <h3>{selectedItem.manufacturer}</h3>
-          <h4>Вага: {selectedItem.sizes}</h4>
-          {/* Update this part to conditionally render previousPrice */}
-          <h4>Цiна: {selectedItem.currentPrice !== 0 ? selectedItem.currentPrice : selectedItem.previousPrice}</h4>
-          <h5>{selectedItem.categories}</h5>
-        </div>
+        <div className={styles.itemDetails}>
+        {selectedItem.imageUrls?.length > 0 && (
+          <img src={selectedItem.imageUrls[0]} alt={selectedItem.name} style={{ width: '100%' }} />
+        )}
+        <h2 className={styles.title}>{selectedItem.name}</h2>
+        <h3 className={styles.desc}>{selectedItem.manufacturer}</h3>
+        <h4 className={styles.weight}>Вага: {selectedItem.sizes}</h4>
+        <h4 className={styles.price}>Цiна: {selectedItem.currentPrice !== 0 ? selectedItem.currentPrice : selectedItem.previousPrice}</h4>
+        <h5 className={styles.categories}>{selectedItem.categories}</h5>
+      </div>
       )}
     </div>
   );
