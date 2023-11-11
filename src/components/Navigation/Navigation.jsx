@@ -59,10 +59,10 @@ export default function Navigation() {
     debounceTimer.current = setTimeout(func, delay);
   };
 
-  const handleSearch = async (query) => {
+  const handleSearch = async (query, isSearchIconClicked) => {
     try {
-      // Check if the query is empty, and if so, clear the results
-      if (!query.trim()) {
+      // Check if the query is not a string or is an empty string
+      if (!isSearchIconClicked && (typeof query !== 'string' || query.trim() === '')) {
         setSearchResults([]);
         setSearchResultsVisible(false);
         return;
@@ -87,14 +87,14 @@ export default function Navigation() {
       console.error('An error occurred while fetching items:', error);
     }
   };
-  
+    
 
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
   
-    debounce(() => handleSearch(query), 300); // Adjust the delay as needed
-  };  
+    debounce(() => handleSearch(query, false), 300); // Pass false to indicate search icon is not clicked
+  };
 
   const links = [
     {
@@ -116,14 +116,14 @@ export default function Navigation() {
   return (
     <div>
       <ul className={styles.list}>
-        {links.map(({ link, icon }) => (
-          <li key={link} className={styles.item}>
-            {link === '/searchResult' ? (
-              <a onClick={handleSearch}>{icon}</a>
-            ) : (
-              <Link to={link}>{icon}</Link>
-            )}
-          </li>
+      { links.map(({ link, icon }) => (
+  <li key={link} className={styles.item}>
+    {link === '/searchResult' ? (
+      <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
+    ) : (
+      <Link to={link}>{icon}</Link>
+    )}
+  </li>
         ))}
       </ul>
 
