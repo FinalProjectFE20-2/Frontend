@@ -128,36 +128,26 @@ export default function Navigation() {
       </ul>
 
       {/* Display search results */}
-      <div ref={searchResultsRef} className="search-results" style={{ display: searchResultsVisible ? 'block' : 'none', background: 'rgba(25, 24, 24, 0.84)', borderRadius: '5px', position: 'absolute', width: '350px', padding: '10px', zIndex: 1000 }}>
+      <div ref={searchResultsRef} className={styles.searchResults} style={{ display: searchResultsVisible ? 'block' : 'none'}}>
         {searchResults.map((result) => (
           <div key={result._id}>
             {/* Render the search results */}
-            <p onClick={() => setSelectedItem(result)}>{result.name}</p>
+            <p className={styles.searchResult} onClick={() => setSelectedItem(result)}>{result.name}</p>
           </div>
         ))}
       </div>
 
       {/* Item details if a selected item exists */}
       {selectedItem && (
-        <div className="item-details" style={{
-        width: '350px',
-        position: 'fixed', 
-        zIndex: 1001,
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        padding: '40px',
-        background: 'rgba(14, 22, 36, 0.91)',
-        border: '3px solid rosybrown'
-      }}>
+        <div className={styles.itemDetails}>
         {selectedItem.imageUrls?.length > 0 && (
           <img src={selectedItem.imageUrls[0]} alt={selectedItem.name} style={{ width: '100%' }} />
         )}
-        <h2>{selectedItem.name}</h2>
-        <h3>{selectedItem.manufacturer}</h3>
-        <h4>Вага: {selectedItem.sizes}</h4>
-        <h4>Цiна: {selectedItem.currentPrice}</h4>
-        <h5>{selectedItem.categories}</h5>
+        <h2 className={styles.title}>{selectedItem.name}</h2>
+        <h3 className={styles.desc}>{selectedItem.manufacturer}</h3>
+        <h4 className={styles.weight}>Вага: {selectedItem.sizes}</h4>
+        <h4 className={styles.price}>Цiна: {selectedItem.currentPrice}</h4>
+        <h5 className={styles.categories}>{selectedItem.categories}</h5>
       </div>
       )}
     </div>
