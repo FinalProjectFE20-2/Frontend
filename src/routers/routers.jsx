@@ -4,6 +4,7 @@ import App from '@/App.jsx';
 import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import Cart from '@/pages/Cart/Cart';
+import Product from '@/pages/Product/Product';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
 
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([{
       {
         path: '/cart/checkout',
         element: <Checkout />,
+      },
+      {
+        path: '/product/:productId',
+        element: <Product />,
       },
       {
         element: <div>Акції</div>,
