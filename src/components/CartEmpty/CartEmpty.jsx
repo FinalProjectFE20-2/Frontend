@@ -16,8 +16,11 @@ const CartEmpty = () => {
           Для цього перейдіть на головну сторінку.
         </p>
         <img src={cartEmptyImg} alt="Empty cart" />
-        <Link to="/" className={styles.button}>
-          <span>На головну сторінку</span>
+        <Link to="/" >
+          <div className={styles.button}>На головну сторінку</div>
+        </Link>
+        <Link to="/cart/checkout" >
+          <div className={styles.button}>Оформити замовлення</div>
         </Link>
       </div>
     </>
