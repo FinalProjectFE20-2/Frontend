@@ -110,7 +110,7 @@ export default function Navigation() {
       id: 'searchIcon',
     },
     { icon: <SearchUrl className={styles.svgIcon} />, link: '/searchResult' },
-    { icon: <BasketUrl />, link: '/basket' },
+    { icon: <BasketUrl />, link: '/cart' },
   ];
 
   return (

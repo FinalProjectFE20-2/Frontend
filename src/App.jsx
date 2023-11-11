@@ -5,6 +5,7 @@ import Home from './pages/Home/Home.jsx';
 import Product from './pages/Product/Product.jsx';
 import Checkout from './containers/Checkout/Checkout.jsx';
 import NoPage from './pages/NoPage/NoPage.jsx';
+import Cart from './pages/Cart/Cart';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from './store/action/product/actionProduct';
@@ -23,8 +24,9 @@ function App() {
     <Container>
       <Routes>
         <Route index element={<Home/>}/>
+        <Route path="/cart" element={<Cart/>}/>
         <Route path="/product/:productId" element={<Product/>}/>
-        <Route path="basket/checkout" element={<Checkout/>}/>
+        <Route path="/cart/checkout" element={<Checkout/>}/>
         <Route path="*" element={<NoPage />}/>
       </Routes>
     </Container>
