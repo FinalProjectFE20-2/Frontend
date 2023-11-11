@@ -146,7 +146,7 @@ export default function Navigation() {
         <h2 className={styles.title}>{selectedItem.name}</h2>
         <h3 className={styles.desc}>{selectedItem.manufacturer}</h3>
         <h4 className={styles.weight}>Вага: {selectedItem.sizes}</h4>
-        <h4 className={styles.price}>Цiна: {selectedItem.currentPrice}</h4>
+        <h4 className={styles.price}>Цiна: {selectedItem.currentPrice !== 0 ? selectedItem.currentPrice : selectedItem.previousPrice}</h4>
         <h5 className={styles.categories}>{selectedItem.categories}</h5>
       </div>
       )}
