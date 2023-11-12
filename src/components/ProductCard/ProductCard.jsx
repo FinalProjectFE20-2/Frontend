@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
+import { useSelector, useDispatch } from "react-redux";
+import { addToCartAC } from '@/store/action/cartAction';
 
 const ProductCard = ({ itemNo }) => {
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo === itemNo);
-  console.log(product, 11);
+  // console.log(product, 11);
+  const dispatch = useDispatch();
+  const addToCart = () => dispatch(addToCartAC());
 
   return (
     <li className={styles.card}>
@@ -26,7 +29,7 @@ const ProductCard = ({ itemNo }) => {
       <div className={styles.footer}>
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
-        <button className={styles.buttonBasket}>
+        <button onClick={() => addToCart({itemNo})} className={styles.buttonBasket}>
           <Cart className="svg" />
         </button>
       </div>

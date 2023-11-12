@@ -9,10 +9,11 @@ const dataReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_TO_CART:
-            console.log("add to cart");
+            const {id, amount} = action.payload;
+            console.log(`add to cart ${id}: ${amount}`);
             return {
                 ...state,
-                cart: [...new Set([...state.cart, action.payload])],
+                cart: {...state.cart, [id]: amount},
             };
 
         case DELETE_FROM_CART:

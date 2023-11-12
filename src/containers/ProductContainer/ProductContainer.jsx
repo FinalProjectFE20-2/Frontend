@@ -1,17 +1,11 @@
 import PropTypes from 'prop-types';
-import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './ProductContainer.module.scss';
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
-import { incrementAC, decrementAC } from '@/store/action/counterAction';
+import OrderBar from '../../components/OrderBar/OrderBar';
+import { useSelector } from "react-redux";
 
 const ProductContainer = ({productId}) => {
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo===productId);
-  const counter = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
-  const increment = () => dispatch(incrementAC());
-  const decrement = () => dispatch(decrementAC());
 
   return(
     <section className={`${styles.productContainer} container`}>
@@ -31,15 +25,7 @@ const ProductContainer = ({productId}) => {
 
           <p className={styles.mgb}><span className={styles.desc__title}>Ціна: </span><span className={styles.desc__info}> {!product.currentPrice && product.previousPrice},00 грн.</span></p>
 
-          <div className={styles.desc__counter}>
-            <div className={styles.counter__group}>
-              <button onClick={decrement} className={`${styles.counter__btn} ${styles.btn__minus}`}>-</button>
-              <input className={styles.counter__input} type='number' placeholder={counter}/>
-              <button onClick={increment} className={`${styles.counter__btn} ${styles.counter__btn} ${styles.btn__plus}`}>+</button>
-            </div>
-            <p className={styles.desc__price}>₴ {(!product.currentPrice && product.previousPrice)*counter},00</p>
-            <button><Cart className='svg'/></button>
-          </div>
+          <OrderBar productId={productId} currentPrice={product.currentPrice} previousPrice={product.previousPrice} quantity={product.quantity} />
         </div>
       </div>
     </section>
