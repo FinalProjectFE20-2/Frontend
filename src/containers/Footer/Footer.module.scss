@@ -1,0 +1,155 @@
+.Footer {
+  padding-top: 50px;
+  padding-bottom: 35px;
+  background-color: #000;
+
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.innerWrapper,
+.wrapperPolitics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  margin-left: 120px;
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  color: #fbd13e;
+  transition: color 0.3s;
+}
+
+.phone {
+  font-size: 20px;
+}
+
+.email {
+  margin-left: 30px;
+}
+
+.politics {
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+}
+
+.social {
+  width: 188px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialItem {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter .3s;
+}
+
+.inst {
+  background-image: url('./icons/inst.svg');
+}
+
+.fb {
+  background-image: url('./icons/fb.svg');
+}
+
+.linkin {
+  background-image: url('./icons/linkin.svg');
+}
+
+.git {
+  background-image: url('./icons/git.svg');
+}
+
+@media (max-width: 1400px) {
+  .link {
+    font-size: 12px;
+  }
+  .links {
+    margin-left: 50px;
+    width: 350px;
+  }
+  .phone {
+    font-size: 16px;
+  }
+  .politics {
+    width: 400px;
+  }
+}
+
+@media (max-width: 990px) {
+  .innerWrapper {
+    flex-flow: column;
+    align-items: start;
+  }
+  .rights {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+  .links {
+    margin-left: 0;
+    margin-top: 30px;
+    width: 350px;
+  }
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  .wrapperPolitics {
+    flex-flow: column;
+  }
+  .politics {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 565px) {
+  .Footer {
+    position: relative;
+  }
+  .links {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: start;
+    margin-top: 60px;
+    width: 200px;
+  }
+  .link {
+    margin-top: 30px;
+  }
+  .contacts {
+    position: absolute;
+    top: 100px;
+    align-items: center;
+  }
+  .email {
+    margin-left: 15px;
+  }
+  .wrapperPolitics {
+    flex-flow: column;
+    align-items: start;
+  }
+  .politics {
+    margin-top: 0;
+    width: 300px;
+    flex-wrap: wrap;
+  }
+}

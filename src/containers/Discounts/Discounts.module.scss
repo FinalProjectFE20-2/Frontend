@@ -1,0 +1,57 @@
+.Discounts {
+  position: relative;
+  padding: 150px 200px 0 200px;
+  height: 33%;
+}
+
+.title {
+  margin-left: 25px;
+  margin-bottom: 55px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 3rem;
+}
+
+@media (max-width: 1580px) {
+  .container {
+    padding: 160px 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .Discounts {
+    padding: 0;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 150px 0;
+  }
+
+  .title {
+    max-width: 70%;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    padding: 80px 0;
+  }
+
+  .title {
+    margin-bottom: 105px;
+
+  }
+} 
+
+
