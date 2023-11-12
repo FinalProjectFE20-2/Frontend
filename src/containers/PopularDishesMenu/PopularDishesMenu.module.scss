@@ -1,7 +1,7 @@
 .title {
     margin-bottom: 50px;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 70px;
+    line-height: 80px;
     text-align: center;
 }
 
@@ -23,8 +23,9 @@
         grid-template-columns: (repeat(3, 1fr));
     }
     .title {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         font-size: 2rem;
+        line-height: 2rem;
     }
 }
 

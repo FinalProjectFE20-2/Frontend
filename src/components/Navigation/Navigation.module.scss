@@ -10,7 +10,6 @@
   border: 3px solid rosybrown;
 }
 
-
 .list {
   display: flex;
   gap: 40px;
@@ -67,6 +66,15 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 1399px) {
+/*   .nav {
+    position: relative;
+    bottom: -30px;
+
+  } */
+}
+
 
 @media (max-width: 355px) {
   .list {

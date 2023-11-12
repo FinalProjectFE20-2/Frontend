@@ -23,21 +23,21 @@ export default function Navigation() {
     const handleItemDetailsClose = () => {
       setSelectedItem(null);
     };
-  
+
     // Add event listener to handle clicks outside of search results and item details
     useEffect(() => {
       document.addEventListener('mousedown', (event) => {
         handleSearchResultsVisibility(event);
-  
+
         if (selectedItem) {
           handleItemDetailsClose();
         }
       });
-  
+
       return () => {
         document.removeEventListener('mousedown', (event) => {
           handleSearchResultsVisibility(event);
-  
+
           if (selectedItem) {
             handleItemDetailsClose();
           }
@@ -67,7 +67,7 @@ export default function Navigation() {
         setSearchResultsVisible(false);
         return;
       }
-  
+
       // Make an API request to fetch the items.
       const response = await fetch('https://backend-zeta-sandy.vercel.app/api/products');
       if (response.ok) {
@@ -76,7 +76,7 @@ export default function Navigation() {
         const filteredResults = data.filter((item) =>
           item.name.toLowerCase().includes(query.toLowerCase())
         );
-  
+
         // Update the search results and make them visible.
         setSearchResults(filteredResults);
         setSearchResultsVisible(true);
@@ -87,21 +87,19 @@ export default function Navigation() {
       console.error('An error occurred while fetching items:', error);
     }
   };
-    
 
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-  
     debounce(() => handleSearch(query, false), 300); // Pass false to indicate search icon is not clicked
   };
 
   const links = [
     {
       icon: (
-        <input
+        <input 
           type="text"
-          placeholder="Search..."
+          placeholder="Пошук..."
           style={{ border: 'none', outline: 'none' }}
           value={searchQuery}
           onChange={handleSearchInputChange}
@@ -114,7 +112,7 @@ export default function Navigation() {
   ];
 
   return (
-    <div>
+    <div className={styles.nav}>
       <ul className={styles.list}>
       { links.map(({ link, icon }) => (
   <li key={link} className={styles.item}>
