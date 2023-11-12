@@ -1,5 +1,5 @@
 .title {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-size: 80px;
     line-height: 90px;
     text-align: center;
@@ -14,7 +14,7 @@
 
 @media (max-width: 1400px) {
     .title{
-        margin-top: 600px;
+        margin-top: -70px;
     }
     .grid {
         grid-template-columns: (repeat(4, 1fr));
@@ -40,5 +40,13 @@
 @media (max-width: 555px) {
     .grid {
         grid-template-columns: (repeat(1, 1fr));
+    }
+}
+@media (max-width:320px){
+    .title{
+        margin-top: 66px;
+        text-align: start;
+        font-size: 32px;
+        line-height: 1.1;
     }
 }
