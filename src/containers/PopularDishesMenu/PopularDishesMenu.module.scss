@@ -13,6 +13,9 @@
 }
 
 @media (max-width: 1400px) {
+    .title{
+        margin-top: 600px;
+    }
     .grid {
         grid-template-columns: (repeat(4, 1fr));
     }

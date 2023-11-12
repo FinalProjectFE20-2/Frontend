@@ -1,6 +1,6 @@
 import style from './Hero.module.scss';
-import {GrBasket} from 'react-icons/gr';
-import CartButton from '../../components/CartButton/CartButton';
+import Basket  from '@/assets/svg_icon/navigation/Basket.svg?react';
+
 
 function Hero() {
   return (
@@ -11,26 +11,29 @@ function Hero() {
         alt="image"
       />
       <div className={`${style.container} container`}>
+        
         <div className={style.main__content}>
-          <div>
+          <div className={style.content__wrapper}>
             <p className={style.content__text}>
-              Доставка готової їжі
-              <br /> з фермерських продуктів!
+               Доставка готової їжі
+             
             </p>
             <img
               className={style.content__decor}
               src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698607321/Desktop/jqytkkra1uj6cuecvowv.png"
               alt="decor"
             />
-            <div className={style.content__tel}>
-              <a className={style.tel__hover} href="tel:+8 (093) 841-67-29">+8 (093) 841-67-29</a>
-            </div>
-            <div>
+            <div className={style.content__info} >
+             <div className={style.content__tel}>
+              <a  href="tel:+8 (093) 841-67-29">+8 (093) 841-67-29</a>
+             </div>
+             {/* <div> */}
               <a
                 className={style.content__email}
                 href="mailto:delivery@midas.rest">
                 delivery@midas.rest
               </a>
+              {/* </div> */}
             </div>
           </div>
 
@@ -53,18 +56,20 @@ function Hero() {
             <br /> лосося, пропитаний соком та ароматом легко
             <br /> смажених фермерських овочів.
           </p>
-          <p className={style.red__price}>  1200 &#8372; <CartButton/> </p>
-          
+          <p className={style.red__price}>  1200 &#8372;</p>
+          <a  href="#"><Basket className={style.red__basket}/></a>
         </div>
         <div className={style.content__card}>
-          <img
+          <img className={style.card__image}
             src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434539/yvkrgaboad3herqpxabt.png"
             alt="photo"
           />
           <h2 className={style.card__title}>Тірамісу</h2>
           <p className={style.card__weight}>430 г</p>
           <p className={style.card__price}> 370 &#8372;</p>
-          <CartButton/>
+          <a className={style.card__basket} href="#"><Basket/></a>
+          
+          
         </div>
       </div>
     </section>
