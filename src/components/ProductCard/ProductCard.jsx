@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
+import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 
@@ -12,7 +12,7 @@ const ProductCard = ({ itemNo }) => {
   return (
     <li className={styles.card}>
       {product.imageUrls?.length > 0 && (
-        <Link to={`/product/${product._id}`}>
+        <Link to={`/product/${product.itemNo}`}>
           <img
             className={styles.img}
             src={product?.imageUrls[0]}
@@ -27,7 +27,7 @@ const ProductCard = ({ itemNo }) => {
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
         <button className={styles.buttonBasket}>
-          <Basket className="svg" />
+          <Cart className="svg" />
         </button>
       </div>
     </li>
