@@ -1,3 +1,28 @@
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 .title {
-    
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: greenyellow;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #0056b3;
+  }
 }
