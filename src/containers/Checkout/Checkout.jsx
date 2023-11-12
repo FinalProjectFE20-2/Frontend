@@ -26,7 +26,7 @@ const Checkout = () => {
             <h2>01. Контактні данні</h2>
             <div className="content_contact__checkout_kosss">
               <p><u><span style={{ cursor: 'pointer' }}>Вже купляли у нас?</span></u></p>
-              <p>Увійдіть до личного кабинету, та всі ваші  данні заповняться автоматично</p>
+              <p>Увійдіть до особисого кабинету, де всі Ваші дані налаштуються автоматично</p>
               <div className="guest-name__wraper_input">
                 <input type="text" />
               </div>
@@ -80,7 +80,7 @@ const Checkout = () => {
               className={`payment-option__checkout_kosss ${paymentMethod === 'cash' ? 'active' : ''}`}
               onClick={() => handlePaymentMethodChange('cash')}
             >
-              <p>Налічними кур'єру</p>
+              <p>Готівкою кур'єру</p>
             </div>
             <div
               className={`payment-option__checkout_kosss ${paymentMethod === 'card' ? 'active' : ''}`}
