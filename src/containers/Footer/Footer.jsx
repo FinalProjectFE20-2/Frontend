@@ -8,20 +8,30 @@ const Footer = () => (
       <div className={styles.wrapper}>
         <div className={styles.innerWrapper}>
           <Logo />
-          <div className={styles.links}>
-            <a href="#" className={styles.link}>
-              Зворотній зв'язок
-            </a>
-            <a href="#" className={styles.link}>
-              Доставка
-            </a>
-            <a href="#" className={styles.link}>
-              Оплата
-            </a>
-            <a href="#" className={styles.link}>
-              Контакти
-            </a>
-          </div>
+          <nav>
+            <ul className={styles.links}>
+              <li>
+                <Link to="/" className={styles.link}>
+                  Зворотній зв'язок
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className={styles.link}>
+                  Доставка
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className={styles.link}>
+                  Оплата
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className={styles.link}>
+                  Контакти
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div className={styles.contacts}>
           <a
