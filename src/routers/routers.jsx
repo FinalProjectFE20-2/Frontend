@@ -7,19 +7,31 @@ import Cart from '@/pages/Cart/Cart';
 import Product from '@/pages/Product/Product';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
+import Login from '../pages/Login/Login';
+import SingUp from '../pages/SingUp/SingUp';
 
 // eslint-disable-next-line import/prefer-default-export
-export const router = createBrowserRouter([{
-    element:
+export const router = createBrowserRouter([
+  {
+    element: (
       <>
         <Header />
         <Outlet />
         <Footer />
-      </>,
+      </>
+    ),
     children: [
       {
         path: '/',
         element: <App />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/singUp',
+        element: <SingUp />,
       },
       {
         path: '*',
@@ -78,5 +90,5 @@ export const router = createBrowserRouter([{
         path: '/drinks',
       },
     ],
-  }],
-);
+  },
+]);

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import styles from './SingUp.module.scss';
+import { singUp } from '../../store/action/session/actionSession';
+import { useDispatch } from 'react-redux';
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -12,13 +15,14 @@ const SignupSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().password('Invalid password').required('required'),
+  password: Yup.string().min(2, 'Too Short').required('required'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Required'),
-  login: Yup.string().login('Invalid login').required('required'),
+  login: Yup.string().min(3, 'Too Short').required('required'),
 });
-export const SingUp = () => {
+const SingUp = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <Formik
@@ -31,36 +35,44 @@ export const SingUp = () => {
           login: '',
         }}
         validationSchema={SignupSchema}
-        onSubmit={async values => {}}>
+        onSubmit={async ({ confirmPassword, ...rest }) => {
+          console.log(rest);
+          try {
+          dispatch(singUp(rest));
+          } catch (err){
+            console.log(err);
+          }
+        }}>
         {({ errors, touched, isValidating }) => (
-          <Form>
-            <Field firstName="firstName" validate={validateFirstName} />
+          <Form className={styles.singUpForm}>
+            <Field name="firstName" placeholder="First Name" />
             {errors.firstName && touched.firstName && (
               <div>{errors.firstName}</div>
             )}
 
-            <Field lastName="lastName" validate={validateLastName} />
+            <Field name="lastName" placeholder="Last Name" />
             {errors.lastName && touched.lastName && (
               <div>{errors.lastName}</div>
             )}
 
-            <Field email="email" validate={validateEmail} />
+            <Field name="email" placeholder="Email" />
             {errors.email && touched.email && <div>{errors.email}</div>}
 
-            <Field password="password" validate={validatePassword} />
+            <Field name="password" placeholder="Password" type="password" />
             {errors.password && touched.password && (
               <div>{errors.password}</div>
             )}
 
             <Field
-              confirmPassword=" confirmPassword"
-              validate={validateConfirmPassword}
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              type="password"
             />
             {errors.confirmPassword && touched.confirmPassword && (
               <div>{errors.confirmPassword}</div>
             )}
 
-            <Field login="login" validate={validateLogin} />
+            <Field name="login" placeholder="login" />
             {errors.login && touched.login && <div>{errors.login}</div>}
 
             <button type="submit">Submit</button>
@@ -70,3 +82,4 @@ export const SingUp = () => {
     </div>
   );
 };
+export default SingUp;
