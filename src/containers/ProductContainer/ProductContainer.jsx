@@ -33,7 +33,7 @@ const ProductContainer = ({productId}) => {
 }
 
 ProductContainer.propTypes = {
-  productId: PropTypes.number.isRequired,
+  productId: PropTypes.string.isRequired,
 };
 
 ProductContainer.defaultProps = {};

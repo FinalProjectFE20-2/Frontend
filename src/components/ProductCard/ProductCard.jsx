@@ -29,8 +29,8 @@ const ProductCard = ({ itemNo }) => {
       <div className={styles.footer}>
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
-        <button onClick={() => addToCart({itemNo})} className={styles.buttonBasket}>
-          <Cart className="svg" />
+        <button onClick={() => addToCart({itemNo})} className={styles.btnCart}>
+          <Cart className="" />
         </button>
       </div>
     </li>

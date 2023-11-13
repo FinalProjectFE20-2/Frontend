@@ -18,7 +18,7 @@
 
 .weight {
   margin-top: 10px;
-  width: 40px;
+  align-self: start;
   padding: 2px 4px;
   font-size: 13px;
   background-color: #56595d;
@@ -46,9 +46,14 @@
   align-items: center;
 }
 
-.buttonBasket {
+.btnCart {
   background-color: #fbd13e;
   padding: 10px;
+
+  &:hover {
+    background-color: #DBB325;
+    transition: color .3s;
+  }
 }
 
 @media (max-width: 555px) {

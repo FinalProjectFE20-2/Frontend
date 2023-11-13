@@ -1,6 +1,7 @@
 import './Slider.scss';
 import Carousel from 'react-bootstrap/Carousel';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Slider() {
@@ -18,9 +19,9 @@ function Slider() {
 
   const carouselItems = discounts.map(item => (
     <Carousel.Item interval={3000} key={item.id}>
-      <a href={item.url}>
+      <Link to={`/product/${item.url}`}>
         <img className="d-block w-100 h-50" src={item.image} alt={item.alt} />
-      </a>
+      </Link>
     </Carousel.Item>
   ));
 

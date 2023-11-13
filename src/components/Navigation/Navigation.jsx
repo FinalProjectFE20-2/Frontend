@@ -107,15 +107,15 @@ export default function Navigation() {
       ),
       id: 'searchIcon',
     },
-    { icon: <SearchUrl className={styles.svgIcon} />, link: '/searchResult' },
-    { icon: <BasketUrl />, link: '/cart' },
+    { icon: <SearchUrl className={`${styles.svgIcon} svg`} />, link: '/searchResult' },
+    { icon: <BasketUrl  className={`svg`}/>, link: '/cart',  },
   ];
 
   return (
     <div className={styles.nav}>
       <ul className={styles.list}>
       { links.map(({ link, icon }) => (
-  <li key={link} className={styles.item}>
+  <li key={link}>
     {link === '/searchResult' ? (
       <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
     ) : (
@@ -141,11 +141,11 @@ export default function Navigation() {
         {selectedItem.imageUrls?.length > 0 && (
           <img src={selectedItem.imageUrls[0]} alt={selectedItem.name} style={{ width: '100%' }} />
         )}
-        <h2 className={styles.title}>{selectedItem.name}</h2>
-        <h3 className={styles.desc}>{selectedItem.manufacturer}</h3>
-        <h4 className={styles.weight}>Вага: {selectedItem.sizes}</h4>
-        <h4 className={styles.price}>Цiна: {selectedItem.currentPrice !== 0 ? selectedItem.currentPrice : selectedItem.previousPrice}</h4>
-        <h5 className={styles.categories}>{selectedItem.categories}</h5>
+        <p className={styles.title}>{selectedItem.name}</p>
+        <p className={styles.desc}>{selectedItem.manufacturer}</p>
+        <p className={styles.weight}>Вага: {selectedItem.sizes}</p>
+        <p className={styles.price}>Цiна: {selectedItem.currentPrice !== 0 ? selectedItem.currentPrice : selectedItem.previousPrice}</p>
+        <p className={styles.categories}>{selectedItem.categories}</p>
       </div>
       )}
     </div>
