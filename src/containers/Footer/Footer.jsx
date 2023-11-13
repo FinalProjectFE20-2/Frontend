@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import Logo from '../../components/Logo/Logo';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <section className={styles.Footer} data-testid="Footer">
