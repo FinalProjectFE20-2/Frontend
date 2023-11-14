@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <section className={styles.Footer} data-testid="Footer">
-    <div className='container'>
+    <div className="container">
       <div className={styles.wrapper}>
         <div className={styles.innerWrapper}>
           <Logo />
@@ -17,17 +17,12 @@ const Footer = () => (
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
-                  Доставка
+                <Link to="/shipping" className={styles.link}>
+                  Оплата і доставка
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
-                  Оплата
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className={styles.link}>
+                <Link to="/contacts" className={styles.link}>
                   Контакти
                 </Link>
               </li>
@@ -51,19 +46,37 @@ const Footer = () => (
       <div className={styles.wrapperPolitics}>
         <p className={styles.rights}>©2023 «MIDAS», DAN IT</p>
         <ul className={styles.social}>
-            <li><a href="#" className={`${styles.socialItem} svg ${styles.inst}`}></a></li>
-            <li><a href="#" className={`${styles.socialItem} svg ${styles.fb}`}></a></li>
-            <li><a href="#" className={`${styles.socialItem} svg ${styles.linkin}`}></a></li>
-            <li><a href="https://github.com/FinalProjectFE20-2/Frontend" className={`${styles.socialItem} svg ${styles.git}`}></a></li>
+          <li>
+            <a
+              href="#"
+              className={`${styles.socialItem} svg ${styles.inst}`}></a>
+          </li>
+          <li>
+            <a href="#" className={`${styles.socialItem} svg ${styles.fb}`}></a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className={`${styles.socialItem} svg ${styles.linkin}`}></a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/FinalProjectFE20-2/Frontend"
+              className={`${styles.socialItem} svg ${styles.git}`}></a>
+          </li>
         </ul>
-        <div className={styles.politics}>
-          <a href="#" className={styles.link}>
-            Політика конфіденційності і оферта
-          </a>
-          <a href="#" className={styles.link}>
-            Угода використання
-          </a>
-        </div>
+        <ul className={styles.politics}>
+          <li>
+            <Link to="/politics" className={styles.link}>
+              Політика конфіденційності і оферта
+            </Link>
+          </li>
+          <li>
+            <Link to="/terms" className={styles.link}>
+              Угода використання
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
