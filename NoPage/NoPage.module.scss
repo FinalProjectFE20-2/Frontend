@@ -1,0 +1,29 @@
+.container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+.title {
+      font-size: 2rem;
+      color: red;
+      margin-bottom: 1rem;
+    }
+    
+.text-error {
+      color: greenyellow;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    
+.text-info {
+      color: greenyellow;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    
+.text-homecoming {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
