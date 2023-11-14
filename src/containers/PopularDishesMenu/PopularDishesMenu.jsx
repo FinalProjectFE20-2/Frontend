@@ -1,13 +1,10 @@
-import PropTypes from 'prop-types';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './PopularDishesMenu.module.scss';
 import { useSelector } from 'react-redux';
 
-const PopularDishesMenu = props => {
-  //
-  const products = useSelector(
-    state => state.products.products || [],
-  );
+const PopularDishesMenu = () => {
+  const products = useSelector(state => state.products.products || []);
+
   return (
     <section className={`${styles.PopularDishes} container`}>
       <h2 className={styles.title}>Популярні страви</h2>
@@ -19,7 +16,5 @@ const PopularDishesMenu = props => {
     </section>
   );
 };
-
-PopularDishesMenu.propTypes = {};
 
 export default PopularDishesMenu;
