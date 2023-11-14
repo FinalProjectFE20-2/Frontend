@@ -28,7 +28,7 @@ function Hero() {
               <div className={style.card__weight}>430 г</div>
               <div className={style.card__inner}>
                 <p className={style.card__price}>370 &#8372;</p>
-                <button type="button" className={style.card__basket}>
+                <button type="button" className={style.card__cart}>
                   <Cart />
                 </button>
               </div>
@@ -60,7 +60,7 @@ function Hero() {
               </p>
               <div className={style.price__inner}>
                 <p className={style.square__price}>1200 &#8372;</p>
-                <button type="button" className={style.square__basket}>
+                <button type="button" className={style.square__cart}>
                   <Cart />
                 </button>
               </div>

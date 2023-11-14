@@ -151,22 +151,22 @@
   align-items: center;
 }
 
-.card__basket {
+.card__cart {
   margin-left: 25px;
   margin-top: 15px;
   background-color: #fbd13e;
   padding: 10px;
+
+  &:hover {
+    background-color: #dbb325;
+  }
 
   @media(max-width:1230px) {
     margin-top: 0;
   }
 }
 
-.card__basket:hover {
-  background-color: #dbb325;
-}
-
-.card__price {
+.card__cart .card__price {
   margin-top: 23px;
   font-size: 23px;
   font-weight: 800;
@@ -274,13 +274,13 @@
   font-weight: 800;
 }
 
-.square__basket {
+.square__cart {
   background-color: #fbd13e;
   padding: 10px;
-}
 
-.square__basket:hover {
-  background-color: #dbb325;
+  &:hover {
+    background-color: #dbb325;
+  }
 }
 
 .right__decor {
