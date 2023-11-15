@@ -5,6 +5,10 @@ import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import Cart from '@/pages/Cart/Cart';
 import Product from '@/pages/Product/Product';
+import Shipping from '@/pages/Shipping/Shipping';
+import Contacts from '@/pages/Contacts/Contacts';
+import Politics from '@/pages/Politics/Politics';
+import Terms from '@/pages/Terms/Terms';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
 import Feedback from '@/pages/Feedback/Feedback.jsx';
@@ -14,13 +18,15 @@ import Delivery from '@/pages/Delivery/Delivery.jsx';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export const router = createBrowserRouter([{
-    element:
+export const router = createBrowserRouter([
+  {
+    element: (
       <>
         <Header />
         <Outlet />
         <Footer />
-      </>,
+      </>
+    ),
     children: [
       {
         path: '/',
@@ -53,6 +59,22 @@ export const router = createBrowserRouter([{
       {
         path: '/product/:productId',
         element: <Product />,
+      },
+      {
+        path: '/shipping',
+        element: <Shipping />,
+      },
+      {
+        path: '/contacts',
+        element: <Contacts />,
+      },
+      {
+        path: '/politics',
+        element: <Politics />,
+      },
+      {
+        path: '/terms',
+        element: <Terms />,
       },
       {
         element: <div>Акції</div>,
@@ -95,5 +117,5 @@ export const router = createBrowserRouter([{
         path: '/drinks',
       },
     ],
-  }],
-);
+  },
+]);
