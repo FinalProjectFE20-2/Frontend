@@ -35,7 +35,7 @@ const Feedback = () => {
               type="email"
               value={email}
               onChange={handleEmailChange}
-              required // HTML5 атрибут, который говорит браузеру, что поле обязательное
+              required 
             />
             {!isEmailValid && (
               <p style={{ color: 'red', margin: 0 }}>
