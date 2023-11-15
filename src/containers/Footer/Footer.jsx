@@ -12,13 +12,13 @@ const Footer = () => (
           <nav>
             <ul className={styles.links}>
               <li>
-                <Link to="/" className={styles.link}>
+                <Link to="/feedback" className={styles.link}>
                   Зворотній зв'язок
                 </Link>
               </li>
               <li>
-                <Link to="/shipping" className={styles.link}>
-                  Оплата і доставка
+                <Link to="/delivery" className={styles.link}>
+                  Доставка та оплата
                 </Link>
               </li>
               <li>

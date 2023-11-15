@@ -4,6 +4,8 @@ import './Checkout.scss';
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
+  const [email, setEmail] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState(true);
 
   const handleDeliveryMethodChange = method => {
     setDeliveryMethod(method);
@@ -12,6 +14,15 @@ const Checkout = () => {
   const handlePaymentMethodChange = method => {
     setPaymentMethod(method);
   };
+
+  const handleEmailChange = (event) => {
+    const inputValue = event.target.value;
+    setEmail(inputValue);
+
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue);
+    setIsEmailValid(isValid);
+  };
+
 
   return (
     <div className="container">
@@ -38,13 +49,14 @@ const Checkout = () => {
                 автоматично
               </p>
               <div className="guest-name__wraper_input">
-                <input type="text" />
+                <input type="text" required />
               </div>
               <div className="guest-phone__wraper_input">
-                <input type="text" />
+                <input type="text" required />
               </div>
               <div className="guest-email__wraper_input">
-                <input type="email" placeholder="" />
+              <input type="email" value={email} onChange={handleEmailChange} />
+                {!isEmailValid && (<p style={{ color: 'red', margin: 0 }}>Введіть коректну адресу електронної пошти </p>)}
               </div>
               <div className="guest-number__wraper_input">
                 <input type="number" placeholder="" min="1" max="30" />
