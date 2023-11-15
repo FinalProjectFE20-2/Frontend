@@ -7,6 +7,11 @@ import Cart from '@/pages/Cart/Cart';
 import Product from '@/pages/Product/Product';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
+import Feedback from '@/pages/Feedback/Feedback.jsx';
+import Contacts from '@/pages/Contacts/Contacts.jsx';
+import Delivery from '@/pages/Delivery/Delivery.jsx';
+
+
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([{
@@ -32,6 +37,18 @@ export const router = createBrowserRouter([{
       {
         path: '/cart/checkout',
         element: <Checkout />,
+      },
+      {
+        path: '/feedback',
+        element: <Feedback />,
+      },
+      {
+        path: '/contacts',
+        element: <Contacts />,
+      },
+      {
+        path: '/delivery',
+        element: <Delivery />,
       },
       {
         path: '/product/:productId',
