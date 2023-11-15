@@ -1,3 +1,33 @@
+.page {
+    max-width: 960px;
+    padding: 2rem;
+    text-align: center;
+}
+
 .title {
-    
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.textError {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.textInfo {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.textHomecoming {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link {
+    color: #007bff;
+
+    &:hover {
+        color: #FBD13E;
+    }
 }
