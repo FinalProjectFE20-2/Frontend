@@ -22,12 +22,7 @@ const Footer = () => (
                 </Link>
               </li>
               <li>
-                <Link to="/" className={styles.link}>
-                  Оплата
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className={styles.link}>
+                <Link to="/contacts" className={styles.link}>
                   Контакти
                 </Link>
               </li>

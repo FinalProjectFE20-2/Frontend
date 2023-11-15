@@ -5,17 +5,13 @@ import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import Cart from '@/pages/Cart/Cart';
 import Product from '@/pages/Product/Product';
-import Shipping from '@/pages/Shipping/Shipping';
-import Contacts from '@/pages/Contacts/Contacts';
-import Politics from '@/pages/Politics/Politics';
-import Terms from '@/pages/Terms/Terms';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
 import Feedback from '@/pages/Feedback/Feedback.jsx';
 import Contacts from '@/pages/Contacts/Contacts.jsx';
 import Delivery from '@/pages/Delivery/Delivery.jsx';
-
-
+import Politics from '@/pages/Politics/Politics';
+import Terms from '@/pages/Terms/Terms';
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
@@ -57,24 +53,16 @@ export const router = createBrowserRouter([
         element: <Delivery />,
       },
       {
-        path: '/product/:productId',
-        element: <Product />,
-      },
-      {
-        path: '/shipping',
-        element: <Shipping />,
-      },
-      {
-        path: '/contacts',
-        element: <Contacts />,
-      },
-      {
         path: '/politics',
         element: <Politics />,
       },
       {
         path: '/terms',
         element: <Terms />,
+      },
+      {
+        path: '/product/:productId',
+        element: <Product />,
       },
       {
         element: <div>Акції</div>,
