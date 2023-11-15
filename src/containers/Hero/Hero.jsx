@@ -1,5 +1,5 @@
+import { GrBasket } from 'react-icons/gr';
 import style from './Hero.module.scss';
-import {GrBasket} from 'react-icons/gr';
 
 function Hero() {
   return (
@@ -22,7 +22,9 @@ function Hero() {
               alt="decor"
             />
             <div className={style.content__tel}>
-              <a className={style.tel__hover} href="tel:+8 (093) 841-67-29">+8 (093) 841-67-29</a>
+              <a className={style.tel__hover} href="tel:+8 (093) 841-67-29">
+                +8 (093) 841-67-29
+              </a>
             </div>
             <div>
               <a
@@ -52,8 +54,8 @@ function Hero() {
             <br /> лосося, пропитаний соком та ароматом легко
             <br /> смажених фермерських овочів.
           </p>
-          <p className={style.red__price}>  1200 &#8372;</p>
-            <GrBasket  className={style.red__cart}/>
+          <p className={style.red__price}> 1200 &#8372;</p>
+          <GrBasket className={style.red__cart} />
         </div>
         <div className={style.content__card}>
           <img
@@ -64,7 +66,7 @@ function Hero() {
           <p className={style.card__weight}>430 г</p>
           <p className={style.card__price}> 370 &#8372;</p>
           <a>
-              <GrBasket className={style.card__cart}/>
+            <GrBasket className={style.card__cart} />
           </a>
         </div>
       </div>

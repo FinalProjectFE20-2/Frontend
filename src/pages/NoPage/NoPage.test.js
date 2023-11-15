@@ -6,7 +6,7 @@ import NoPage from './NoPage';
 describe('<NoPage />', () => {
   test('it should mount', () => {
     render(<NoPage />);
-    
+
     const noPage = screen.getByTestId('NoPage');
 
     expect(noPage).toBeInTheDocument();

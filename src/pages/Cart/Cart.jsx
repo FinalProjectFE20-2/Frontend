@@ -1,10 +1,9 @@
 import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import CartEmpty from '../../components/CartEmpty/CartEmpty';
-import styles from './Cart.module.scss'
+import styles from './Cart.module.scss';
 
-const Cart = () => {
-    return (
+const Cart = () => (
         <div>
             <div className='container'>
                 <div className={styles.title}>
@@ -14,7 +13,6 @@ const Cart = () => {
                 <CartEmpty />
             </div>
         </div>
-    );
-}
- 
+);
+
 export default Cart;

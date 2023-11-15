@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './CartEmpty.module.scss'
+import styles from './CartEmpty.module.scss';
 import cartEmptyImg from '../../assets/svg_icon/emptycart.svg';
 
-const CartEmpty = () => {
-  return (
+const CartEmpty = () => (
     <>
       <div className={styles.empty}>
         <h2>
@@ -24,7 +23,6 @@ const CartEmpty = () => {
         </Link>
       </div>
     </>
-  );
-};
+);
 
 export default CartEmpty;

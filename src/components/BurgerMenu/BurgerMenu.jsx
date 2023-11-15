@@ -12,7 +12,7 @@ export default function BurgerMenu() {
     query: '(min-width: 468px)',
   });
   const handleClick = () => {
-    setOpen(prev => !prev);
+    setOpen((prev) => !prev);
   };
   return (
     <div className={styles.wrapper}>

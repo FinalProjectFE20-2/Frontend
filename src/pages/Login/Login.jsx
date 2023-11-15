@@ -1,9 +1,9 @@
-import React from 'react';
+import { redirect, useNavigate } from 'react-router';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import styles from './Login.module.scss';
 import { login } from '../../store/action/session/actionSession';
-import { useDispatch } from 'react-redux';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -11,6 +11,7 @@ const LoginSchema = Yup.object().shape({
 });
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div>
       <Formik
@@ -19,24 +20,33 @@ const Login = () => {
           password: '',
         }}
         validationSchema={LoginSchema}
-        onSubmit={async ({ confirmPassword, ...rest }) => {
-          console.log(rest);
+        onSubmit={async value => {
           try {
-            dispatch(login(rest));
+            const res = await dispatch(
+              login({ loginOrEmail: value.email, password: value.password }),
+            );
+            console.log(res);
+            if (res) {
+              navigate('/');
+            }
           } catch (err) {
             console.log(err);
           }
         }}>
-        {({ errors, touched, isValidating }) => (
+        {({ errors, touched }) => (
           <Form className={styles.loginForm}>
-            <Field name="email" placeholder="Email" />
-            {errors.email && touched.email && <div>{errors.email}</div>}
-
-            <Field name="password" placeholder="Password" type="password" />
-            {errors.password && touched.password && (
-              <div>{errors.password}</div>
-            )}
-
+            <div className={styles.Field}>
+              <Field name="email" placeholder="Email" />
+              {errors.email && touched.email && (
+                <div className={styles.errors}>{errors.email}</div>
+              )}
+            </div>
+            <div className={styles.Field}>
+              <Field name="password" placeholder="Password" type="password" />
+              {errors.password && touched.password && (
+                <div className={styles.errors}>{errors.password}</div>
+              )}
+            </div>
             <button type="submit">Submit</button>
           </Form>
         )}

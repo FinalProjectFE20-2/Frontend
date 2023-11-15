@@ -6,7 +6,7 @@ import Product from './Product';
 describe('<Product />', () => {
   test('it should mount', () => {
     render(<Product />);
-    
+
     const product = screen.getByTestId('Product');
 
     expect(product).toBeInTheDocument();

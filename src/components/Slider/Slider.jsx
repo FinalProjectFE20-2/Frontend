@@ -6,17 +6,15 @@ import axios from 'axios';
 function Slider() {
   const [discounts, setDiscounts] = useState([]);
 
-  const fetchDiscountsData = () => {
-    return axios
-      .get('discountsData.json')
-      .then(response => setDiscounts(response.data));
-  };
+  const fetchDiscountsData = () => axios
+    .get('discountsData.json')
+    .then((response) => setDiscounts(response.data));
 
   useEffect(() => {
     fetchDiscountsData();
   }, []);
 
-  const carouselItems = discounts.map(item => (
+  const carouselItems = discounts.map((item) => (
     <Carousel.Item interval={3000} key={item.id}>
       <a href={item.url}>
         <img className="d-block w-100 h-50" src={item.image} alt={item.alt} />

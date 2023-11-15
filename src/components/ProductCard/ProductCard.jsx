@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
+import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ itemNo }) => {
-  const products = useSelector(state => state.products.products || []);
-  const product = products.find(product => product.itemNo === itemNo);
+  const products = useSelector((state) => state.products.products || []);
+  const product = products.find((product) => product.itemNo === itemNo);
   console.log(product, 11);
 
   return (

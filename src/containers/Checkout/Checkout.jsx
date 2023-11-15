@@ -95,7 +95,7 @@ const Checkout = () => {
       </div>
       <div className="go_cart__checkout_kosss">
         <div>1
- 
+
         </div>
         <div><h3>Ваше замовлення тут :)</h3></div>
         <div><p>Розкрити</p></div>

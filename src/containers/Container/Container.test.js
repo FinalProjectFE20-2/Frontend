@@ -6,7 +6,7 @@ import Container from './Container';
 describe('<Container />', () => {
   test('it should mount', () => {
     render(<Container />);
-    
+
     const container = screen.getByTestId('Container');
 
     expect(container).toBeInTheDocument();

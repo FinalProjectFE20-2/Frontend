@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './ProductContainer.module.scss';
-import { useSelector } from 'react-redux';
 
-const ProductContainer = ({productId}) => {
-  const products = useSelector(state => state.products.products || []);
-  const product = products.find(product => product._id===productId);
+const ProductContainer = ({ productId }) => {
+  const products = useSelector((state) => state.products.products || []);
+  const product = products.find((product) => product._id === productId);
   console.log(product);
 
-  return(
+  return (
     <section className={`${styles.productContainer} container`}>
       <h2 className={styles.title}>{product.name}</h2>
       <h3 className={styles.route_road}> Home / <span className={styles.route_active}>Product</span></h3>
@@ -38,9 +38,8 @@ const ProductContainer = ({productId}) => {
         </div>
       </div>
     </section>
-  )
-}
-
+  );
+};
 
 ProductContainer.propTypes = {};
 

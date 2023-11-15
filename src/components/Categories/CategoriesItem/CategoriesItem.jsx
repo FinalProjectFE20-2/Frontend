@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import Dropdown from '../Dropdown/DropDown.jsx';
 import styles from './CategoriesItem.module.css';
 import Arrow from '@/assets/svg_icon/arrow.svg?react';
-import { useMediaQuery } from 'react-responsive';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
 
 const CategoriesItem = ({ items }) => {
@@ -14,7 +14,7 @@ const CategoriesItem = ({ items }) => {
     query: '(max-width: 468px)',
   });
   useEffect(() => {
-    const handler = event => {
+    const handler = (event) => {
       if (dropdown && ref.current && !ref.current.contains(event.target)) {
         setDropdown(false);
       }
@@ -41,7 +41,7 @@ const CategoriesItem = ({ items }) => {
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => setDropdown(prev => !prev)}>
+            onClick={() => setDropdown((prev) => !prev)}>
             {isMobile ? (
               <>
                 <Arrow className={styles.arrow} /> {items.title}

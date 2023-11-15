@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './ProdCategoriesItem.module.scss';
 
-export default function ProdCategoriesItem({ item,className }) {
+export default function ProdCategoriesItem({ item, className }) {
   return (
     <li>
       <Link className={`${styles.link} ${className}`} to={item.url}>

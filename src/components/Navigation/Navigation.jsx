@@ -14,10 +14,10 @@ export default function Navigation() {
   const debounceTimer = useRef(null);
 
   // Function to handle search results visibility
-  const handleSearchResultsVisibility = event => {
+  const handleSearchResultsVisibility = (event) => {
     if (
-      searchResultsRef.current &&
-      !searchResultsRef.current.contains(event.target)
+      searchResultsRef.current
+      && !searchResultsRef.current.contains(event.target)
     ) {
       setSearchResultsVisible(false);
     }
@@ -30,7 +30,7 @@ export default function Navigation() {
 
   // Add event listener to handle clicks outside of search results and item details
   useEffect(() => {
-    document.addEventListener('mousedown', event => {
+    document.addEventListener('mousedown', (event) => {
       handleSearchResultsVisibility(event);
 
       if (selectedItem) {
@@ -39,7 +39,7 @@ export default function Navigation() {
     });
 
     return () => {
-      document.removeEventListener('mousedown', event => {
+      document.removeEventListener('mousedown', (event) => {
         handleSearchResultsVisibility(event);
 
         if (selectedItem) {
@@ -67,8 +67,8 @@ export default function Navigation() {
     try {
       // Check if the query is not a string or is an empty string
       if (
-        !isSearchIconClicked &&
-        (typeof query !== 'string' || query.trim() === '')
+        !isSearchIconClicked
+        && (typeof query !== 'string' || query.trim() === '')
       ) {
         setSearchResults([]);
         setSearchResultsVisible(false);
@@ -82,9 +82,7 @@ export default function Navigation() {
       if (response.ok) {
         const data = await response.json();
         // Filter the data based on the search query.
-        const filteredResults = data.filter(item =>
-          item.name.toLowerCase().includes(query.toLowerCase()),
-        );
+        const filteredResults = data.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
 
         // Update the search results and make them visible.
         setSearchResults(filteredResults);
@@ -97,7 +95,7 @@ export default function Navigation() {
     }
   };
 
-  const handleSearchInputChange = e => {
+  const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
 
@@ -141,7 +139,7 @@ export default function Navigation() {
         ref={searchResultsRef}
         className={styles.searchResults}
         style={{ display: searchResultsVisible ? 'block' : 'none' }}>
-        {searchResults.map(result => (
+        {searchResults.map((result) => (
           <div key={result._id}>
             {/* Render the search results */}
             <p

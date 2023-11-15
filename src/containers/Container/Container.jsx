@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const Container = ({children}) => (
+const Container = ({ children }) => (
   <div data-testid="Container">
     <Header />
     {children}
