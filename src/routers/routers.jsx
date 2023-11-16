@@ -12,13 +12,16 @@ import Contacts from '@/pages/Contacts/Contacts.jsx';
 import Delivery from '@/pages/Delivery/Delivery.jsx';
 import Politics from '@/pages/Politics/Politics';
 import Terms from '@/pages/Terms/Terms';
-
+import PrivateRoute from './privateRoute';
+import Login from '@/pages/Login/Login';
+import Registration from '@/pages/Registration/Registration';
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
   {
     element: (
       <>
         <Header />
+        <PrivateRoute />
         <Outlet />
         <Footer />
       </>
@@ -27,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <App />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/singUp',
+        element: <Registration />,
       },
       {
         path: '*',
