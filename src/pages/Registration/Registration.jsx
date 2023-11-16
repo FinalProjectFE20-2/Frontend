@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './SingUp.module.scss';
+import styles from './Registration.module.scss';
 import { singUp } from '../../store/action/session/actionSession';
 import { ImEye } from 'react-icons/im';
 import { ImEyeBlocked } from 'react-icons/im';
@@ -24,7 +24,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
   login: Yup.string().min(3, 'Too Short').required('required'),
 });
-const SingUp = () => {
+const Registration = () => {
   const [isPasswordShown, setPasswordShown] = useState(false);
   const error = useSelector(state => state.session.error);
   const navigate = useNavigate();
@@ -128,4 +128,4 @@ const SingUp = () => {
     </div>
   );
 };
-export default SingUp;
+export default Registration;

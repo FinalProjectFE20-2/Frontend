@@ -14,7 +14,7 @@ import Politics from '@/pages/Politics/Politics';
 import Terms from '@/pages/Terms/Terms';
 import PrivateRoute from './privateRoute';
 import Login from '@/pages/Login/Login';
-import SingUp from '@/pages/SingUp/SingUp.jsx';
+import Registration from '@/pages/Registration/Registration';
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
   {
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/singUp',
-        element: <SingUp />,
+        element: <Registration />,
       },
       {
         path: '*',
