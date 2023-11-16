@@ -12,7 +12,7 @@ const Contacts = () => {
     const initMap = () => {
       const map = new window.google.maps.Map(document.getElementById('map'), {
         center: { lat: 50.489557, lng: 30.490599 },
-        zoom: 10,
+        zoom: 14,
       });
 
       new window.google.maps.Marker({
