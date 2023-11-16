@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchUrl from '@/assets/svg_icon/navigation/Search.svg?react';
+import SingUp from '@/assets/svg_icon/navigation/SingUp.svg?react';
 import BasketUrl from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './Navigation.module.scss';
 
@@ -120,6 +121,7 @@ export default function Navigation() {
       icon: <SearchUrl className={`${styles.svgIcon} svg`} />,
       link: '/searchResult',
     },
+    { icon: <SingUp className={styles.singUp} />, link: '/singUp' },
     { icon: <BasketUrl className="svg" />, link: '/cart' },
   ];
 
