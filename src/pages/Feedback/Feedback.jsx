@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Feedback.scss';
+import styles from './Feedback.module.scss';
 
 const Feedback = () => {
   const [email, setEmail] = useState('');
@@ -9,41 +9,34 @@ const Feedback = () => {
     const inputValue = event.target.value;
     setEmail(inputValue);
 
-    // Простая проверка на валидность email
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue);
     setIsEmailValid(isValid);
   };
 
   const handleSubmit = () => {
-    // Здесь можете добавить логику отправки формы
-    // например, вызовом функции, которая обрабатывает данные формы
+
   };
 
   return (
-    <div className="container">
-      <div className="container__feedback_kosss">
-        <div className="title__feedback_kosss">
+    <div className={styles.container}>
+      <div className={styles.containerFeedbackKosss}>
+        <div className={styles.titleFeedbackKosss}>
           <h1>Зворотній зв'язок</h1>
           <p>Головна / <span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span></p>
         </div>
-        <div className="form__feedback_kosss">
-          <div className="coment__feedback_kosss">
+        <div className={styles.formFeedbackKosss}>
+          <div className={styles.comentFeedbackKosss}>
             <input type="text" />
           </div>
-          <div className="email__feedback_kosss">
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              required 
-            />
+          <div className={styles.emailFeedbackKosss}>
+            <input type="email" value={email} onChange={handleEmailChange} required />
             {!isEmailValid && (
               <p style={{ color: 'red', margin: 0 }}>
                 Введіть коректну адресу електронної пошти
               </p>
             )}
           </div>
-          <button className="confirm-button__feedback_kosss" onClick={handleSubmit}>
+          <button className={styles.confirmButtonFeedbackKosss} onClick={handleSubmit}>
             Надіслати
           </button>
         </div>

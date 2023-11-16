@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Checkout.scss';
+import styles from './Checkout.module.scss';
 
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
@@ -25,20 +25,28 @@ const Checkout = () => {
 
 
   return (
-    <div className="container">
-      <div className="container__checkout_kosss">
-        <div className="title__checkout_kosss">
+    <div className={styles.container}>
+      <div className={styles.containerCheckoutKosss}>
+        <div className={styles.titleCheckoutKosss}>
           <h1>Оформлення замовлення</h1>
           <p>
             Головна / Корзина /{' '}
             <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span>
           </p>
         </div>
-
-        <div className="details__checkout_kosss">
-          <div className="details_contact__checkout_kosss">
+        <div className={styles.goCartCheckoutKosss}>
+          <div>1</div>
+          <div>
+            <h3>Замовлення тут</h3>
+          </div>
+          <div>
+            <p>Розкрити</p>
+          </div>
+        </div>
+        <div className={styles.detailsCheckoutKosss}>
+          <div className={styles.detailsContactCheckoutKosss}>
             <h2>01. Контактні данні</h2>
-            <div className="content_contact__checkout_kosss">
+            <div className={styles.contentContactCheckoutKosss}>
               <p>
                 <u>
                   <span style={{ cursor: 'pointer' }}>Вже купляли у нас?</span>
@@ -48,31 +56,31 @@ const Checkout = () => {
                 Увійдіть до личного кабинету, та всі ваші данні заповняться
                 автоматично
               </p>
-              <div className="guest-name__wraper_input">
+              <div className={styles.guestNameWraperInput}>
                 <input type="text" required />
               </div>
-              <div className="guest-phone__wraper_input">
+              <div className={styles.guestPhoneWraperInput}>
                 <input type="text" required />
               </div>
-              <div className="guest-email__wraper_input">
+              <div className={styles.guestEmailWraperInput}>
               <input type="email" value={email} onChange={handleEmailChange} />
                 {!isEmailValid && (<p style={{ color: 'red', margin: 0 }}>Введіть коректну адресу електронної пошти </p>)}
               </div>
-              <div className="guest-number__wraper_input">
+              <div className={styles.guestNumberWraperInput}>
                 <input type="number" placeholder="" min="1" max="30" />
               </div>
             </div>
           </div>
 
-          <div className="details_delivery__checkout_kosss">
+          <div className={styles.detailsDeliveryCheckoutKosss}>
             <h2>02. Спосіб доставки</h2>
-            <div className="type_delivery__checkout_kosss">
+            <div className={styles.typeDeliveryCheckoutKosss}>
               <div
-                className={`delivery-option__checkout_kosss ${
-                  deliveryMethod === 'delivery' ? 'active' : ''
+                className={`${styles.deliveryOptionCheckoutKosss} ${
+                  deliveryMethod === 'delivery' ? styles.active : ''
                 }`}
                 onClick={() => handleDeliveryMethodChange('delivery')}>
-                <div className="type_delivery__cost_delivery">
+                <div className={styles.typeDeliveryCostDelivery}>
                   <p>Безконтактна доставка</p> <h3>100 грн</h3>
                 </div>
                 <span>
@@ -82,11 +90,11 @@ const Checkout = () => {
                 </span>
               </div>
               <div
-                className={`delivery-option__checkout_kosss ${
-                  deliveryMethod === 'pickup' ? 'active' : ''
+                className={`${styles.deliveryOptionCheckoutKosss} ${
+                  deliveryMethod === 'pickup' ? styles.active : ''
                 }`}
                 onClick={() => handleDeliveryMethodChange('pickup')}>
-                <div className="type_delivery__cost_delivery">
+                <div className={styles.typeDeliveryCostDelivery}>
                   <p>Самовивіз</p> <h3>0 грн</h3>
                 </div>
                 <span>
@@ -95,32 +103,32 @@ const Checkout = () => {
                 </span>
               </div>
             </div>
-            <div className="delivery-input__checkout_kosss">
-              <div className="guest-adress__wraper_input">
+            <div className={styles.deliveryInputCheckoutKosss}>
+              <div className={styles.guestAdressWraperInput}>
                 <input type="text" />
               </div>
-              <div className="number-app__checkout_kosss">
+              <div className={styles.numberAppCheckoutKosss}>
                 <input type="text" placeholder="" />
                 <input type="number" placeholder="" />
               </div>
-              <div className="guest-coment__wraper_input">
+              <div className={styles.guestComentWraperInput}>
                 <input type="text" placeholder="" />
               </div>
             </div>
           </div>
 
-          <div className="details_payment__checkout_kosss">
+          <div className={styles.detailsPaymentCheckoutKosss}>
             <h2>03. Оплата</h2>
             <div
-              className={`payment-option__checkout_kosss ${
-                paymentMethod === 'cash' ? 'active' : ''
+              className={`${styles.paymentOptionCheckoutKosss} ${
+                paymentMethod === 'cash' ? styles.active : ''
               }`}
               onClick={() => handlePaymentMethodChange('cash')}>
               <p>Налічними кур'єру</p>
             </div>
             <div
-              className={`payment-option__checkout_kosss ${
-                paymentMethod === 'card' ? 'active' : ''
+              className={`${styles.paymentOptionCheckoutKosss} ${
+                paymentMethod === 'card' ? styles.active : ''
               }`}
               onClick={() => handlePaymentMethodChange('card')}>
               <p>Картою кур'єру</p>
@@ -128,17 +136,9 @@ const Checkout = () => {
           </div>
         </div>
 
-        <button className="confirm-button__checkout_kosss">Замовити</button>
+        <button className={styles.confirmButtonCheckoutKosss}>Замовити</button>
       </div>
-      <div className="go_cart__checkout_kosss">
-        <div>1</div>
-        <div>
-          <h3>Ваше замовлення тут :)</h3>
-        </div>
-        <div>
-          <p>Розкрити</p>
-        </div>
-      </div>
+      
     </div>
   );
 };
