@@ -1,0 +1,43 @@
+.categories {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .categories {
+        flex-direction: column;
+    }
+}
+
+.list {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.withoutSubmenu {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+}
+
+.title {
+    margin-top: 0;
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.65px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.listItem {
+    list-style: none;
+}
+
+.submenuList {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+

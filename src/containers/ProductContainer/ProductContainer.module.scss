@@ -1,0 +1,63 @@
+.productContainer {
+  padding-bottom: 115px;
+}
+
+.title {
+  font-size: 80px;
+  line-height: 90px;
+}
+
+.route_road {
+  font-size: 13px;
+}
+
+.route_active {
+  font-size: 13px;
+  color: #9EA2AA
+}
+
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  column-gap: 60px;
+
+  @media (max-width: 1300px) {
+    column-gap: 30px;
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: (repeat(1, 1fr));
+  }
+}
+
+.img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mgb {
+  margin-bottom: 20px;
+}
+
+.desc__title {
+  color: #9EA2AA;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.65px;
+  text-transform: uppercase;
+}
+
+.desc__info {
+  color: #fff;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.desc__box {
+  @media (max-width: 1000px) {
+    margin-top: 20px;
+  }
+}
