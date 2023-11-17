@@ -109,6 +109,7 @@ export default function Navigation() {
       icon: (
         <input
           type="text"
+          className={styles.searchInput}
           placeholder="Пошук..."
           style={{ border: 'none', outline: 'none' }}
           value={searchQuery}
@@ -126,10 +127,10 @@ export default function Navigation() {
   ];
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ul className={styles.list}>
-        {links.map(({ link, icon }) => (
-          <li key={link} className={styles.item}>
+        {links.map(({ link, icon },index) => (
+          <li key={index} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
             ) : (
@@ -144,7 +145,7 @@ export default function Navigation() {
         ref={searchResultsRef}
         className={styles.searchResults}
         style={{ display: searchResultsVisible ? 'block' : 'none' }}>
-        {searchResults.map(result => (
+        {searchResults.map((result,index) => (
           <div key={result._id}>
             {/* Render the search results */}
             <p

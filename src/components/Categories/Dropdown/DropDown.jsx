@@ -1,4 +1,4 @@
-import styles from './DropDown.module.css';
+import styles from './DropDown.module.scss';
 import { Link } from 'react-router-dom';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
 
@@ -7,8 +7,8 @@ const Dropdown = ({ submenus, dropdown }) => {
     <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
       {submenus.map((submenu, index) => {
         return (
-          <ResponsiveComponent className={styles.linkWrapper} submenu={submenu}>
-            <li key={index} className={styles.menuItems}>
+          <ResponsiveComponent key={index} className={styles.linkWrapper} submenu={submenu}>
+            <li  className={styles.menuItems}>
               <Link className={styles.link} to={submenu.url}>
                 {submenu.title}
               </Link>

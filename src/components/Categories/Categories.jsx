@@ -1,5 +1,5 @@
 import CategoriesItem from './CategoriesItem/CategoriesItem';
-import styles from './Categories.module.css';
+import styles from './Categories.module.scss';
 import { menuItems } from '@/assets/data.js';
 
 export default function Categories() {
