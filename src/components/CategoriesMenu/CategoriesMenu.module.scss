@@ -3,9 +3,15 @@
   gap: 12px;
   align-items: center;
   z-index: 100;
+  @media (min-width: 1200px) {
+    display: none;
+  }
 }
 
 .title {
   font-weight: 500;
   color: white;
+  @media (max-width: 555px) {
+    display: none;
+  }
 }

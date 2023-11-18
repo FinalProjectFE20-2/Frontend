@@ -23,7 +23,6 @@ const Cart = () => {
 
     return (
         <div>
-            <Header />
             <div className='container'>
                 <div className={styles.title}>
                     <h1>Корзина</h1>
@@ -68,7 +67,6 @@ const Cart = () => {
                 ): <CartEmpty />
                 }
             </div>
-            <Footer />
         </div>
     );
 }

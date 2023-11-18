@@ -24,20 +24,20 @@ export default function ProductsCatigories() {
         <Action upPrice={30} downprice={20} obj={action} />{' '}
       </div>
       <ul className={styles.list}>
-        {withSubmenu.map(item => (
-          <li className={styles.listItem}>
+        {withSubmenu.map((item,index) => (
+          <li key={index} className={styles.listItem}>
             <h2 className={styles.title}>{item.title}</h2>
             <ul className={styles.submenuList}>
-              {item.submenu.map(subItem => (
-                <ProdCategoriesItem item={subItem} />
+              {item.submenu.map((subItem,index )=> (
+                <ProdCategoriesItem key={index} item={subItem} />
               ))}
             </ul>
           </li>
         ))}
         <li className={`${styles.listItem} ${styles.withoutSubmenu}`}>
           <ul>
-            {withoutSubmenu.map(item => (
-              <ProdCategoriesItem item={item} />
+            {withoutSubmenu.map((item,index) => (
+              <ProdCategoriesItem key={index} item={item} />
             ))}
           </ul>
         </li>

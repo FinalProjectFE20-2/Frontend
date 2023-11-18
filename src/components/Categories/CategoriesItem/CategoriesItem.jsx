@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from '../Dropdown/DropDown.jsx';
-import styles from './CategoriesItem.module.css';
+import styles from './CategoriesItem.module.scss';
 import Arrow from '@/assets/svg_icon/arrow.svg?react';
 import { useMediaQuery } from 'react-responsive';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';

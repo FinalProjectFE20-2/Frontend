@@ -1,29 +1,30 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
+import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
-const ProductCard = ({ itemNo, onClickAddCart}) => {
+const ProductCard = ({ itemNo, onClickAddCart }) => {
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo === itemNo);
-  console.log(product, 11);
+  // console.log(product, 11);
+  const dispatch = useDispatch();
 
   const onAddCart = () => {
     const obj = {
-      id:parseInt(itemNo),
+      id: parseInt(itemNo),
       name: product.name,
       size: product.sizes,
       imageUrl: product.imageUrls[0],
       price: product.previousPrice,
     };
-    onClickAddCart(obj)
+    onClickAddCart(obj);
   };
 
   return (
     <li className={styles.card}>
       {product.imageUrls?.length > 0 && (
-        <Link to={`./product/${product._id}`}>
+        <Link to={`/product/${product.itemNo}`} className={styles.imgBox}>
           <img
             className={styles.img}
             src={product?.imageUrls[0]}
@@ -37,8 +38,8 @@ const ProductCard = ({ itemNo, onClickAddCart}) => {
       <div className={styles.footer}>
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
-      <button onClick={onAddCart} className={styles.buttonBasket}>
-          <Basket className="svg" />
+        <button onClick={onAddCart} className={styles.btnCart}>
+          <Cart className="" />
         </button>
       </div>
     </li>

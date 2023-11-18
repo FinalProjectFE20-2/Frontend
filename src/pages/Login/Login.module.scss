@@ -1,0 +1,25 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 450px;
+}
+.Field {
+  position: relative;
+}
+.Field input {
+  width: 100%;
+}
+.fieldIcon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: black;
+  z-index: 10;
+}
+
+.errors {
+  position: absolute;
+  color: rgb(255, 0, 0);
+}

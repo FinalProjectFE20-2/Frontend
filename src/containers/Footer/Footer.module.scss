@@ -3,6 +3,9 @@
   padding-bottom: 35px;
   background-color: #000;
 
+  @media (max-width: 565px) {
+    position: relative;
+  }
 }
 
 .wrapper {
@@ -17,12 +20,60 @@
   align-items: center;
 }
 
+.innerWrapper{
+  @media (max-width: 990px) {
+    flex-flow: column;
+    align-items: start;
+  }
+}
+
+.wrapperPolitics{
+  @media (max-width: 990px) {
+    flex-flow: column;
+  }
+
+  @media (max-width: 565px) {
+    flex-flow: column;
+    align-items: start;
+  }
+}
+
 .links {
   margin-left: 120px;
   width: 550px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1400px) {
+    margin-left: 50px;
+    width: 350px;
+  }
+
+  @media (max-width: 990px) {
+    margin-left: 0;
+    margin-top: 30px;
+    width: 350px;
+  }
+
+  @media (max-width: 565px) {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: start;
+    margin-top: 60px;
+    width: 200px;
+  }
+}
+
+.link {
+  @media (max-width: 1400px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 565px) {
+    margin-top: 30px;
+  }
 }
 
 .link:hover,
@@ -34,16 +85,58 @@
 
 .phone {
   font-size: 20px;
+  @media (max-width: 1400px) {
+      font-size: 16px;
+  }
 }
 
 .email {
   margin-left: 30px;
+
+  @media (max-width: 565px) {
+    margin-left: 15px;
+  }
 }
 
 .politics {
   display: flex;
   justify-content: space-between;
   width: 550px;
+
+  @media (max-width: 1400px) {
+      width: 400px;
+    }
+
+  @media (max-width: 990px) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 565px) {
+    margin-top: 0;
+    width: 300px;
+    flex-wrap: wrap;
+  }
+}
+
+.rights{
+  @media (max-width: 990px) {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+}
+
+.contacts{
+  @media (max-width: 990px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+
+  @media (max-width: 565px) {
+    position: absolute;
+    top: 100px;
+    align-items: center;
+  }
 }
 
 .social {
@@ -75,81 +168,4 @@
 
 .git {
   background-image: url('./icons/git.svg');
-}
-
-@media (max-width: 1400px) {
-  .link {
-    font-size: 12px;
-  }
-  .links {
-    margin-left: 50px;
-    width: 350px;
-  }
-  .phone {
-    font-size: 16px;
-  }
-  .politics {
-    width: 400px;
-  }
-}
-
-@media (max-width: 990px) {
-  .innerWrapper {
-    flex-flow: column;
-    align-items: start;
-  }
-  .rights {
-    font-size: 12px;
-    margin-bottom: 25px;
-  }
-  .links {
-    margin-left: 0;
-    margin-top: 30px;
-    width: 350px;
-  }
-  .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-  }
-  .wrapperPolitics {
-    flex-flow: column;
-  }
-  .politics {
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 565px) {
-  .Footer {
-    position: relative;
-  }
-  .links {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    align-items: start;
-    margin-top: 60px;
-    width: 200px;
-  }
-  .link {
-    margin-top: 30px;
-  }
-  .contacts {
-    position: absolute;
-    top: 100px;
-    align-items: center;
-  }
-  .email {
-    margin-left: 15px;
-  }
-  .wrapperPolitics {
-    flex-flow: column;
-    align-items: start;
-  }
-  .politics {
-    margin-top: 0;
-    width: 300px;
-    flex-wrap: wrap;
-  }
 }

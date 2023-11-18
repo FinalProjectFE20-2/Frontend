@@ -1,6 +1,18 @@
 .header {
-/*   background-color: #0f0f12; */
+  /*   background-color: #0f0f12; */
   padding: 50px 0;
+  @media (max-width: 993px) {
+    padding: 0;
+    height: 117px;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 500px) {
+    height: 140px;
+  }
+  @media (max-width: 355px) {
+    height: 128px;
+  }
 }
 
 .headerWrapper {
@@ -8,18 +20,28 @@
   gap: 20px;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 565px) {
+    gap: 4px;
+
+  }
+  @media (max-width: 500px) {
+   padding: 10px;
+
+  }
 }
 
 .iconWrapper {
   display: flex;
   gap: 80px;
   align-items: center;
+
+  @media (max-width: 565px) {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 565px) {
-  .iconWrapper {
-    gap: 20px;
-  }
   .headerWrapper {
     gap: 4px;
   }
