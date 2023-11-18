@@ -1,1 +1,45 @@
-.Politics {}
+.politics {
+    padding: 50px;
+    background-color: #fff;
+}
+
+.containerFluid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagesTitle {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.informationViev {
+    margin-top: 20px;
+    color: #333333;
+}
+
+.p {
+    font-size: 18px;
+    color: #333333;
+}
+
+.informationTermin {
+    font-weight: 600;
+}
+
+.ol {
+    color: #000;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.li::before {
+    content: "1";
+    font-size: 16px;
+    margin-right: 0.5em;
+    color: #333333;
+}
