@@ -4,10 +4,21 @@ import Basket from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ itemNo }) => {
+const ProductCard = ({ itemNo, onClickAddCart}) => {
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo === itemNo);
   console.log(product, 11);
+
+  const onAddCart = () => {
+    const obj = {
+      id:parseInt(itemNo),
+      name: product.name,
+      size: product.sizes,
+      imageUrl: product.imageUrls[0],
+      price: product.previousPrice,
+    };
+    onClickAddCart(obj)
+  };
 
   return (
     <li className={styles.card}>
@@ -26,7 +37,7 @@ const ProductCard = ({ itemNo }) => {
       <div className={styles.footer}>
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
-        <button className={styles.buttonBasket}>
+      <button onClick={onAddCart} className={styles.buttonBasket}>
           <Basket className="svg" />
         </button>
       </div>
