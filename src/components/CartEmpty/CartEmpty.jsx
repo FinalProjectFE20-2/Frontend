@@ -19,9 +19,6 @@ const CartEmpty = () => {
         <Link to="/" >
           <div className={styles.button}>На головну сторінку</div>
         </Link>
-        <Link to="/cart/checkout" >
-          <div className={styles.button}>Оформити замовлення</div>
-        </Link>
       </div>
     </>
   );
