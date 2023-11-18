@@ -20,14 +20,14 @@
   align-items: center;
 }
 
-.innerWrapper{
+.innerWrapper {
   @media (max-width: 990px) {
     flex-flow: column;
     align-items: start;
   }
 }
 
-.wrapperPolitics{
+.wrapperPolitics {
   @media (max-width: 990px) {
     flex-flow: column;
   }
@@ -61,7 +61,7 @@
     flex-flow: row;
     flex-wrap: wrap;
     align-items: start;
-    margin-top: 60px;
+    margin-top: 80px;
     width: 200px;
   }
 }
@@ -73,6 +73,7 @@
 
   @media (max-width: 565px) {
     margin-top: 30px;
+    line-height: 40px;
   }
 }
 
@@ -85,8 +86,13 @@
 
 .phone {
   font-size: 20px;
+
   @media (max-width: 1400px) {
-      font-size: 16px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 12px;
   }
 }
 
@@ -94,7 +100,7 @@
   margin-left: 30px;
 
   @media (max-width: 565px) {
-    margin-left: 15px;
+    margin-left: 25px;
   }
 }
 
@@ -104,28 +110,27 @@
   width: 550px;
 
   @media (max-width: 1400px) {
-      width: 400px;
-    }
+    width: 400px;
+  }
 
   @media (max-width: 990px) {
     margin-top: 20px;
   }
 
   @media (max-width: 565px) {
-    margin-top: 0;
     width: 300px;
     flex-wrap: wrap;
   }
 }
 
-.rights{
+.rights {
   @media (max-width: 990px) {
     font-size: 12px;
     margin-bottom: 25px;
   }
 }
 
-.contacts{
+.contacts {
   @media (max-width: 990px) {
     display: flex;
     flex-wrap: wrap;
@@ -134,8 +139,13 @@
 
   @media (max-width: 565px) {
     position: absolute;
-    top: 100px;
+    top: 80px;
     align-items: center;
+  }
+
+  @media (max-width: 350px) {
+
+    align-items: start;
   }
 }
 

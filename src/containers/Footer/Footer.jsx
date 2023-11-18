@@ -68,7 +68,7 @@ const Footer = () => (
         <ul className={styles.politics}>
           <li>
             <Link to="/politics" className={styles.link}>
-              Політика конфіденційності і оферта
+              Політика конфіденційності
             </Link>
           </li>
           <li>
