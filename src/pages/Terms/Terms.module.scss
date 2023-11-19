@@ -1,1 +1,32 @@
-.Terms {}
+.terms {
+    padding: 50px;
+}
+
+.containerHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagesHead {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pageViev {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.pageTermin {
+    font-weight: 600;
+}
+
+.pageNotes {
+    list-style-type: disc;
+    text-indent: 5px;
+    padding-left: 60px;
+}
