@@ -15,7 +15,7 @@ const Checkout = () => {
     setPaymentMethod(method);
   };
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = event => {
     const inputValue = event.target.value;
     setEmail(inputValue);
 
@@ -23,9 +23,8 @@ const Checkout = () => {
     setIsEmailValid(isValid);
   };
 
-
   return (
-    <div className={styles.container}>
+    <div className="container">
       <div className={styles.containerCheckoutKosss}>
         <div className={styles.titleCheckoutKosss}>
           <h1>Оформлення замовлення</h1>
@@ -53,7 +52,7 @@ const Checkout = () => {
                 </u>
               </p>
               <p>
-                Увійдіть до личного кабинету, та всі ваші данні заповняться
+                Увійдіть до особистого кабінету, та всі ваші дані заповняться
                 автоматично
               </p>
               <div className={styles.guestNameWraperInput}>
@@ -63,8 +62,16 @@ const Checkout = () => {
                 <input type="text" required />
               </div>
               <div className={styles.guestEmailWraperInput}>
-              <input type="email" value={email} onChange={handleEmailChange} />
-                {!isEmailValid && (<p style={{ color: 'red', margin: 0 }}>Введіть коректну адресу електронної пошти </p>)}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+                {!isEmailValid && (
+                  <p style={{ color: 'red', margin: 0 }}>
+                    Введіть коректну адресу електронної пошти{' '}
+                  </p>
+                )}
               </div>
               <div className={styles.guestNumberWraperInput}>
                 <input type="number" placeholder="" min="1" max="30" />
@@ -81,12 +88,12 @@ const Checkout = () => {
                 }`}
                 onClick={() => handleDeliveryMethodChange('delivery')}>
                 <div className={styles.typeDeliveryCostDelivery}>
-                  <p>Безконтактна доставка</p> <h3>100 грн</h3>
+                  <p>Доставка кур'єрем</p> <h3>100 грн</h3>
                 </div>
                 <span>
                   Доставка по Києву <br />
-                  Здійснюється: щодня з 12:00 до 22:00 <br /> Діапозон часу: від
-                  1 до 1.5 годин
+                  Здійснюється щодня з 12:00 до 22:00 <br /> Діапозон часу від 1
+                  до 1,5 години
                 </span>
               </div>
               <div
@@ -124,7 +131,7 @@ const Checkout = () => {
                 paymentMethod === 'cash' ? styles.active : ''
               }`}
               onClick={() => handlePaymentMethodChange('cash')}>
-              <p>Налічними кур'єру</p>
+              <p>Готівкою кур'єру</p>
             </div>
             <div
               className={`${styles.paymentOptionCheckoutKosss} ${
@@ -138,7 +145,6 @@ const Checkout = () => {
 
         <button className={styles.confirmButtonCheckoutKosss}>Замовити</button>
       </div>
-      
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Feedback = () => {
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = event => {
     const inputValue = event.target.value;
     setEmail(inputValue);
 
@@ -13,30 +13,38 @@ const Feedback = () => {
     setIsEmailValid(isValid);
   };
 
-  const handleSubmit = () => {
-
-  };
+  const handleSubmit = () => {};
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <div className={styles.containerFeedbackKosss}>
         <div className={styles.titleFeedbackKosss}>
           <h1>Зворотній зв'язок</h1>
-          <p>Головна / <span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span></p>
+          <p>
+            Головна /{' '}
+            <span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span>
+          </p>
         </div>
         <div className={styles.formFeedbackKosss}>
           <div className={styles.comentFeedbackKosss}>
             <input type="text" />
           </div>
           <div className={styles.emailFeedbackKosss}>
-            <input type="email" value={email} onChange={handleEmailChange} required />
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
             {!isEmailValid && (
               <p style={{ color: 'red', margin: 0 }}>
                 Введіть коректну адресу електронної пошти
               </p>
             )}
           </div>
-          <button className={styles.confirmButtonFeedbackKosss} onClick={handleSubmit}>
+          <button
+            className={styles.confirmButtonFeedbackKosss}
+            onClick={handleSubmit}>
             Надіслати
           </button>
         </div>

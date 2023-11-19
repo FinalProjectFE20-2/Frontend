@@ -36,11 +36,13 @@ const Contacts = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <div className={styles.containerContactsKosss}>
         <div className={styles.titleContactsKosss}>
           <h1>Контакти</h1>
-          <p>Головна / <span style={{ color: '#9EA2AA' }}>Контакти</span></p>
+          <p>
+            Головна / <span style={{ color: '#9EA2AA' }}>Контакти</span>
+          </p>
         </div>
 
         <div className={styles.detailesContactsKosss}>
@@ -51,9 +53,13 @@ const Contacts = () => {
             <h2>Режим роботи:</h2>
             <p>11:00 - 23:00 </p>
             <h2>Номер телефону:</h2>
-            <p>+38 (093) 841-67-29</p>
+            <a href="tel:+380938416729" className={styles.link}>
+              +38 (093) 841-67-29
+            </a>
             <h2>Email:</h2>
-            <p>delivery@midas.rest</p>
+            <a href="mailto: delivery@midas.rest" className={styles.link}>
+              delivery@midas.rest
+            </a>
           </div>
         </div>
       </div>
