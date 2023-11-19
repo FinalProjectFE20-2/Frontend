@@ -1,41 +1,40 @@
 import React, { useState } from 'react';
-import './Feedback.scss';
+import styles from './Feedback.module.scss';
 
 const Feedback = () => {
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = event => {
     const inputValue = event.target.value;
     setEmail(inputValue);
 
-    // Простая проверка на валидность email
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue);
     setIsEmailValid(isValid);
   };
 
-  const handleSubmit = () => {
-    // Здесь можете добавить логику отправки формы
-    // например, вызовом функции, которая обрабатывает данные формы
-  };
+  const handleSubmit = () => {};
 
   return (
     <div className="container">
-      <div className="container__feedback_kosss">
-        <div className="title__feedback_kosss">
+      <div className={styles.containerFeedbackKosss}>
+        <div className={styles.titleFeedbackKosss}>
           <h1>Зворотній зв'язок</h1>
-          <p>Головна / <span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span></p>
+          <p>
+            Головна /{' '}
+            <span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span>
+          </p>
         </div>
-        <div className="form__feedback_kosss">
-          <div className="coment__feedback_kosss">
+        <div className={styles.formFeedbackKosss}>
+          <div className={styles.comentFeedbackKosss}>
             <input type="text" />
           </div>
-          <div className="email__feedback_kosss">
+          <div className={styles.emailFeedbackKosss}>
             <input
               type="email"
               value={email}
               onChange={handleEmailChange}
-              required // HTML5 атрибут, который говорит браузеру, что поле обязательное
+              required
             />
             {!isEmailValid && (
               <p style={{ color: 'red', margin: 0 }}>
@@ -43,7 +42,9 @@ const Feedback = () => {
               </p>
             )}
           </div>
-          <button className="confirm-button__feedback_kosss" onClick={handleSubmit}>
+          <button
+            className={styles.confirmButtonFeedbackKosss}
+            onClick={handleSubmit}>
             Надіслати
           </button>
         </div>

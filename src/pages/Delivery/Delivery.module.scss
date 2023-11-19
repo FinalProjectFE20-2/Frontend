@@ -1,0 +1,60 @@
+.containerDeliveryKosss {
+  .titleDeliveryKosss {
+    h1 {
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 55px;
+      letter-spacing: 0em;
+      text-align: left;
+      padding-bottom: 10px;
+
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #9EA2AA;
+      }
+    }
+  }
+
+  .contantDeliveryKosss {
+    margin: 0 auto;
+    padding: 70px 0 70px;
+    width: 90%;
+    max-width: 865px;
+
+    h2 {
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 30px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #FFF;
+      border-bottom: 1px solid #3D3D3D;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #FFF;
+    }
+
+    .delivDeliveryKosss,
+    .paymantDeliveryKosss {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .containerDeliveryKosss .contantDeliveryKosss {
+    padding: 40px 0 40px;
+  }
+}
