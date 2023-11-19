@@ -3,7 +3,7 @@ import styles from './Delivery.module.scss';
 
 const Delivery = () => {
   return (
-    <div className="container">
+    <div className="container main">
       <div className={styles.containerDeliveryKosss}>
         <div className={styles.titleDeliveryKosss}>
           <h1>Доставка та оплата</h1>

@@ -36,7 +36,7 @@ const Contacts = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container main">
       <div className={styles.containerContactsKosss}>
         <div className={styles.titleContactsKosss}>
           <h1>Контакти</h1>

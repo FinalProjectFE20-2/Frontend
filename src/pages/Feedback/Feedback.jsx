@@ -16,7 +16,7 @@ const Feedback = () => {
   const handleSubmit = () => {};
 
   return (
-    <div className="container">
+    <div className="container main">
       <div className={styles.containerFeedbackKosss}>
         <div className={styles.titleFeedbackKosss}>
           <h1>Зворотній зв'язок</h1>

@@ -30,7 +30,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="main">
       <Formik
         initialValues={{
           firstName: '',

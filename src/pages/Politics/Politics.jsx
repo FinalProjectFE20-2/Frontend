@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './Politics.module.scss';
 
 const Politics = () => (
-  <section className={`${styles.politics} container`} data-testid="Politics">
+  <section
+    className={`${styles.politics} container main`}
+    data-testid="Politics">
     <div className={styles.containerFluid}>
       <h1 className={styles.pagesTitle}> Політика конфеденційності </h1>
     </div>

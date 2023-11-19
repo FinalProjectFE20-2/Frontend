@@ -13,7 +13,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="main">
       <Formik
         initialValues={{
           email: '',
