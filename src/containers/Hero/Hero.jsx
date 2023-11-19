@@ -1,22 +1,46 @@
 import style from './Hero.module.scss';
 import Cart from '@/assets/icons/Cart.svg?react';
+import { motion } from 'framer-motion';
 
 function Hero() {
+  const downAnimation = {
+    hidden: { x: -1000, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
   return (
     <section className={style.hero}>
       <div className={`${style.container} container`}>
         <div className={style.left__content}>
-          <div className={style.left__title}>
+          <motion.div
+            initial={'hidden'}
+            animate={'visible'}
+            transition={{ delay: 0.5 }}
+            variants={downAnimation}
+            className={style.left__title}>
             Доставка готової їжі
             <br /> з фермерських продуктів!
-          </div>
+          </motion.div>
+
           <div className={style.left__contacts}>
-            <div className={style.phone}>
-              <a href="tel:+8 (093) 841-67-29">+8 (093) 841-67-29</a>
-            </div>
-            <div className={style.email}>
+            <motion.div
+              whileHover={{ scale: 1.3 }}
+              initial={'hidden'}
+              animate={'visible'}
+              transition={{ delay: 1 }}
+              variants={downAnimation}
+              className={style.phone}>
+              <a href="tel:+8 (093) 841-67-29">+38 (093) 841-67-29</a>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.3 }}
+              initial={'hidden'}
+              animate={'visible'}
+              transition={{ delay: 1 }}
+              variants={downAnimation}
+              className={style.email}>
               <a href="https//delivery@midas.rest">delivery@midas.rest</a>
-            </div>
+            </motion.div>
 
             <div className={style.content__card}>
               <img
@@ -28,13 +52,20 @@ function Hero() {
               <div className={style.card__weight}>430 г</div>
               <div className={style.card__inner}>
                 <p className={style.card__price}>370 &#8372;</p>
-                <button type="button" className={style.card__cart}>
-                  <Cart />
-                </button>
+                <motion.button
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  type="button"
+                  className={style.card__basket}>
+                  <button type="button" className={style.card__cart}>
+                    <Cart />
+                  </button>
+                </motion.button>
               </div>
             </div>
           </div>
         </div>
+
         <div className={style.right__content}>
           <div>
             <img
@@ -60,9 +91,15 @@ function Hero() {
               </p>
               <div className={style.price__inner}>
                 <p className={style.square__price}>1200 &#8372;</p>
-                <button type="button" className={style.square__cart}>
-                  <Cart />
-                </button>
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={style.square__basket}>
+                  <button type="button" className={style.square__cart}>
+                    <Cart />
+                  </button>
+                </motion.button>
               </div>
             </div>
           </div>

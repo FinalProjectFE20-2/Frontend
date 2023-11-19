@@ -1,7 +1,6 @@
-import React from 'react';
+import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
-import styles from './CartEmpty.module.scss'
-import cartEmptyImg from '../../assets/svg_icon/emptycart.svg';
+import cartEmptyImg from '@/assets/icons/EmptyCart.svg';
 
 const CartEmpty = () => {
   return (
@@ -16,7 +15,7 @@ const CartEmpty = () => {
           Для цього перейдіть на головну сторінку.
         </p>
         <img src={cartEmptyImg} alt="Empty cart" />
-        <Link to="/" >
+        <Link to="/">
           <div className={styles.button}>На головну сторінку</div>
         </Link>
       </div>

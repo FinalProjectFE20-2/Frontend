@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import SearchUrl from '@/assets/svg_icon/navigation/Search.svg?react';
-import SingUp from '@/assets/svg_icon/navigation/SingUp.svg?react';
-import BasketUrl from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './Navigation.module.scss';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import SearchUrl from '@/assets/icons/Search.svg?react';
+import SingUp from '@/assets/icons/SingUp.svg?react';
+import Cart from '@/assets/icons/Cart.svg?react';
 
 export default function Navigation() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -122,14 +122,17 @@ export default function Navigation() {
       icon: <SearchUrl className={`${styles.svgIcon} svg`} />,
       link: '/searchResult',
     },
-    { icon: <SingUp className={styles.singUp} />, link: '/singUp' },
-    { icon: <BasketUrl className="svg" />, link: '/cart' },
+    {
+      icon: <SingUp className={`svg ${styles.singUp}`} />,
+      link: '/singUp',
+    },
+    { icon: <Cart className="svg" />, link: '/cart' },
   ];
 
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
-        {links.map(({ link, icon },index) => (
+        {links.map(({ link, icon }, index) => (
           <li key={index} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
@@ -145,7 +148,7 @@ export default function Navigation() {
         ref={searchResultsRef}
         className={styles.searchResults}
         style={{ display: searchResultsVisible ? 'block' : 'none' }}>
-        {searchResults.map((result,index) => (
+        {searchResults.map((result, index) => (
           <div key={result._id}>
             {/* Render the search results */}
             <p

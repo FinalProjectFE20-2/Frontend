@@ -5,14 +5,13 @@ import Navigation from '../../components/Navigation/Navigation.jsx';
 import CategoriesMenu from '../../components/CategoriesMenu/CategoriesMenu.jsx';
 
 export default function Header() {
-    return (
-        <header className={`${styles.header} container`}>
-            <HeaderContainer classAdd={styles.headerWrapper}>
-                <Logo/>
-                <CategoriesMenu/>
-                <Navigation/>
-            </HeaderContainer>
-
-        </header>
-    );
+  return (
+    <header className={`${styles.header} container`}>
+      <HeaderContainer classAdd={styles.headerWrapper}>
+        <Logo />
+        <CategoriesMenu />
+        <Navigation />
+      </HeaderContainer>
+    </header>
+  );
 }

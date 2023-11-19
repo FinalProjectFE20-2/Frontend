@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import styles from './OrderBar.module.scss';
+import { useState } from 'react';
+import Cart from '@/assets/icons/Cart.svg?react';
 
 const OrderBar = ({ productId, currentPrice, previousPrice, quantity }) => {
   const [val, setVal] = useState(1);
