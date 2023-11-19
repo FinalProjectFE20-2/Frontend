@@ -1,0 +1,33 @@
+$color_1: white;
+$font-family_1: Montserrat;
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    color: $color_1;
+    font-size: 20px;
+    font-weight: 500;
+}
+.imgWrapper {
+    height: 90px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-basis: 90px;
+    text-align: center;
+}
+.title {
+    margin: 0;
+    font-family: $font-family_1;
+    font-size: 20px;
+}
+@media (max-width: 467px) {
+    .imgWrapper {
+        height: 75px;
+    }
+    .link {
+        width: 70%;
+        margin: 0 auto;
+    }
+}

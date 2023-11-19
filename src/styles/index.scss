@@ -1,0 +1,42 @@
+@import 'reset.scss';
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  position: relative;
+  /*   display: flex;
+  flex-direction: column;
+  min-height: 100vh; */
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff;
+  /*   background-color: #0f0f11;
+  background-image: url('https://res.cloudinary.com/dk4wwlrws/image/upload/v1698440613/nz1oipckv0ynf2fzgmzb.png');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background: rgb(0, 0, 0);
+  background: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgba(9, 36, 80, 1) 100%);
+}
+
+body {
+  margin: 0 auto;
+  /*   height: 100%; */
+  /*   overflow-x: hidden; */
+}
+
+.svg:hover {
+  filter: brightness(0) saturate(100%) invert(68%) sepia(60%) saturate(471%) hue-rotate(5deg) brightness(109%) contrast(97%);
+}
+
+@media (max-width: 555px) {
+  .container {
+    padding: 0 2rem;
+  }
+}

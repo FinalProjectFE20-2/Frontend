@@ -1,0 +1,181 @@
+.Footer {
+  padding-top: 50px;
+  padding-bottom: 35px;
+  background-color: #000;
+
+  @media (max-width: 565px) {
+    position: relative;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.innerWrapper,
+.wrapperPolitics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.innerWrapper {
+  @media (max-width: 990px) {
+    flex-flow: column;
+    align-items: start;
+  }
+}
+
+.wrapperPolitics {
+  @media (max-width: 990px) {
+    flex-flow: column;
+  }
+
+  @media (max-width: 565px) {
+    flex-flow: column;
+    align-items: start;
+  }
+}
+
+.links {
+  margin-left: 120px;
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1400px) {
+    margin-left: 50px;
+    width: 350px;
+  }
+
+  @media (max-width: 990px) {
+    margin-left: 0;
+    margin-top: 30px;
+    width: 350px;
+  }
+
+  @media (max-width: 565px) {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: start;
+    margin-top: 80px;
+    width: 200px;
+  }
+}
+
+.link {
+  @media (max-width: 1400px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 565px) {
+    margin-top: 30px;
+    line-height: 40px;
+  }
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  color: #fbd13e;
+  transition: color 0.3s;
+}
+
+.phone {
+  font-size: 20px;
+
+  @media (max-width: 1400px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 12px;
+  }
+}
+
+.email {
+  margin-left: 30px;
+
+  @media (max-width: 565px) {
+    margin-left: 25px;
+  }
+}
+
+.politics {
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+
+  @media (max-width: 1400px) {
+    width: 400px;
+  }
+
+  @media (max-width: 990px) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 565px) {
+    width: 300px;
+    flex-wrap: wrap;
+  }
+}
+
+.rights {
+  @media (max-width: 990px) {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+}
+
+.contacts {
+  @media (max-width: 990px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+
+  @media (max-width: 565px) {
+    position: absolute;
+    top: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 350px) {
+
+    align-items: start;
+  }
+}
+
+.social {
+  width: 188px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialItem {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter .3s;
+}
+
+.inst {
+  background-image: url('./icons/inst.svg');
+}
+
+.fb {
+  background-image: url('./icons/fb.svg');
+}
+
+.linkin {
+  background-image: url('./icons/linkin.svg');
+}
+
+.git {
+  background-image: url('./icons/git.svg');
+}
