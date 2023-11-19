@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import styles from './ProductCard.module.scss';
-import Cart from '@/assets/svg_icon/navigation/Basket.svg?react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
+import Cart from '@/assets/icons/Cart.svg?react';
 
 const ProductCard = ({ itemNo, onClickAddCart }) => {
   const products = useSelector(state => state.products.products || []);

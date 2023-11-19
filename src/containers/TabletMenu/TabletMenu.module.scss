@@ -7,9 +7,10 @@
   position: absolute;
   background: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100%);
   //background: rgba(0, 0, 0, 0.8);
- padding-top: 20px;
+  padding-top: 20px;
   backdrop-filter: blur(25px);
-& .conteiner {
-  padding: 10px;
-}
+
+  & .conteiner {
+    padding: 10px;
+  }
 }

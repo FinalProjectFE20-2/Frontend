@@ -1,10 +1,17 @@
-import React from 'react';
 import styles from './CartItem.module.scss';
-import classNames from 'classnames'
 
-
-
-const CartItem = ({ id, name, price, size, imageUrl, totalPrice, totalCount, onRemove, onMinus, onPlus }) => {
+const CartItem = ({
+  id,
+  name,
+  price,
+  size,
+  imageUrl,
+  totalPrice,
+  totalCount,
+  onRemove,
+  onMinus,
+  onPlus,
+}) => {
   const handleRemoveClick = () => {
     onRemove(id);
   };
@@ -17,37 +24,41 @@ const CartItem = ({ id, name, price, size, imageUrl, totalPrice, totalCount, onR
     onMinus(id);
   };
 
-
   return (
-  <div className={styles.cartItem}>
+    <div className={styles.cartItem}>
       <div className={styles.cartItem__img}>
-        <img
-          className="pizza-block__image"
-          src={imageUrl}
-          alt="Pizza"
-        />
+        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       </div>
       <div className={styles.cartItem__info}>
         <h3>{name}</h3>
-        <p>
-          {size} 
-        </p>
+        <p>{size}</p>
       </div>
       <div className={styles.cartItem__price}>
         <p>Ціна:</p>
         <b>{price} &#8372;</b>
       </div>
       <div className={styles.cartItem__count}>
-              <button className={`${styles.counter__btn} ${styles.btn__minus}`}>-</button>
-              <input className={styles.counter__input} type='number' placeholder={totalCount}/>
-              <button className={`${styles.counter__btn} ${styles.counter__btn} ${styles.btn__plus}`}>+</button>
-            </div>
+        <button className={`${styles.counter__btn} ${styles.btn__minus}`}>
+          -
+        </button>
+        <input
+          className={styles.counter__input}
+          type="number"
+          placeholder={totalCount}
+        />
+        <button
+          className={`${styles.counter__btn} ${styles.counter__btn} ${styles.btn__plus}`}>
+          +
+        </button>
+      </div>
       <div className={styles.cartItem__totalPrice}>
         <p>Сума:</p>
         <b>{totalPrice} &#8372;</b>
       </div>
       <div className={styles.cartItem__remove}>
-      <button onClick={handleRemoveClick} className={styles.cartItem__buttonRemove}>
+        <button
+          onClick={handleRemoveClick}
+          className={styles.cartItem__buttonRemove}>
           <svg
             width="10"
             height="10"

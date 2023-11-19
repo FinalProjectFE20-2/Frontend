@@ -1,5 +1,4 @@
 import styles from './TabletMenu.module.scss';
-
 import ProductsCatigories from './ProductsCatigories/ProductsCatigories';
 import HeaderContainer from '../../components/HeaderContainer/HeaderContainer.jsx';
 

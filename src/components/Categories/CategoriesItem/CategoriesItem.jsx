@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
+import styles from './CategoriesItem.module.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import Dropdown from '../Dropdown/DropDown.jsx';
-import styles from './CategoriesItem.module.scss';
-import Arrow from '@/assets/svg_icon/arrow.svg?react';
 import { useMediaQuery } from 'react-responsive';
+import Dropdown from '../Dropdown/DropDown.jsx';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
+import Arrow from '@/assets/icons/Arrow.svg?react';
 
 const CategoriesItem = ({ items }) => {
   const [dropdown, setDropdown] = useState(false);
