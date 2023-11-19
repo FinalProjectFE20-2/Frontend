@@ -1,6 +1,18 @@
 .header {
   /*   background-color: #0f0f12; */
   padding: 50px 0;
+  @media (max-width: 993px) {
+    padding: 0;
+    height: 117px;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 500px) {
+    height: 140px;
+  }
+  @media (max-width: 355px) {
+    height: 128px;
+  }
 }
 
 .headerWrapper {
@@ -11,6 +23,11 @@
 
   @media (max-width: 565px) {
     gap: 4px;
+
+  }
+  @media (max-width: 500px) {
+   padding: 10px;
+
   }
 }
 

@@ -1,5 +1,4 @@
-import styles from "../Dropdown/DropDown.module.css";
-import { Link } from "react-router-dom";
+
 import ProdCategoriesItem
   from "../../../containers/TabletMenu/ProductsCatigories/ProdCategoriesItem/ProdCategoriesItem.jsx";
 import { useMediaQuery } from "react-responsive";
