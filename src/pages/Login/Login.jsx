@@ -48,7 +48,7 @@ const Login = () => {
             <div className={styles.Field}>
               <Field
                 name="password"
-                placeholder="Password"
+                placeholder="Пароль"
                 type="password"
                 className={styles.password}
               />
