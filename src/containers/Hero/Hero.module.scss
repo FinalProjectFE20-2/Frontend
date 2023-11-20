@@ -9,11 +9,7 @@
     padding-bottom: 0;
   }
 
-  @media(max-width:1000px) {
-    padding-bottom: 400px;
-  }
-
-  @media(max-width:993px) {
+  @media(max-width:1200px) {
     padding-bottom: 300px;
   }
 
@@ -203,7 +199,7 @@
   }
 
   @media(max-width:1230px) {
-    top: 330px;
+    top: 300px;
     left: 65px;
   }
 
@@ -284,7 +280,7 @@
     height: 364px;
   }
 
-  @media(max-width:1000px) {
+  @media(max-width:1200px) {
     display: none;
   }
 }
