@@ -13,7 +13,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="main">
       <Formik
         initialValues={{
           email: '',
@@ -36,18 +36,29 @@ const Login = () => {
         {({ errors, touched }) => (
           <Form className={styles.loginForm}>
             <div className={styles.Field}>
-              <Field name="email" placeholder="Email" />
+              <Field
+                name="email"
+                placeholder="Email"
+                className={styles.email}
+              />
               {errors.email && touched.email && (
                 <div className={styles.errors}>{errors.email}</div>
               )}
             </div>
             <div className={styles.Field}>
-              <Field name="password" placeholder="Password" type="password" />
+              <Field
+                name="password"
+                placeholder="Password"
+                type="password"
+                className={styles.password}
+              />
               {errors.password && touched.password && (
                 <div className={styles.errors}>{errors.password}</div>
               )}
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn btn-light">
+              Відправити
+            </button>
           </Form>
         )}
       </Formik>

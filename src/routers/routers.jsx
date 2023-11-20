@@ -23,9 +23,9 @@ export const router = createBrowserRouter([
     element: (
       <>
         <Header />
+        <GoToTop />
         <PrivateRoute />
         <Outlet />
-        <GoToTop />
         <Footer />
       </>
     ),

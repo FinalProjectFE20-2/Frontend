@@ -30,7 +30,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="main">
       <Formik
         initialValues={{
           firstName: '',
@@ -54,19 +54,31 @@ const Registration = () => {
         {({ errors, touched }) => (
           <Form className={styles.singUpForm}>
             <div className={styles.Field}>
-              <Field name="firstName" placeholder="First Name" />
+              <Field
+                name="firstName"
+                placeholder="Ім'я"
+                className={styles.input}
+              />
               {errors.firstName && touched.firstName && (
                 <div className={styles.errors}>{errors.firstName}</div>
               )}
             </div>
             <div className={styles.Field}>
-              <Field name="lastName" placeholder="Last Name" />
+              <Field
+                name="lastName"
+                placeholder="Прізвище"
+                className={styles.input}
+              />
               {errors.lastName && touched.lastName && (
                 <div className={styles.errors}>{errors.lastName}</div>
               )}
             </div>
             <div className={styles.Field}>
-              <Field name="email" placeholder="Email" />
+              <Field
+                name="email"
+                placeholder="Email"
+                className={styles.input}
+              />
               {errors.email && touched.email && (
                 <div className={styles.errors}>{errors.email}</div>
               )}
@@ -76,6 +88,7 @@ const Registration = () => {
                 name="password"
                 placeholder="Password"
                 type={isPasswordShown ? 'text' : 'password'}
+                className={styles.input}
               />
               {errors.password && touched.password && (
                 <div className={styles.errors}>{errors.password}</div>
@@ -96,8 +109,9 @@ const Registration = () => {
             <div className={styles.Field}>
               <Field
                 name="confirmPassword"
-                placeholder="Confirm Password"
+                placeholder="Підтвердіть пароль"
                 type={isPasswordShown ? 'text' : 'password'}
+                className={styles.input}
               />
               {errors.confirmPassword && touched.confirmPassword && (
                 <div className={styles.errors}>{errors.confirmPassword}</div>
@@ -116,12 +130,18 @@ const Registration = () => {
               )}
             </div>
             <div className={styles.Field}>
-              <Field name="login" placeholder="login" />
+              <Field
+                name="login"
+                placeholder="Логін"
+                className={styles.input}
+              />
               {errors.login && touched.login && (
                 <div className={styles.errors}>{errors.login}</div>
               )}
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn btn-light">
+              Відправити
+            </button>
           </Form>
         )}
       </Formik>
