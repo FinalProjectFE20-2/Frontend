@@ -1,3 +1,40 @@
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  color: #fbd13e;
+  /*   width: 56px;
+  height: 56px;
+  border: solid 1px #fff;
+  border-radius: 100%;
+  background-color: #000; */
+}
+
+
+.link {
+  width: 230px;
+  position: relative;
+}
+
+.img {
+  display: block;
+  width: 100%;
+}
+
+.discount {
+  width: 130px;
+  height: 135px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+}
+
+.price {
+  position: absolute;
+  top: 95px;
+  left: 35px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;

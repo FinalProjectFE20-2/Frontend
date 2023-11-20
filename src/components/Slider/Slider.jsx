@@ -1,34 +1,67 @@
-import './Slider.scss';
-import Carousel from 'react-bootstrap/Carousel';
+import styles from './Slider.module.scss';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Discount from '@/assets/icons/Discount.svg?react';
 
 function Slider() {
-  const [discounts, setDiscounts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  const fetchDiscountsData = () => {
-    return axios
-      .get('discountsData.json')
-      .then(response => setDiscounts(response.data));
+  const getProducts = () => {
+    axios
+      .get(
+        'https://backend-zeta-sandy.vercel.app/api/products/filter?discount=true',
+      )
+      .then(response => {
+        console.log(response.data.products);
+        setProducts(response.data.products);
+
+        /* Do something with products */
+      })
+      .catch(err => {
+        console.log('error', err);
+        /* Do something with error, e.g. show error to user */
+      });
   };
 
+  getProducts();
+
   useEffect(() => {
-    fetchDiscountsData();
+    getProducts();
   }, []);
 
-  const carouselItems = discounts.map(item => (
-    <Carousel.Item interval={3000} key={item.id}>
-      <Link to={`/product/${item.url}`}>
-        <img className="d-block w-100 h-50" src={item.image} alt={item.alt} />
+  const swiperItems = products.map(product => (
+    <SwiperSlide key={product._id}>
+      <Link to={`/product/${product.itemNo}`} className={styles.link}>
+        <img
+          src={product.imageUrls[0]}
+          alt={product.name}
+          className={styles.img}
+        />
+        <Discount className={styles.discount} />
+        <div className={styles.price}>₴{product.currentPrice}</div>
       </Link>
-    </Carousel.Item>
+    </SwiperSlide>
   ));
 
   return (
-    <Carousel pause="false" data-testid="Slider">
-      {carouselItems.length && carouselItems}
-    </Carousel>
+    <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, A11y]}
+      spaceBetween={50}
+      slidesPerView={4}
+      navigation
+      pagination={{ clickable: true }}
+      onSwiper={swiper => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}>
+      {swiperItems.length && swiperItems}
+    </Swiper>
   );
 }
 

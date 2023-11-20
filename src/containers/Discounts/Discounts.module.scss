@@ -1,11 +1,6 @@
 .discounts {
   position: relative;
-  padding: 150px 200px 0 200px;
-
-  @media (max-width: 1580px) {
-    padding: 0;
-    padding-top: 160px;
-  }
+  padding-top: 160px;
 
   @media (max-width: 990px) {
     padding-top: 50px;
@@ -27,6 +22,7 @@
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 3rem;
+  text-align: center;
 
   @media (max-width: 1200px) {
     font-size: 2rem;

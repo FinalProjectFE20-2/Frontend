@@ -86,7 +86,7 @@ const Registration = () => {
             <div className={styles.Field}>
               <Field
                 name="password"
-                placeholder="Password"
+                placeholder="Пароль"
                 type={isPasswordShown ? 'text' : 'password'}
                 className={styles.input}
               />
