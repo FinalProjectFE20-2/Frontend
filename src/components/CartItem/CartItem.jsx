@@ -38,7 +38,9 @@ const CartItem = ({
         <b>{price} &#8372;</b>
       </div>
       <div className={styles.cartItem__count}>
-        <button className={`${styles.counter__btn} ${styles.btn__minus}`}>
+        <button
+          onClick={handleMinusItem}
+          className={`${styles.counter__btn} ${styles.btn__minus}`}>
           -
         </button>
         <input
@@ -47,6 +49,7 @@ const CartItem = ({
           placeholder={totalCount}
         />
         <button
+          onClick={handlePlusItem}
           className={`${styles.counter__btn} ${styles.counter__btn} ${styles.btn__plus}`}>
           +
         </button>
