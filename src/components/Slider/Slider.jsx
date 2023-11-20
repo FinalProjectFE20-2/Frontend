@@ -1,5 +1,5 @@
-import styles from './Slider.module.scss';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import './Slider.scss';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -19,14 +19,10 @@ function Slider() {
         'https://backend-zeta-sandy.vercel.app/api/products/filter?discount=true',
       )
       .then(response => {
-        console.log(response.data.products);
         setProducts(response.data.products);
-
-        /* Do something with products */
       })
       .catch(err => {
         console.log('error', err);
-        /* Do something with error, e.g. show error to user */
       });
   };
 
@@ -38,14 +34,10 @@ function Slider() {
 
   const swiperItems = products.map(product => (
     <SwiperSlide key={product._id}>
-      <Link to={`/product/${product.itemNo}`} className={styles.link}>
-        <img
-          src={product.imageUrls[0]}
-          alt={product.name}
-          className={styles.img}
-        />
-        <Discount className={styles.discount} />
-        <div className={styles.price}>₴{product.currentPrice}</div>
+      <Link to={`/product/${product.itemNo}`} className="link">
+        <img src={product.imageUrls[0]} alt={product.name} className="img" />
+        <Discount className="discount" />
+        <div className="price">₴{product.currentPrice}</div>
       </Link>
     </SwiperSlide>
   ));
@@ -53,10 +45,12 @@ function Slider() {
   return (
     <Swiper
       // install Swiper modules
-      modules={[Navigation, Pagination, A11y]}
+      modules={[Navigation, Pagination, A11y, Autoplay]}
       spaceBetween={50}
       slidesPerView={4}
       navigation
+      autoplay
+      loop={true}
       pagination={{ clickable: true }}
       onSwiper={swiper => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}>
