@@ -46,11 +46,25 @@ function Slider() {
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y, Autoplay]}
-      spaceBetween={50}
-      slidesPerView={4}
+      spaceBetween={40}
       navigation
       autoplay
       loop={true}
+      breakpoints={{
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+        },
+        500: {
+          slidesPerView: 2,
+        },
+        780: {
+          slidesPerView: 3,
+        },
+        1000: {
+          slidesPerView: 4,
+        },
+      }}
       pagination={{ clickable: true }}
       onSwiper={swiper => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}>
