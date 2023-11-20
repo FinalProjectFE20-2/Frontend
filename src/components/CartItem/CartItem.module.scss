@@ -127,16 +127,18 @@
   
       &__count {
         display: flex;
-        align-items: center;
         justify-content: center;
-        height: 40px;
+        align-items: center;
+        padding: 15px 25px;
+        margin-top: 10px;
+        height: 60px;
         width: 80px;
-        top: 70px;
+        top: 50px;
         position: relative;
         // width: 15%;
 
         .counter__input{
-          height: 40px;
+          height: 60px;
           width: 80px;
           text-align: center;
           padding: 5px;
@@ -160,10 +162,10 @@
         }
         
         .counter__btn{
-          top: 5px;
+          top: 7px;
           padding: 0 5px;
           position: absolute;
-          font-size: 20px;
+          font-size: 30px;
           background: black;
         }
         
@@ -174,10 +176,12 @@
         
         .btn__minus{
           left: -10px;
+         
         }
         
         .btn__plus{
           right: -13px;
+         
         }
   
         @media (max-width: 990px) {

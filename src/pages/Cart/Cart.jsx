@@ -5,7 +5,7 @@ import CartItem from '@/components/CartItem/CartItem.jsx';
 import styles from './Cart.module.scss'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeCartItem } from '../../store/action/cart/cart';
+import { removeCartItem, plusCartItem, minusCartItem} from '../../store/action/cart/cart';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -18,8 +18,16 @@ const Cart = () => {
 
     const onRemoveItem = (id) => {
           dispatch(removeCartItem(id));  
+      }; 
+      
+      
+      const onPlusItem = (id) => {
+        dispatch(plusCartItem(id));
+      };
+
+      const onMinusItem = (id) => {
+        dispatch(minusCartItem(id));
       };  
-    
 
     return (
         <div>
@@ -50,8 +58,8 @@ const Cart = () => {
                         totalPrice={items[obj.id].totalPrice}
                         totalCount={items[obj.id].items.length}
                         onRemove={onRemoveItem}
-                        // onMinus={onMinusItem}
-                        // onPlus={onPlusItem}
+                        onMinus={onMinusItem}
+                        onPlus={onPlusItem}
                     />
                   ))}
                 </div>
