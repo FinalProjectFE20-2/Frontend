@@ -35,7 +35,7 @@ function Slider() {
   const swiperItems = products.map(product => (
     <SwiperSlide key={product._id}>
       <Link to={`/product/${product.itemNo}`} className="link">
-        <img src={product.imageUrls[0]} alt={product.name} className="img" />
+        <img src={product.imageUrls} alt={product.name} className="img" />
         <Discount className="discount" />
         <div className="price">₴{product.currentPrice}</div>
       </Link>
@@ -65,9 +65,7 @@ function Slider() {
           slidesPerView: 4,
         },
       }}
-      pagination={{ clickable: true }}
-      onSwiper={swiper => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}>
+      pagination={{ clickable: true }}>
       {swiperItems.length && swiperItems}
     </Swiper>
   );
