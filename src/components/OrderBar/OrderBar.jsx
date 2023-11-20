@@ -54,7 +54,7 @@ const OrderBar = ({ productId, currentPrice, previousPrice, quantity }) => {
         </button>
       </div>
       <p className={styles.price}>
-        ₴ {(!currentPrice && previousPrice) * val},00
+        ₴ {(currentPrice || previousPrice) * val},00
       </p>
       <button>
         <Cart className="svg" />
