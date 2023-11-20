@@ -5,12 +5,21 @@
   margin: 0 auto;
   max-width: 450px;
 }
+
+.input {
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
 .Field {
   position: relative;
 }
+
 .Field input {
   width: 100%;
 }
+
 .fieldIcon {
   position: absolute;
   right: 10px;

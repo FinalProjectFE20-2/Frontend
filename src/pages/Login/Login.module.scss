@@ -6,6 +6,13 @@
   max-width: 450px;
 }
 
+.email,
+.password {
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
 .Field {
   position: relative;
 }
