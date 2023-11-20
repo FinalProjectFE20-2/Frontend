@@ -8,7 +8,7 @@ import Cart from '@/assets/icons/Cart.svg?react';
 const ProductCard = ({ itemNo, onClickAddCart }) => {
   const products = useSelector(state => state.products.products || []);
   const product = products.find(product => product.itemNo === itemNo);
-  // console.log(product, 11);
+  console.log(product);
   const dispatch = useDispatch();
 
   const onAddCart = () => {
