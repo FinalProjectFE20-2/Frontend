@@ -24,7 +24,6 @@ export const router = createBrowserRouter([
       <>
         <Header />
         <GoToTop />
-        <PrivateRoute />
         <Outlet />
         <Footer />
       </>
@@ -45,14 +44,6 @@ export const router = createBrowserRouter([
       {
         path: '*',
         element: <NoPage />,
-      },
-      {
-        path: '/cart',
-        element: <Cart />,
-      },
-      {
-        path: '/cart/checkout',
-        element: <Checkout />,
       },
       {
         path: '/feedback',
@@ -117,6 +108,27 @@ export const router = createBrowserRouter([
       {
         element: <div>Напої</div>,
         path: '/drinks',
+      },
+      {
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: '/cart',
+            element: <Cart />,
+          },
+          {
+            path: '/cart/checkout',
+            element: <Checkout />,
+          },
+          {
+            path: '/profile',
+            element: <div>Profile</div>,
+          },
+          {
+            path: '/order_history',
+            element: <div>Order History</div>,
+          },
+        ],
       },
     ],
   },
