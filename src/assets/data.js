@@ -10,63 +10,63 @@ import img28 from '@/assets/products/28.png';
 export const menuItems = [
   {
     title: 'Акції',
-    url: '/action',
+    url: 'categories/action',
     img: fire,
   },
   {
     title: 'Гарячі',
-    url: '/hot',
+    url: 'categories/hot',
     submenu: [
       {
         title: 'Гарячі страви',
-        url: 'hot_dishes',
+        url: 'categories/hot_dishes',
         img: img17,
       },
       {
-        title: 'Супи',
-        url: 'soups',
+        title: 'Перші страви',
+        url: 'categories/soups',
         img: img19,
       },
       {
         title: 'Хінкалі',
-        url: 'khinkali',
+        url: 'categories/khinkali',
         img: img21,
       },
     ],
   },
   {
     title: 'Холодні',
-    url: '/cold',
+    url: 'categories/cold',
     submenu: [
       {
-        title: 'Холодні страви',
-        url: 'cold_dishes',
+        title: 'Холодні закуски',
+        url: 'categories/cold_dishes',
         img: img25,
       },
       {
         title: 'Салати',
-        url: 'salat',
+        url: 'categories/salat',
         img: img28,
       },
       {
         title: 'Соуси',
-        url: '/souse',
+        url: 'categories/souse',
       },
     ],
   },
   {
     title: 'Свіжа випічка',
-    url: '/fresh_pastries',
+    url: 'categories/fresh_pastries',
     img: img26,
   },
   {
     title: 'Десерти',
-    url: '/deserts',
+    url: 'categories/deserts',
     img: img28,
   },
   {
     title: 'Напої',
-    url: 'drinks',
+    url: 'categories/drinks',
     img: img27,
   },
 ];
