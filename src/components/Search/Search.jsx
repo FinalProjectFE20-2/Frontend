@@ -86,7 +86,7 @@ export default function Search() {
         <input
           type="text"
           placeholder="Пошук..."
-          style={{ border: 'none', outline: 'none' }}
+          className={styles.input}
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
