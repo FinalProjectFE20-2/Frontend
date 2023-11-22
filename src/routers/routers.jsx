@@ -16,7 +16,7 @@ import PrivateRoute from './privateRoute';
 import Login from '@/pages/Login/Login';
 import Registration from '@/pages/Registration/Registration';
 import GoToTop from '@/components/GoToTop/GoToTop.jsx';
-import ProductCategories from "@/pages/ProductCategories/ProductCategories.jsx";
+import ProductCategories from '@/pages/ProductCategories/ProductCategories.jsx';
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
@@ -25,7 +25,6 @@ export const router = createBrowserRouter([
       <>
         <Header />
         <GoToTop />
-        <PrivateRoute />
         <Outlet />
         <Footer />
       </>
@@ -46,14 +45,6 @@ export const router = createBrowserRouter([
       {
         path: '*',
         element: <NoPage />,
-      },
-      {
-        path: '/cart',
-        element: <Cart />,
-      },
-      {
-        path: '/cart/checkout',
-        element: <Checkout />,
       },
       {
         path: '/feedback',
@@ -79,50 +70,28 @@ export const router = createBrowserRouter([
         path: '/product/:productId',
         element: <Product />,
       },
+      { path: '/categories/:categoriesName', element: <ProductCategories /> },
       {
-        path: '/categories/:categoriesName',
-        element: <ProductCategories />,
-      }
-      // {
-      //   element: <div>Акції</div>,
-      //   path: '/action',
-      // },
-      // {
-      //   element: <div>Гарячі страви</div>,
-      //   path: '/hot_dishes',
-      // },
-      // {
-      //   element: <div>Супи</div>,
-      //   path: '/soups',
-      // },
-      // {
-      //   element: <div>Хінкалі</div>,
-      //   path: '/khinkali',
-      // },
-      // {
-      //   element: <div>Холодні страви</div>,
-      //   path: '/cold_dishes',
-      // },
-      // {
-      //   element: <div>Салати</div>,
-      //   path: '/salat',
-      // },
-      // {
-      //   element: <div>Соуси</div>,
-      //   path: '/souse',
-      // },
-      // {
-      //   element: <div>Свіжа випічка</div>,
-      //   path: '/fresh_pastries',
-      // },
-      // {
-      //   element: <div>Десерти</div>,
-      //   path: '/deserts',
-      // },
-      // {
-      //   element: <div>Напої</div>,
-      //   path: '/drinks',
-      // },
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: '/cart',
+            element: <Cart />,
+          },
+          {
+            path: '/cart/checkout',
+            element: <Checkout />,
+          },
+          {
+            path: '/profile',
+            element: <div>Profile</div>,
+          },
+          {
+            path: '/order_history',
+            element: <div>Order History</div>,
+          },
+        ],
+      },
     ],
   },
 ]);
