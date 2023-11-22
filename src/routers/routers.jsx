@@ -16,6 +16,7 @@ import PrivateRoute from './privateRoute';
 import Login from '@/pages/Login/Login';
 import Registration from '@/pages/Registration/Registration';
 import GoToTop from '@/components/GoToTop/GoToTop.jsx';
+import HistoryOrderList from '@/pages/HistoryOrderList/HistoryOrderList.jsx'; 
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
       <>
         <Header />
         <GoToTop />
-        <PrivateRoute />
+        {/* <PrivateRoute /> */}
         <Outlet />
         <Footer />
       </>
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: '/singUp',
         element: <Registration />,
+      },
+      {
+        path: '/orderlist',
+        element: <HistoryOrderList />,
       },
       {
         path: '*',

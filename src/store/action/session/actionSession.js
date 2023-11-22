@@ -29,8 +29,9 @@ export const login = user => async dispatch => {
     dispatch(setUserError(data));
     return;
   }
-  sessionStorage.setItem('token', data.token);
-  dispatch(setToken(data.token));
+  const token = await data.token.split(' ')[1];
+  sessionStorage.setItem('token', token);
+  dispatch(setToken(token));
   return true;
 };
 export const singUp = user => async dispatch => {
@@ -46,9 +47,10 @@ export const singUp = user => async dispatch => {
     },
   );
   const data = await res.json();
-  console.log(data);
   if (!res.ok) {
     await dispatch(setUserError(data));
+    return;
   }
+
   await dispatch(setUser(data));
 };

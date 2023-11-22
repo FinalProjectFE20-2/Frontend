@@ -1,15 +1,14 @@
-import Header from '@/containers/Header/Header.jsx';
-import Footer from '@/containers/Footer/Footer.jsx';
+import {useEffect} from 'react';
 import CartEmpty from '../../components/CartEmpty/CartEmpty';
 import CartItem from '@/components/CartItem/CartItem.jsx';
 import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeCartItem } from '../../store/action/cart/cart';
+import { getCart, removeCartItem } from '../../store/action/cart/cart';
 
 const Cart = () => {
   const dispatch = useDispatch();
-
+  const token = useSelector(state => state.session.token);
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
   const addedCart = Object.keys(items).map(key => {
@@ -19,6 +18,13 @@ const Cart = () => {
   const onRemoveItem = id => {
     dispatch(removeCartItem(id));
   };
+  useEffect(() => {
+    console.log(token)
+  if (token){
+    dispatch(getCart())
+  }
+    }, [token, dispatch]);
+
 
   return (
     <div>
