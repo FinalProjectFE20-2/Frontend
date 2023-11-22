@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import SearchUrl from '@/assets/icons/Search.svg?react';
-import BasketUrl from '@/assets/icons/Cart.svg?react';
 import styles from './Search.module.scss';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import SearchUrl from '@/assets/icons/Search.svg?react';
+import SingUp from '@/assets/icons/SingUp.svg?react';
+import Cart from '@/assets/icons/Cart.svg?react';
 import axios from 'axios';
 
 export default function Search() {
@@ -10,6 +12,7 @@ export default function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchResultsVisible, setSearchResultsVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const totalCount = useSelector(({ cart }) => cart.totalCount);
   const searchResultsRef = useRef(null);
   const debounceTimer = useRef(null);
   const baseUrl = 'https://backend-zeta-sandy.vercel.app/api';
@@ -94,7 +97,19 @@ export default function Search() {
       icon: <SearchUrl className={`${styles.svgIcon} svg`} />,
       link: '/searchResult',
     },
-    { icon: <BasketUrl className="svg" />, link: '/cart' },
+    {
+      icon: <SingUp className={`svg ${styles.singUp}`} />,
+      link: '/singUp',
+    },
+    {
+      icon: (
+        <div className={styles.iconWrapper}>
+          <p className={styles.count}>{totalCount}</p>
+          <Cart className="svg" />
+        </div>
+      ),
+      link: '/cart',
+    },
   ];
 
   return (
