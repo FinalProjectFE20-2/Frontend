@@ -6,7 +6,7 @@ const initialState = {
 
 const getTotalPrice = arr => arr.reduce((sum, obj) => obj.price + sum, 0);
 
-const cart = (state = initialState, action) => {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_CART': {
       const currentItems = !state.items[action.payload.id] ? [action.payload] : [...state.items[action.payload.id].items, action.payload];
@@ -87,6 +87,7 @@ const cart = (state = initialState, action) => {
       const currentTotalPrice = newItems[action.payload].totalPrice;
       const currentTotalCount = newItems[action.payload].items.length;
       delete newItems[action.payload];
+
       return {
         ...state,
         items: newItems,
@@ -100,4 +101,4 @@ const cart = (state = initialState, action) => {
   }
 };
 
-export default cart;
+export default cartReducer;
