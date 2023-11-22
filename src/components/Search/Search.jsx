@@ -1,65 +1,44 @@
-import styles from './Navigation.module.scss';
+import styles from './Search.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SearchUrl from '@/assets/icons/Search.svg?react';
 import SingUp from '@/assets/icons/SingUp.svg?react';
 import Cart from '@/assets/icons/Cart.svg?react';
-import {useSelector} from "react-redux";
+import axios from 'axios';
 
-export default function Navigation() {
+export default function Search() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchResultsVisible, setSearchResultsVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null); // Variable to store the selected item
- const totalCount= useSelector(({ cart }) => cart.totalCount);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const totalCount = useSelector(({ cart }) => cart.totalCount);
   const searchResultsRef = useRef(null);
   const debounceTimer = useRef(null);
+  const baseUrl = 'https://backend-zeta-sandy.vercel.app/api';
+  const authToken =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWM5MDhlMjQ0Mjk2MDAwODdjNjIzYSIsImZpcnN0TmFtZSI6IkFETUlOIiwibGFzdE5hbWUiOiJBRE1JTiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA1NzQ0MTEsImV4cCI6MTczMjExMDQxMX0.aCfrgiMPtTiIJ0iDTKuFfsdUa3rL18gZNPXjqIjlJl8';
 
-  // Function to handle search results visibility
-  const handleSearchResultsVisibility = event => {
-
-    if (
-      searchResultsRef.current &&
-      !searchResultsRef.current.contains(event.target)
-    ) {
-      setSearchResultsVisible(false);
-    }
-  };
-
-  // Function to handle closing item details
-  const handleItemDetailsClose = () => {
-    setSelectedItem(null);
-  };
-
-  // Add event listener to handle clicks outside of search results and item details
   useEffect(() => {
-    document.addEventListener('mousedown', event => {
-      handleSearchResultsVisibility(event);
+    const handleSearchResultsVisibility = event => {
+      if (
+        searchResultsRef.current &&
+        !searchResultsRef.current.contains(event.target)
+      ) {
+        setSearchResultsVisible(false);
+      }
 
       if (selectedItem) {
-        handleItemDetailsClose();
+        setSelectedItem(null);
       }
-    });
-
-    return () => {
-      document.removeEventListener('mousedown', event => {
-        handleSearchResultsVisibility(event);
-
-        if (selectedItem) {
-          handleItemDetailsClose();
-        }
-      });
     };
-  }, [selectedItem]);
 
-  // Add event listener to handle clicks outside of search results
-  useEffect(() => {
     document.addEventListener('mousedown', handleSearchResultsVisibility);
 
     return () => {
       document.removeEventListener('mousedown', handleSearchResultsVisibility);
     };
-  }, []);
+  }, [selectedItem]);
 
   const debounce = (func, delay) => {
     clearTimeout(debounceTimer.current);
@@ -68,7 +47,6 @@ export default function Navigation() {
 
   const handleSearch = async (query, isSearchIconClicked) => {
     try {
-      // Check if the query is not a string or is an empty string
       if (
         !isSearchIconClicked &&
         (typeof query !== 'string' || query.trim() === '')
@@ -78,34 +56,28 @@ export default function Navigation() {
         return;
       }
 
-      // Make an API request to fetch the items.
-      const response = await fetch(
-        'https://backend-zeta-sandy.vercel.app/api/products',
+      const response = await axios.post(
+        `${baseUrl}/products/search`,
+        { query },
+        {
+          headers: {
+            Authorization: authToken,
+          },
+        },
       );
-      if (response.ok) {
-        const data = await response.json();
-        // Filter the data based on the search query.
-        const filteredResults = data.filter(item =>
-          item.name.toLowerCase().includes(query.toLowerCase()),
-        );
 
-        // Update the search results and make them visible.
-        setSearchResults(filteredResults);
-        setSearchResultsVisible(true);
-      } else {
-        console.error('Failed to fetch items');
-      }
+      setSearchResults(response.data);
+      setSearchResultsVisible(true);
     } catch (error) {
       console.error('An error occurred while fetching items:', error);
     }
   };
 
   const handleSearchInputChange = e => {
-      e.preventDefault()
     const query = e.target.value;
     setSearchQuery(query);
 
-    debounce(() => handleSearch(query, false), 300); // Pass false to indicate search icon is not clicked
+    debounce(() => handleSearch(query, false), 300);
   };
 
   const links = [
@@ -113,7 +85,6 @@ export default function Navigation() {
       icon: (
         <input
           type="text"
-          className={styles.searchInput}
           placeholder="Пошук..."
           style={{ border: 'none', outline: 'none' }}
           value={searchQuery}
@@ -130,14 +101,22 @@ export default function Navigation() {
       icon: <SingUp className={`svg ${styles.singUp}`} />,
       link: '/singUp',
     },
-    { icon: <div className={styles.iconWrapper}><p className={styles.count}>{totalCount}</p><Cart className="svg" /></div>, link: '/cart' },
+    {
+      icon: (
+        <div className={styles.iconWrapper}>
+          <p className={styles.count}>{totalCount}</p>
+          <Cart className="svg" />
+        </div>
+      ),
+      link: '/cart',
+    },
   ];
 
   return (
-    <div className={styles.wrapper}>
+    <div>
       <ul className={styles.list}>
-        {links.map(({ link, icon }, index) => (
-          <li key={index} className={styles.item}>
+        {links.map(({ link, icon }) => (
+          <li key={link} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
             ) : (
@@ -147,14 +126,12 @@ export default function Navigation() {
         ))}
       </ul>
 
-      {/* Display search results */}
       <div
         ref={searchResultsRef}
         className={styles.searchResults}
         style={{ display: searchResultsVisible ? 'block' : 'none' }}>
-        {searchResults.map((result, index) => (
+        {searchResults.map(result => (
           <div key={result._id}>
-            {/* Render the search results */}
             <p
               className={styles.searchResult}
               onClick={() => setSelectedItem(result)}>
@@ -164,7 +141,6 @@ export default function Navigation() {
         ))}
       </div>
 
-      {/* Item details if a selected item exists */}
       {selectedItem && (
         <div className={styles.itemDetails}>
           {selectedItem.imageUrls?.length > 0 && (
@@ -175,14 +151,14 @@ export default function Navigation() {
             />
           )}
           <h2 className={styles.title}>{selectedItem.name}</h2>
-          <h3 className={styles.desc}>{selectedItem.manufacturer}</h3>
-          <h4 className={styles.weight}>Вага: {selectedItem.sizes}</h4>
-          <h4 className={styles.price}>
+          <p className={styles.desc}>{selectedItem.manufacturer}</p>
+          <p className={styles.weight}>Вага: {selectedItem.sizes}</p>
+          <p className={styles.price}>
             Цiна:{' '}
             {selectedItem.currentPrice !== 0
               ? selectedItem.currentPrice
               : selectedItem.previousPrice}
-          </h4>
+          </p>
           <h5 className={styles.categories}>{selectedItem.categories}</h5>
         </div>
       )}
