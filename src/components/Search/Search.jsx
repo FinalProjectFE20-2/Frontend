@@ -13,44 +13,25 @@ export default function Search() {
   const searchResultsRef = useRef(null);
   const debounceTimer = useRef(null);
   const baseUrl = 'https://backend-zeta-sandy.vercel.app/api';
-
-  const handleSearchResultsVisibility = (event) => {
-    if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
-      setSearchResultsVisible(false);
-    }
-  };
-
-  const handleItemDetailsClose = () => {
-    setSelectedItem(null);
-  };
+  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWM5MDhlMjQ0Mjk2MDAwODdjNjIzYSIsImZpcnN0TmFtZSI6IkFETUlOIiwibGFzdE5hbWUiOiJBRE1JTiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA1NzQ0MTEsImV4cCI6MTczMjExMDQxMX0.aCfrgiMPtTiIJ0iDTKuFfsdUa3rL18gZNPXjqIjlJl8';
 
   useEffect(() => {
-    document.addEventListener('mousedown', (event) => {
-      handleSearchResultsVisibility(event);
+    const handleSearchResultsVisibility = (event) => {
+      if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
+        setSearchResultsVisible(false);
+      }
 
       if (selectedItem) {
-        handleItemDetailsClose();
+        setSelectedItem(null);
       }
-    });
-
-    return () => {
-      document.removeEventListener('mousedown', (event) => {
-        handleSearchResultsVisibility(event);
-
-        if (selectedItem) {
-          handleItemDetailsClose();
-        }
-      });
     };
-  }, [selectedItem]);
 
-  useEffect(() => {
     document.addEventListener('mousedown', handleSearchResultsVisibility);
 
     return () => {
       document.removeEventListener('mousedown', handleSearchResultsVisibility);
     };
-  }, []);
+  }, [selectedItem]);
 
   const debounce = (func, delay) => {
     clearTimeout(debounceTimer.current);
@@ -65,14 +46,13 @@ export default function Search() {
         return;
       }
 
-      const response = await axios.get(`${baseUrl}/products`);
-      const data = response.data;
+      const response = await axios.post(`${baseUrl}/products/search`, { query }, {
+        headers: {
+          Authorization: authToken,
+        },
+      });
 
-      const filteredResults = data.filter((item) =>
-        item.name.toLowerCase().includes(query.toLowerCase())
-      );
-
-      setSearchResults(filteredResults);
+      setSearchResults(response.data);
       setSearchResultsVisible(true);
     } catch (error) {
       console.error('An error occurred while fetching items:', error);
@@ -127,10 +107,7 @@ export default function Search() {
       >
         {searchResults.map((result) => (
           <div key={result._id}>
-            <p
-              className={styles.searchResult}
-              onClick={() => setSelectedItem(result)}
-            >
+            <p className={styles.searchResult} onClick={() => setSelectedItem(result)}>
               {result.name}
             </p>
           </div>
@@ -140,11 +117,7 @@ export default function Search() {
       {selectedItem && (
         <div className={styles.itemDetails}>
           {selectedItem.imageUrls?.length > 0 && (
-            <img
-              src={selectedItem.imageUrls[0]}
-              alt={selectedItem.name}
-              style={{ width: '100%' }}
-            />
+            <img src={selectedItem.imageUrls[0]} alt={selectedItem.name} style={{ width: '100%' }} />
           )}
           <h2 className={styles.title}>{selectedItem.name}</h2>
           <p className={styles.desc}>{selectedItem.manufacturer}</p>
