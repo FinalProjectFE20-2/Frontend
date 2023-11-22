@@ -16,6 +16,7 @@ import PrivateRoute from './privateRoute';
 import Login from '@/pages/Login/Login';
 import Registration from '@/pages/Registration/Registration';
 import GoToTop from '@/components/GoToTop/GoToTop.jsx';
+import ScrollToTop from '@/components/ScrollToTop/ScrollToTop.jsx';
 import ProductCategories from '@/pages/ProductCategories/ProductCategories.jsx';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
   {
     element: (
       <>
+        <ScrollToTop />
         <Header />
         <GoToTop />
         <Outlet />

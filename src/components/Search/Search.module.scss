@@ -18,8 +18,13 @@
   display: flex;
   gap: 40px;
   padding: 0;
+}
 
-
+.input {
+  padding: 2px 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
 @media (max-width: 993px) {
@@ -109,8 +114,6 @@
 
 .iconWrapper {
   position: relative;
-
-
 }
 
 .count {
