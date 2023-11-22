@@ -4,17 +4,20 @@ import { Link } from 'react-router-dom';
 import SearchUrl from '@/assets/icons/Search.svg?react';
 import SingUp from '@/assets/icons/SingUp.svg?react';
 import Cart from '@/assets/icons/Cart.svg?react';
+import {useSelector} from "react-redux";
 
 export default function Navigation() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchResultsVisible, setSearchResultsVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null); // Variable to store the selected item
+ const totalCount= useSelector(({ cart }) => cart.totalCount);
   const searchResultsRef = useRef(null);
   const debounceTimer = useRef(null);
 
   // Function to handle search results visibility
   const handleSearchResultsVisibility = event => {
+
     if (
       searchResultsRef.current &&
       !searchResultsRef.current.contains(event.target)
@@ -98,6 +101,7 @@ export default function Navigation() {
   };
 
   const handleSearchInputChange = e => {
+      e.preventDefault()
     const query = e.target.value;
     setSearchQuery(query);
 
@@ -126,7 +130,7 @@ export default function Navigation() {
       icon: <SingUp className={`svg ${styles.singUp}`} />,
       link: '/singUp',
     },
-    { icon: <Cart className="svg" />, link: '/cart' },
+    { icon: <div className={styles.iconWrapper}><p className={styles.count}>{totalCount}</p><Cart className="svg" /></div>, link: '/cart' },
   ];
 
   return (
