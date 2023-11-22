@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import styles from './CartItem.module.scss';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 const CartItem = ({
   id,
@@ -27,7 +30,9 @@ const CartItem = ({
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItem__img}>
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+      <Link to={`/product/${id}`}  className={styles.imgBox}>
+      <img  src={imageUrl} alt="Food" />
+      </Link>
       </div>
       <div className={styles.cartItem__info}>
         <h3>{name}</h3>
@@ -35,7 +40,7 @@ const CartItem = ({
       </div>
       <div className={styles.cartItem__price}>
         <p>Ціна:</p>
-        <b>{price} &#8372;</b>
+        <b>{price},00 &#8372;</b>
       </div>
       <div className={styles.cartItem__count}>
         <button
@@ -46,7 +51,7 @@ const CartItem = ({
         <input
           className={styles.counter__input}
           type="number"
-          placeholder={totalCount}
+          value={totalCount}
         />
         <button
           onClick={handlePlusItem}
@@ -56,7 +61,7 @@ const CartItem = ({
       </div>
       <div className={styles.cartItem__totalPrice}>
         <p>Сума:</p>
-        <b>{totalPrice} &#8372;</b>
+        <b>{totalPrice},00 &#8372;</b>
       </div>
       <div className={styles.cartItem__remove}>
         <button

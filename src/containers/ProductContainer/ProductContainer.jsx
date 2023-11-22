@@ -4,10 +4,16 @@ import OrderBar from '../../components/OrderBar/OrderBar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Cart from '@/assets/icons/Cart.svg?react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../store/action/cart/cart';
+import { motion } from 'framer-motion';
 
-const ProductContainer = () => {
+
+const ProductContainer = (addedCount) => {
   const { productId } = useParams();
   const [item, setitem] = useState([]);
+  const dispatch = useDispatch();
 
   const getProduct = () => {
     axios
@@ -28,6 +34,21 @@ const ProductContainer = () => {
   useEffect(() => {
     getProduct();
   }, productId);
+
+  const onAddCart = () => {
+    const obj = {
+      id: productId,
+      name: item.name,
+      size: item.sizes,
+      imageUrl: item.imageUrls,
+      price: item.previousPrice,
+    };
+    onClickAddCart(obj);
+  };
+
+  const onClickAddCart = obj => {
+    dispatch(addToCart(obj));
+  }; 
 
   return (
     <section className={`${styles.productContainer} container`}>
@@ -57,12 +78,23 @@ const ProductContainer = () => {
             </span>
           </p>
 
-          <OrderBar
+          {/* <OrderBar
             productId={productId}
             currentPrice={item.currentPrice}
             previousPrice={item.previousPrice}
             quantity={item.quantity}
-          />
+          /> */}
+          <motion.button
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.9 }}
+          className={styles.buttonBasket}>
+          <button onClick={onAddCart} className={styles.btnCart}>
+        <Cart className="svg" />
+          </button>
+        </motion.button>
+          {/* <button onClick={onAddCart} className={styles.btnCart}>
+        <Cart className="svg" />
+          </button> */}
         </div>
       </div>
     </section>

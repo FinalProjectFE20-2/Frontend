@@ -1,4 +1,4 @@
-import CartEmpty from '../../components/CartEmpty/CartEmpty';
+import cartEmptyImg from '@/assets/icons/EmptyCart.svg';
 import CartItem from '@/components/CartItem/CartItem.jsx';
 import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
@@ -36,7 +36,7 @@ const Cart = () => {
         <h1>Корзина</h1>
         <h3>
           {' '}
-          Home / <span className={styles.route_active}>Product</span>
+          Home / <span className={styles.route_active}>Cart</span>
         </h3>
       </div>
       {totalCount ? (
@@ -70,7 +70,7 @@ const Cart = () => {
                 Кількість замовлень: <b>{totalCount} шт</b>
               </p>
               <p>
-                Сума замовлення: <b>{totalPrice} &#8372;</b>
+                Сума замовлення: <b>{totalPrice},00 &#8372;</b>
               </p>
             </div>
             <Link to="/cart/checkout">
@@ -79,7 +79,20 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <CartEmpty />
+        <div className={styles.empty}>
+        <h2>
+          Нажаль, корзина порожня <icon>😕</icon>
+        </h2>
+        <p>
+          Зробіть, будь-ласка, замовлення.
+          <br />
+          Для цього перейдіть на головну сторінку.
+        </p>
+        <img src={cartEmptyImg} alt="Empty cart" />
+        <Link to="/">
+          <div className={styles.button}>На головну сторінку</div>
+        </Link>
+      </div>
       )}
     </div>
   );

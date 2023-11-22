@@ -3,7 +3,7 @@ import styles from './OrderBar.module.scss';
 import { useState } from 'react';
 import Cart from '@/assets/icons/Cart.svg?react';
 
-const OrderBar = ({ productId, currentPrice, previousPrice, quantity }) => {
+const OrderBar = ({ productId, currentPrice, previousPrice, quantity}) => {
   const [val, setVal] = useState(1);
   const change = e => {
     if (val <= quantity) {
@@ -56,9 +56,9 @@ const OrderBar = ({ productId, currentPrice, previousPrice, quantity }) => {
       <p className={styles.price}>
         ₴ {(currentPrice || previousPrice) * val},00
       </p>
-      <button>
+      {/* <button>
         <Cart className="svg" />
-      </button>
+      </button> */}
     </div>
   );
 };

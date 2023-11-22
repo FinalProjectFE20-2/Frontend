@@ -12,6 +12,7 @@ const PopularDishesMenu = props => {
     dispatch(addToCart(obj));
   };
 
+  const cartItems = useSelector(({ cart }) => cart.items);
   return (
     <section className={`${styles.PopularDishes} container`}>
       <h2 className={styles.title}>Популярні страви</h2>
@@ -21,6 +22,7 @@ const PopularDishesMenu = props => {
             onClickAddCart={handleAddToCard}
             key={product.itemNo}
             itemNo={product.itemNo}
+            addedCount={cartItems[product.itemNo] && cartItems[product.itemNo].items.length}
           />
         ))}
       </ul>
