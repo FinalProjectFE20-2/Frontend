@@ -5,10 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import Cart from '@/assets/icons/Cart.svg?react';
 
-const ProductCard = ({ itemNo, onClickAddCart, addedCount }) => {
+const ProductCard = ({ itemNo, onClickAddCart, propsProduct, addedCount }) => {
   const products = useSelector(state => state.products.products || []);
-  const product = products.find(product => product.itemNo === itemNo);
-
+  const product = propsProduct
+    ? propsProduct
+    : products.find(product => product.itemNo === itemNo);
   const onAddCart = () => {
     const obj = {
       id: parseInt(itemNo),
@@ -26,8 +27,8 @@ const ProductCard = ({ itemNo, onClickAddCart, addedCount }) => {
         <Link to={`/product/${product.itemNo}`} className={styles.imgBox}>
           <img
             className={styles.img}
-            src={product?.imageUrls[0]}
-            alt={product?.name}
+            src={product.imageUrls[0]}
+            alt={product.name}
           />
         </Link>
       )}
