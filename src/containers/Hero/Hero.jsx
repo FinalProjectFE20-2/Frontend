@@ -1,11 +1,45 @@
 import style from './Hero.module.scss';
 import Cart from '@/assets/icons/Cart.svg?react';
 import { motion } from 'framer-motion';
+import {useDispatch } from 'react-redux';
+import { addToCart } from '../../store/action/cart/cart';
 
 function Hero() {
   const downAnimation = {
     hidden: { x: -1000, opacity: 0 },
     visible: { x: 0, opacity: 1 },
+  };
+
+  const dispatch = useDispatch();
+
+  const onAddCart1 = () => {
+    const obj = {
+      id: "654e3661267b62915fd96f4d",
+      name: "Тірамісу",
+      size: "430г",
+      imageUrl: "https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434539/yvkrgaboad3herqpxabt.png",
+      price: 370,
+    };
+    onClickAddCart1(obj);
+  };
+
+  const onClickAddCart1 = obj => {
+    dispatch(addToCart(obj));
+  };
+
+  const onAddCart2 = () => {
+    const obj = {
+      id: "654e3661267b62915fd96efc",
+      name: "Стейк із лосося з овочами",
+      size: "465г",
+      imageUrl: "https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png",
+      price: 425,
+    };
+    onClickAddCart2(obj);
+  };
+
+  const onClickAddCart2 = obj => {
+    dispatch(addToCart(obj));
   };
 
   return (
@@ -57,7 +91,7 @@ function Hero() {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   className={style.card__basket}>
-                  <button type="button" className={style.card__cart}>
+                  <button onClick={onAddCart1} type="button" className={style.card__cart}>
                     <Cart />
                   </button>
                 </motion.button>
@@ -82,7 +116,7 @@ function Hero() {
                 Стейк з лосося
                 <br /> з овочами
               </div>
-              <div className={style.square__weight}>250 г</div>
+              <div className={style.square__weight}>465 г</div>
               <p className={style.square__description}>
                 {' '}
                 Ніжний стейк дикого
@@ -90,13 +124,13 @@ function Hero() {
                 <br /> смажених фермерських овочів.
               </p>
               <div className={style.price__inner}>
-                <p className={style.square__price}>1200 &#8372;</p>
+                <p className={style.square__price}>425 &#8372;</p>
                 <motion.button
                   type="button"
                   whileHover={{ scale: 1.3 }}
                   whileTap={{ scale: 0.9 }}
                   className={style.square__basket}>
-                  <button type="button" className={style.square__cart}>
+                  <button onClick={onAddCart2}  type="button" className={style.square__cart}>
                     <Cart />
                   </button>
                 </motion.button>

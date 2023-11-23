@@ -4,11 +4,12 @@ import {useEffect, useState} from "react";
 import styles from './ProductCategories.module.scss'
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import {addToCart} from "../../store/action/cart/cart.js";
-import {useDispatch} from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import {getFindObj} from "./getFindObj.js";
 
 export const ProductCategories = () => {
     const [objProducts, setObjProducts] = useState({})
+    const cartItems = useSelector(({ cart }) => cart.items);
     let location = useLocation()
     const dispatch = useDispatch()
     const handleAddToCard = obj => {
@@ -34,6 +35,10 @@ export const ProductCategories = () => {
                     key={item.itemNo}
                     itemNo={item.itemNo}
                     propsProduct={item}
+                    addedCount={
+                        cartItems[item.itemNo] &&
+                        cartItems[item.itemNo].items.length
+                      }
                 />
             })}</ul> : <h2 className={styles.infoBanner}>Товари для цієї категорії тимчасово видсутні!</h2>
 
