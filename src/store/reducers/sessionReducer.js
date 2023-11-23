@@ -3,7 +3,7 @@ import {
   SET_USER_ERROR,
   SET_TOKEN,
 } from '../action/session/actionSession';
-const initionalState = { user: null, error: null, token: null };
+const initionalState = { user: JSON.parse(localStorage.getItem ('token') ) || null, error: null , token: localStorage.getItem ('token') || null };
 const sessionReducer = (state = initionalState, action) => {
   switch (action.type) {
     case SET_USER:

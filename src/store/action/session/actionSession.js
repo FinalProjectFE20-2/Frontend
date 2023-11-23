@@ -37,7 +37,6 @@ export const login = user => async dispatch => {
 export const singUp = user => async dispatch => {
   const res = await fetch(
     'https://backend-zeta-sandy.vercel.app/api/customers/',
-    // 'http://localhost:4000/api/customers',
     {
       method: 'POST',
       headers: {
@@ -46,6 +45,7 @@ export const singUp = user => async dispatch => {
       body: JSON.stringify(user),
     },
   );
+
   const data = await res.json();
   if (!res.ok) {
     await dispatch(setUserError(data));
@@ -53,4 +53,23 @@ export const singUp = user => async dispatch => {
   }
 
   await dispatch(setUser(data));
+};
+export const getUser = () => async dispatch => {
+  const res = await fetch(
+    'https://backend-zeta-sandy.vercel.app/api/customers/customer',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      },
+    },
+  );
+  console.log(res);
+  const data = await res.json();
+  if (!res.ok) {
+    await dispatch(setUserError(data));
+    return;
+  }
+  localStorage.setItem('user', JSON.stringify(data));
+  dispatch(setUser(data));
 };

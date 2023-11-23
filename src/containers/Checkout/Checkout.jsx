@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import styles from './Checkout.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { createCart } from '../../store/action/cart/cart';
 
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
-
+  const token = useSelector(state => state.session.token);
+  const user = useSelector(state => state.session.user);
+  const cart = useSelector(state => state.cart.items);
   const handleDeliveryMethodChange = method => {
     setDeliveryMethod(method);
   };
@@ -22,7 +26,18 @@ const Checkout = () => {
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue);
     setIsEmailValid(isValid);
   };
-
+  const dispatch = useDispatch();
+  const handleOrder = event => {
+    event.preventDefault();
+    if (token) {
+      dispatch(
+        createCart({
+          customerId: user.id,
+          products: Object.values(cart),
+        }),
+      );
+    }
+  };
   return (
     <div className="container">
       <div className={styles.containerCheckoutKosss}>
@@ -143,7 +158,11 @@ const Checkout = () => {
           </div>
         </div>
 
-        <button className={styles.confirmButtonCheckoutKosss}>Замовити</button>
+        <button
+          onClick={handleOrder}
+          className={styles.confirmButtonCheckoutKosss}>
+          Замовити
+        </button>
       </div>
     </div>
   );

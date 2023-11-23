@@ -3,7 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import styles from './Login.module.scss';
-import { login } from '../../store/action/session/actionSession';
+import { getUser, login } from '../../store/action/session/actionSession';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -25,8 +25,9 @@ const Login = () => {
             const res = await dispatch(
               login({ loginOrEmail: value.email, password: value.password }),
             );
-            console.log(res);
+
             if (res) {
+              await dispatch(getUser());
               navigate('/');
             }
           } catch (err) {
