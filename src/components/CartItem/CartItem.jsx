@@ -1,4 +1,6 @@
 import styles from './CartItem.module.scss';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const CartItem = ({
   id,
@@ -8,6 +10,7 @@ const CartItem = ({
   imageUrl,
   totalPrice,
   totalCount,
+  quantity,
   onRemove,
   onMinus,
   onPlus,
@@ -27,15 +30,17 @@ const CartItem = ({
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItem__img}>
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <Link to={`/product/${id}`} className={styles.imgBox}>
+          <img src={imageUrl} alt="Food" />
+        </Link>
       </div>
       <div className={styles.cartItem__info}>
         <h3>{name}</h3>
-        <p>{size}</p>
+        <p className={styles.size}>{size}</p>
       </div>
       <div className={styles.cartItem__price}>
         <p>Ціна:</p>
-        <b>{price} &#8372;</b>
+        <b>{price},00 &#8372;</b>
       </div>
       <div className={styles.cartItem__count}>
         <button
@@ -46,7 +51,9 @@ const CartItem = ({
         <input
           className={styles.counter__input}
           type="number"
-          placeholder={totalCount}
+          value={totalCount}
+          min={1}
+          max={quantity}
         />
         <button
           onClick={handlePlusItem}

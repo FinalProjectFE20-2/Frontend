@@ -54,15 +54,6 @@
       line-height: 1.25;
     }
 
-    p {
-      font-size: 13px;
-      background-color: #8d8d8d;
-      margin-top: 10px;
-      width: 50px;
-      height: 15px;
-      text-align: center;
-    }
-
     @media (max-width: 768px) {
       flex-direction: row-reverse;
       justify-content: start;
@@ -272,4 +263,14 @@
       }
     }
   }
+}
+
+.size {
+  padding: 2px 4px;
+  font-size: 13px;
+  background-color: #56595d;
+  border-radius: 3px;
+  margin-top: 10px;
+  align-self: start;
+  text-align: center;
 }

@@ -92,14 +92,17 @@ export default function Search() {
         />
       ),
       id: 'searchIcon',
+      key: 1,
     },
     {
       icon: <SearchUrl className={`${styles.svgIcon} svg`} />,
       link: '/searchResult',
+      key: 2,
     },
     {
       icon: <SingUp className={`svg ${styles.singUp}`} />,
       link: '/singUp',
+      key: 3,
     },
     {
       icon: (
@@ -109,14 +112,15 @@ export default function Search() {
         </div>
       ),
       link: '/cart',
+      key: 4,
     },
   ];
 
   return (
     <div>
       <ul className={styles.list}>
-        {links.map(({ link, icon }) => (
-          <li key={link} className={styles.item}>
+        {links.map(({ link, icon }, index) => (
+          <li key={index} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
             ) : (
