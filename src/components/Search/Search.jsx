@@ -136,16 +136,17 @@ export default function Search() {
         style={{ display: searchResultsVisible ? 'block' : 'none' }}>
         {searchResults.map(result => (
           <div key={result._id}>
-            <p
+            <Link
+              to={`/product/${result.itemNo}`}
               className={styles.searchResult}
               onClick={() => setSelectedItem(result)}>
               {result.name}
-            </p>
+            </Link>
           </div>
         ))}
       </div>
 
-      {selectedItem && (
+      {/* {selectedItem && (
         <div className={styles.itemDetails}>
           {selectedItem.imageUrls?.length > 0 && (
             <img
@@ -165,7 +166,7 @@ export default function Search() {
           </p>
           <h5 className={styles.categories}>{selectedItem.categories}</h5>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

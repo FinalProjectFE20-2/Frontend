@@ -56,10 +56,8 @@ function Hero() {
                   whileHover={{ scale: 1.3 }}
                   whileTap={{ scale: 0.9 }}
                   type="button"
-                  className={style.card__basket}>
-                  <button type="button" className={style.card__cart}>
-                    <Cart />
-                  </button>
+                  className={style.card__cart}>
+                  <Cart />
                 </motion.button>
               </div>
             </div>
@@ -95,10 +93,8 @@ function Hero() {
                   type="button"
                   whileHover={{ scale: 1.3 }}
                   whileTap={{ scale: 0.9 }}
-                  className={style.square__basket}>
-                  <button type="button" className={style.square__cart}>
-                    <Cart />
-                  </button>
+                  className={style.square__cart}>
+                  <Cart />
                 </motion.button>
               </div>
             </div>
