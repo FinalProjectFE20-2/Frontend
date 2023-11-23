@@ -56,6 +56,7 @@ const Cart = () => {
                 price={obj.price}
                 size={obj.size}
                 imageUrl={obj.imageUrl}
+                quantity={obj.quantity}
                 totalPrice={items[obj.id].totalPrice}
                 totalCount={items[obj.id].items.length}
                 onRemove={onRemoveItem}

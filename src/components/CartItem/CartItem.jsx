@@ -1,7 +1,6 @@
 import styles from './CartItem.module.scss';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const CartItem = ({
   id,
@@ -11,6 +10,7 @@ const CartItem = ({
   imageUrl,
   totalPrice,
   totalCount,
+  quantity,
   onRemove,
   onMinus,
   onPlus,
@@ -52,6 +52,8 @@ const CartItem = ({
           className={styles.counter__input}
           type="number"
           value={totalCount}
+          min={1}
+          max={quantity}
         />
         <button
           onClick={handlePlusItem}
@@ -61,7 +63,7 @@ const CartItem = ({
       </div>
       <div className={styles.cartItem__totalPrice}>
         <p>Сума:</p>
-        <b>{totalPrice},00 &#8372;</b>
+        <b>{totalPrice} &#8372;</b>
       </div>
       <div className={styles.cartItem__remove}>
         <button
