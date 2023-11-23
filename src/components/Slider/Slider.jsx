@@ -1,4 +1,4 @@
-import './Slider.scss';
+import styles from './Slider.scss';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
