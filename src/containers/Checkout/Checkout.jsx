@@ -28,12 +28,12 @@ const Checkout = () => {
       <div className={styles.containerCheckoutKosss}>
         <div className={styles.titleCheckoutKosss}>
           <h1>Оформлення замовлення</h1>
-          <p>
+          {/*           <p>
             Головна / Корзина /{' '}
             <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span>
-          </p>
+          </p> */}
         </div>
-        <div className={styles.goCartCheckoutKosss}>
+        {/*         <div className={styles.goCartCheckoutKosss}>
           <div>1</div>
           <div>
             <h3>Замовлення тут</h3>
@@ -41,7 +41,7 @@ const Checkout = () => {
           <div>
             <p>Розкрити</p>
           </div>
-        </div>
+        </div> */}
         <div className={styles.detailsCheckoutKosss}>
           <div className={styles.detailsContactCheckoutKosss}>
             <h2>01. Контактні данні</h2>

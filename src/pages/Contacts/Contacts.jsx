@@ -40,9 +40,9 @@ const Contacts = () => {
       <div className={styles.containerContactsKosss}>
         <div className={styles.titleContactsKosss}>
           <h1>Контакти</h1>
-          <p>
+          {/*           <p>
             Головна / <span style={{ color: '#9EA2AA' }}>Контакти</span>
-          </p>
+          </p> */}
         </div>
 
         <div className={styles.detailesContactsKosss}>
