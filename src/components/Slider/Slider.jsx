@@ -1,4 +1,5 @@
-import styles from './Slider.scss';
+import styles from './Slider.module.scss';
+import './Slider.scss';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -26,18 +27,20 @@ function Slider() {
       });
   };
 
-  getProducts();
-
   useEffect(() => {
     getProducts();
   }, []);
 
   const swiperItems = products.map(product => (
     <SwiperSlide key={product._id}>
-      <Link to={`/product/${product.itemNo}`} className="link">
-        <img src={product.imageUrls} alt={product.name} className="img" />
-        <Discount className="discount" />
-        <div className="price">₴{product.currentPrice}</div>
+      <Link to={`/product/${product.itemNo}`} className={styles.link}>
+        <img
+          src={product.imageUrls}
+          alt={product.name}
+          className={styles.img}
+        />
+        <Discount className={styles.discount} />
+        <div className={styles.price}>₴{product.currentPrice}</div>
       </Link>
     </SwiperSlide>
   ));
