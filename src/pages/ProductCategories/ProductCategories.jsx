@@ -4,18 +4,19 @@ import { useEffect, useState } from 'react';
 import styles from './ProductCategories.module.scss';
 import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 import { addToCart } from '../../store/action/cart/cart.js';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getFindObj } from './getFindObj.js';
 
 export const ProductCategories = () => {
   const [objProducts, setObjProducts] = useState({});
+  const cartItems = useSelector(({ cart }) => cart.items);
   let location = useLocation();
   const dispatch = useDispatch();
   const handleAddToCard = obj => {
     dispatch(addToCart(obj));
   };
-  const findObj = getFindObj(menuItems);
 
+  const findObj = getFindObj(menuItems);
   useEffect(() => {
     fetch(
       `https://backend-zeta-sandy.vercel.app/api/products/filter?categories=${findObj.title}`,
@@ -27,6 +28,7 @@ export const ProductCategories = () => {
         setObjProducts(data);
       });
   }, [findObj]);
+
   return (
     <div className={`container main ${styles.wrapper}`}>
       <h2 className={styles.title}>{findObj?.title}</h2>
@@ -39,6 +41,9 @@ export const ProductCategories = () => {
                 key={item.itemNo}
                 itemNo={item.itemNo}
                 propsProduct={item}
+                addedCount={
+                  cartItems[item.itemNo] && cartItems[item.itemNo].items.length
+                }
               />
             );
           })}
