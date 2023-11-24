@@ -1,7 +1,7 @@
 import style from './Hero.module.scss';
 import Cart from '@/assets/icons/Cart.svg?react';
-import { motion } from 'framer-motion';
-import {useDispatch } from 'react-redux';
+import { motion, spring } from 'framer-motion';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/action/cart/cart';
 
 function Hero() {
@@ -14,10 +14,11 @@ function Hero() {
 
   const onAddCart1 = () => {
     const obj = {
-      id: "654e3661267b62915fd96f4d",
-      name: "Тірамісу",
-      size: "430г",
-      imageUrl: "https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434539/yvkrgaboad3herqpxabt.png",
+      id: '654e3661267b62915fd96f4d',
+      name: 'Тірамісу',
+      size: '430г',
+      imageUrl:
+        'https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434539/yvkrgaboad3herqpxabt.png',
       price: 370,
     };
     onClickAddCart1(obj);
@@ -29,10 +30,11 @@ function Hero() {
 
   const onAddCart2 = () => {
     const obj = {
-      id: "654e3661267b62915fd96efc",
-      name: "Стейк із лосося з овочами",
-      size: "465г",
-      imageUrl: "https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png",
+      id: '654e3661267b62915fd96efc',
+      name: 'Стейк із лосося з овочами',
+      size: '465г',
+      imageUrl:
+        'https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png',
       price: 425,
     };
     onClickAddCart2(obj);
@@ -49,7 +51,7 @@ function Hero() {
           <motion.div
             initial={'hidden'}
             animate={'visible'}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.5, type: 'spring', stiffness: 50 }}
             variants={downAnimation}
             className={style.left__title}>
             Доставка готової їжі
@@ -58,19 +60,26 @@ function Hero() {
 
           <div className={style.left__contacts}>
             <motion.div
-              whileHover={{ scale: 1.3 }}
+              whileHover={{
+                scale: 1.1,
+                textShadow: '0px 0px 8px rgb(255,255,255)',
+              }}
               initial={'hidden'}
               animate={'visible'}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1, type: 'spring', stiffness: 50 }}
               variants={downAnimation}
               className={style.phone}>
               <a href="tel:+8 (093) 841-67-29">+38 (093) 841-67-29</a>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.3 }}
+              whileHover={{
+                scale: 1.1,
+                textShadow: '0px 0px 8px rgb(255,255,255)',
+                originX: 0,
+              }}
               initial={'hidden'}
               animate={'visible'}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1, type: 'spring', stiffness: 50 }}
               variants={downAnimation}
               className={style.email}>
               <a href="https//delivery@midas.rest">delivery@midas.rest</a>
@@ -87,11 +96,14 @@ function Hero() {
               <div className={style.card__inner}>
                 <p className={style.card__price}>370 &#8372;</p>
                 <motion.button
-                  whileHover={{ scale: 1.3 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   type="button"
-                  className={style.card__basket}>
-                  <button onClick={onAddCart1} type="button" className={style.card__cart}>
+                  className={style.card__cart}>
+                  <button
+                    onClick={onAddCart1}
+                    type="button"
+                    className={style.card__cart}>
                     <Cart />
                   </button>
                 </motion.button>
@@ -112,13 +124,11 @@ function Hero() {
           <div className={style.red__square}>
             <div className={style.square__container}>
               <div className={style.square__title}>
-                {' '}
                 Стейк з лосося
                 <br /> з овочами
               </div>
               <div className={style.square__weight}>465 г</div>
               <p className={style.square__description}>
-                {' '}
                 Ніжний стейк дикого
                 <br /> лосося, пропитаний соком та ароматом легко
                 <br /> смажених фермерських овочів.
@@ -127,10 +137,13 @@ function Hero() {
                 <p className={style.square__price}>425 &#8372;</p>
                 <motion.button
                   type="button"
-                  whileHover={{ scale: 1.3 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className={style.square__basket}>
-                  <button onClick={onAddCart2}  type="button" className={style.square__cart}>
+                  className={style.square__cart}>
+                  <button
+                    onClick={onAddCart2}
+                    type="button"
+                    className={style.square__cart}>
                     <Cart />
                   </button>
                 </motion.button>

@@ -98,11 +98,11 @@
 }
 
 .searchResult {
-  color: #5d9ae9;
+  cursor: pointer;
+  color: #fff;
 
   &:hover {
-    color: #fea6a6;
-    cursor: pointer;
+    color: #FBD13E;
   }
 }
 

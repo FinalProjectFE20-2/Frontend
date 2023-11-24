@@ -34,10 +34,9 @@ const Cart = () => {
     <div className="container main">
       <div className={styles.title}>
         <h1>Корзина</h1>
-        <h3>
-          {' '}
+        {/*         <h3>
           Home / <span className={styles.route_active}>Cart</span>
-        </h3>
+        </h3> */}
       </div>
       {totalCount ? (
         <>
