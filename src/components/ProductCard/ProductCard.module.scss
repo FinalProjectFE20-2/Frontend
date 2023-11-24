@@ -39,6 +39,18 @@
   font-weight: 800;
 }
 
+.active {
+  font-size: 14px;
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  font-size: 23px;
+  font-weight: 800;
+  color: #fbd13e;
+}
+
 .footer {
   margin-top: 20px;
   display: flex;
