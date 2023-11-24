@@ -39,7 +39,7 @@ const ProductCard = ({ itemNo, onClickAddCart, propsProduct, addedCount }) => {
         <p className={styles.price}>&#8372; {product.previousPrice},00</p>
         {!!product.currentPrice && <p>&#8372; {product.currentPrice},00</p>}
         <motion.button
-          whileHover={{ scale: 1.3 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className={styles.buttonBasket}>
           <button onClick={onAddCart} className={styles.btnCart}>
