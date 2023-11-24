@@ -1,6 +1,6 @@
 import style from './Hero.module.scss';
 import Cart from '@/assets/icons/Cart.svg?react';
-import { motion } from 'framer-motion';
+import { motion, spring } from 'framer-motion';
 
 function Hero() {
   const downAnimation = {
@@ -15,7 +15,7 @@ function Hero() {
           <motion.div
             initial={'hidden'}
             animate={'visible'}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.5, type: 'spring', stiffness: 50 }}
             variants={downAnimation}
             className={style.left__title}>
             Доставка готової їжі
@@ -24,19 +24,26 @@ function Hero() {
 
           <div className={style.left__contacts}>
             <motion.div
-              whileHover={{ scale: 1.3 }}
+              whileHover={{
+                scale: 1.1,
+                textShadow: '0px 0px 8px rgb(255,255,255)',
+              }}
               initial={'hidden'}
               animate={'visible'}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1, type: 'spring', stiffness: 50 }}
               variants={downAnimation}
               className={style.phone}>
               <a href="tel:+8 (093) 841-67-29">+38 (093) 841-67-29</a>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.3 }}
+              whileHover={{
+                scale: 1.1,
+                textShadow: '0px 0px 8px rgb(255,255,255)',
+                originX: 0,
+              }}
               initial={'hidden'}
               animate={'visible'}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1, type: 'spring', stiffness: 50 }}
               variants={downAnimation}
               className={style.email}>
               <a href="https//delivery@midas.rest">delivery@midas.rest</a>
@@ -53,7 +60,7 @@ function Hero() {
               <div className={style.card__inner}>
                 <p className={style.card__price}>370 &#8372;</p>
                 <motion.button
-                  whileHover={{ scale: 1.3 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   className={style.card__cart}>
@@ -91,7 +98,7 @@ function Hero() {
                 <p className={style.square__price}>1200 &#8372;</p>
                 <motion.button
                   type="button"
-                  whileHover={{ scale: 1.3 }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className={style.square__cart}>
                   <Cart />
