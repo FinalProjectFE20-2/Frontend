@@ -49,11 +49,10 @@ const ProductCard = ({ itemNo, onClickAddCart, propsProduct, addedCount }) => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={styles.btnCart}>
-          <button onClick={onAddCart}>
-            <Cart />
-            {addedCount && <i>{addedCount}</i>}
-          </button>
+          className={styles.btnCart}
+          onClick={onAddCart}>
+          <Cart />
+          {addedCount && <i>{addedCount}</i>}
         </motion.button>
       </div>
     </li>
