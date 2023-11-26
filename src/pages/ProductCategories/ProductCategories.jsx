@@ -18,8 +18,10 @@ export const ProductCategories = () => {
 
   const findObj = getFindObj(menuItems);
   useEffect(() => {
+
+    const filterParam = location.pathname==='/categories/action'?"discount=true":`categories=${findObj.title}`
     fetch(
-      `https://backend-zeta-sandy.vercel.app/api/products/filter?categories=${findObj.title}`,
+      `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
     )
       .then(products => {
         return products.json();
