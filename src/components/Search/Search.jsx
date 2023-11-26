@@ -117,7 +117,7 @@ export default function Search() {
   ];
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ul className={styles.list}>
         {links.map(({ link, icon }, index) => (
           <li key={index} className={styles.item}>
