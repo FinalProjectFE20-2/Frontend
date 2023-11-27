@@ -1,0 +1,29 @@
+.discounts {
+  position: relative;
+  padding-top: 160px;
+
+  @media (max-width: 990px) {
+    padding-top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 150px;
+  }
+
+  @media (max-width: 750px) {
+    padding-top: 80px;
+  }
+}
+
+.title {
+  margin-bottom: 55px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 3rem;
+  text-align: center;
+
+  @media (max-width: 1200px) {
+    font-size: 2rem;
+  }
+}

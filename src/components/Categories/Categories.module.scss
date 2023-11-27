@@ -1,0 +1,44 @@
+$color_1: white;
+$background-color_1: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100%);
+
+.menu {
+  display: flex;
+  color: $color_1;
+  gap: 50px;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 466px) {
+  .nav {
+    top: 140px;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100%);
+    //background: rgba(0, 0, 0, 0.8);
+    padding-top: 20px;
+    backdrop-filter: blur(25px);
+  }
+  .menu {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .nav {
+    flex: 1;
+
+  }
+  .menu {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+@media (min-width: 468px) and (max-width: 1200px) {
+  .nav {
+    display: none;
+  }
+}

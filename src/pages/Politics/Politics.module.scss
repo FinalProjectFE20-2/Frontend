@@ -1,0 +1,44 @@
+.politics {
+    padding: 50px;
+}
+
+.containerFluid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagesTitle {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.informationViev {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.informationTermin {
+    font-weight: 600;
+}
+
+.ol {
+    color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.li::before {
+    content: "1";
+    font-size: 16px;
+    margin-right: 0.5em;
+    color: #fff;
+}

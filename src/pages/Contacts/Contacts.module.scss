@@ -1,0 +1,65 @@
+.containerContactsKosss {
+    .titleContactsKosss {
+        h1 {
+            font-size: 50px;
+            font-weight: 500;
+            line-height: 55px;
+            letter-spacing: 0em;
+            text-align: left;
+            padding-bottom: 10px;
+
+            p {
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 16px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #9EA2AA;
+            }
+        }
+    }
+
+    .detailesContactsKosss {
+        padding: 70px 0 70px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .mapContactsKosss {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+
+        .descriptionContactsKosss {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            h2 {
+                padding-top: 40px;
+                font-size: 25px;
+                font-weight: 500;
+                line-height: 30px;
+                letter-spacing: 0em;
+            }
+        }
+    }
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+    color: #fbd13e;
+    transition: color 0.3s;
+}
+
+@media screen and (max-width: 769px) {
+    .containerContactsKosss .detailesContactsKosss .mapContactsKosss {
+        width: 100%;
+        padding: 50px;
+    }
+}
