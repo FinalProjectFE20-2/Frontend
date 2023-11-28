@@ -12,6 +12,7 @@ import Contacts from '@/pages/Contacts/Contacts.jsx';
 import Delivery from '@/pages/Delivery/Delivery.jsx';
 import Politics from '@/pages/Politics/Politics';
 import Terms from '@/pages/Terms/Terms';
+import Thank from '@/pages/Thank/Thank';
 import PrivateRoute from './privateRoute';
 import Login from '@/pages/Login/Login';
 import Registration from '@/pages/Registration/Registration';
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: '/terms',
         element: <Terms />,
+      },
+      {
+        path: '/thank',
+        element: <Thank />,
       },
       {
         path: '/product/:productId',
