@@ -54,7 +54,7 @@ const Checkout = () => {
     const phoneInputValue = document.getElementById('phoneGuestInput').value;
   
     if (nameInputValue && phoneInputValue && deliveryMethod) {
-      navigate('/thanks');
+      navigate('/thank');
     } else {
       alert('Введіть контактні дані, та Спосіб доставки');
     }
