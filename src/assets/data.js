@@ -5,6 +5,8 @@ import img21 from '@/assets/products/21.png';
 import img25 from '@/assets/products/25.png';
 import img27 from '@/assets/products/27.png';
 import img28 from '@/assets/products/28.png';
+import img29 from '@/assets/products/29.webp';
+import img30 from '@/assets/products/30.webp';
 
 export const menuItems = [
     {
@@ -53,7 +55,7 @@ export const menuItems = [
     {
         title: 'Меню мангала',
         url: 'categories/barbecue_menu',
-        img: 'https://api.shashlikyan.ua/uploads/112/564687-f74d0cf8-7c31-47b0-8af6-fa26a88aac08.webp',
+        img: img30,
     },
     {
         title: 'Десерти',
@@ -63,6 +65,6 @@ export const menuItems = [
     {
         title: 'Напої',
         url: 'categories/drinks',
-        img: 'https://api.shashlikyan.ua/uploads/112/564573-9432d5bf-7f70-4fa2-9840-dbd884fa91d4.webp',
+        img: img29,
     },
 ];
