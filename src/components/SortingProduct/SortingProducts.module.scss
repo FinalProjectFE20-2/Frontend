@@ -3,5 +3,53 @@
   color: white;
   outline: none;
   border: none;
+  margin-bottom: 29px;
+  text-transform: uppercase;
 
+}
+.option {
+  background-color: red;
+}
+.grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: (repeat(5, 1fr));
+  gap: 40px 30px;
+  text-align: start;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: (repeat(4, 1fr));
+  }
+
+  @media (max-width: 990px) {
+    grid-template-columns: (repeat(3, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: (repeat(2, 1fr));
+  }
+
+  @media (max-width: 555px) {
+    grid-template-columns: (repeat(1, 1fr));
+  }
+}
+
+.wrapper {
+  text-align: end;
+
+}
+
+.wrapperSelect {
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.65px;
+
+
+}
+
+.selectTitle {
+  color: #9EA2AA;
+  text-transform: uppercase;
+  margin-right: 20px;
 }

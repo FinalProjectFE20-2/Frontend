@@ -1,45 +1,47 @@
 import {useLocation} from 'react-router-dom';
-import {menuItems} from '@/assets/data.js';
 import {useEffect, useState} from 'react';
 import styles from './ProductCategories.module.scss';
-import ProductCard from '../../components/ProductCard/ProductCard.jsx';
-import {addToCart} from '../../store/action/cart/cart.js';
-import {useDispatch, useSelector} from 'react-redux';
-import {getFindObj} from './getFindObj.js';
 import SortingProducts from "../../components/SortingProduct/SortingProducts.jsx";
 
 export const ProductCategories = () => {
     const [objProducts, setObjProducts] = useState({});
-
+const [findObj, setfindObj]=useState({})
     let location = useLocation();
+    const categoriesId = location.pathname.split("/")[2];
 
-
-    const findObj = getFindObj(menuItems);
     useEffect(() => {
-
-        const filterParam = location.pathname === '/categories/action' ? "discount=true" : `categories=${findObj.title}`
-        fetch(
-            `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-        )
-            .then(products => {
-                return products.json();
+        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
+            .then(data=>data.json())
+            .then(category => {
+                setfindObj(category)
+                const filterParam = categoriesId === 'action' ? "discount=true" : `categories=${category.name}`
+                fetch(
+                    `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
+                )
+                    .then(products => {
+                        return products.json();
+                    })
+                    .then(data => {
+                        setObjProducts(data);
+                    });
             })
-            .then(data => {
-                setObjProducts(data);
+            .catch(err => {
+
             });
-    }, [findObj]);
+
+    }, [location]);
 
     return (
         <div className={`container main ${styles.wrapper}`}>
-            <h2 className={styles.title}>{findObj?.title}</h2>
+            <h2 className={styles.title}>{findObj?.name}</h2>
             {objProducts.products?.length ? (
-                    <SortingProducts products={objProducts.products}/>
+                <SortingProducts products={objProducts.products}/>
 
-                ) : (
+            ) : (
                 <h2 className={styles.infoBanner}>
-                Товари для цієї категорії тимчасово видсутні!
+                    Товари для цієї категорії тимчасово видсутні!
                 </h2>
-                )}
+            )}
         </div>
     );
 };
