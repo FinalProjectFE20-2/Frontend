@@ -40,22 +40,18 @@ export default function Search() {
 
   const handleSearch = async (query, isSearchIconClicked) => {
     try {
-      if (!isSearchIconClicked && (typeof query !== 'string' || query.trim() === '')) {
-        setSearchResults([]);
-        setSearchResultsVisible(false);
-        return;
+      if (!isSearchIconClicked && query.trim() !== '') {
+        const response = await axios.post(`${baseUrl}/products/search`, { query }, {
+          headers: {
+            Authorization: authToken,
+          },
+        });
+  
+        setSearchResults(response.data);
+        setSearchResultsVisible(true);
       }
-
-      const response = await axios.post(`${baseUrl}/products/search`, { query }, {
-        headers: {
-          Authorization: authToken,
-        },
-      });
-
-      setSearchResults(response.data);
-      setSearchResultsVisible(true);
     } catch (error) {
-      console.error('An error occurred while fetching items:', error);
+      console.error('Product not found:', error);
     }
   };
 
