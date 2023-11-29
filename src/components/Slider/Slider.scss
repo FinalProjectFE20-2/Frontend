@@ -1,0 +1,54 @@
+.link {
+  width: 230px;
+  position: relative;
+}
+
+.img {
+  display: block;
+  width: 100%;
+}
+
+.discount {
+  width: 100px;
+  height: 105px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+
+  @media (max-width: 1300px) {
+    width: 60px;
+    height: 75px;
+  }
+}
+
+.price {
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  font-size: 22px;
+  font-weight: bold;
+
+  @media (max-width: 1300px) {
+    top: 60px;
+    left: 10px;
+    font-size: 16px;
+  }
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>.swiper-pagination-bullet {
+  margin: 4px 8px;
+  width: 25px;
+  height: 25px;
+  background-color: #007bff;
+  opacity: 0.5;
+
+  &.swiper-pagination-bullet-active {
+    background-color: #fbd13e;
+    opacity: 1;
+  }
+}
+
+.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden>.swiper-button-prev,
+.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden>.swiper-button-next {
+  color: #fbd13e;
+}

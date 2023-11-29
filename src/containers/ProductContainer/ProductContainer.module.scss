@@ -56,6 +56,77 @@
   line-height: 23px;
 }
 
+.desc__counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  margin-top: 10px;
+  background: #000;
+}
+
+.counter__group {
+  height: 40px;
+  width: 80px;
+  position: relative;
+}
+
+.counter__input {
+  height: 40px;
+  width: 80px;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+// Clear default arrows
+/* Chrome, Safari, Edge, Opera */
+.counter__input::-webkit-outer-spin-button,
+.counter__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.counter__input {
+  -moz-appearance: textfield;
+}
+
+.counter__btn {
+  top: 5px;
+  padding: 0 5px;
+  position: absolute;
+  font-size: 0px;
+  background: black;
+}
+
+.counter__btn:hover {
+  color: #FBD13E;
+  transition: color .3s;
+}
+
+.btnCart {
+  background-color: #fbd13e;
+  padding: 10px;
+  position: relative;
+
+  &:hover {
+    background-color: #DBB325;
+    transition: color .3s;
+  }
+}
+
+.btn__minus {
+  left: -10px;
+}
+
+.btn__plus {
+  right: -13px;
+}
+
 .desc__box {
   @media (max-width: 1000px) {
     margin-top: 20px;

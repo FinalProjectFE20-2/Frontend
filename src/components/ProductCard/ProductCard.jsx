@@ -5,12 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import Cart from '@/assets/icons/Cart.svg?react';
 
-const ProductCard = ({ itemNo, onClickAddCart }) => {
+const ProductCard = ({ itemNo, onClickAddCart, propsProduct, addedCount }) => {
   const products = useSelector(state => state.products.products || []);
-  const product = products.find(product => product.itemNo === itemNo);
-  // console.log(product, 11);
-  const dispatch = useDispatch();
-
+  const product = propsProduct
+    ? propsProduct
+    : products.find(product => product.itemNo === itemNo);
   const onAddCart = () => {
     const obj = {
       id: parseInt(itemNo),
@@ -28,8 +27,8 @@ const ProductCard = ({ itemNo, onClickAddCart }) => {
         <Link to={`/product/${product.itemNo}`} className={styles.imgBox}>
           <img
             className={styles.img}
-            src={product?.imageUrls[0]}
-            alt={product?.name}
+            src={product.imageUrls[0]}
+            alt={product.name}
           />
         </Link>
       )}
@@ -45,6 +44,7 @@ const ProductCard = ({ itemNo, onClickAddCart }) => {
           className={styles.buttonBasket}>
           <button onClick={onAddCart} className={styles.btnCart}>
             <Cart className="" />
+            {addedCount && <i>{addedCount}</i>}
           </button>
         </motion.button>
       </div>

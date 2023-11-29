@@ -1,84 +1,106 @@
-import {useEffect} from 'react';
-import CartEmpty from '../../components/CartEmpty/CartEmpty';
+import { useEffect } from 'react';
+import cartEmptyImg from '@/assets/icons/EmptyCart.svg';
 import CartItem from '@/components/CartItem/CartItem.jsx';
 import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCart, removeCartItem } from '../../store/action/cart/cart';
+import {
+  getCart,
+  removeCartItem,
+  plusCartItem,
+  minusCartItem,
+} from '../../store/action/cart/cart';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.session.token);
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
-  const addedCart = Object.keys(items).map(key => {
-    return items[key].items[0];
-  });
+  // const addedCart = Object.keys(items).map(key => {
+  //   return items[key].items[0];
+  // });
 
   const onRemoveItem = id => {
     dispatch(removeCartItem(id));
   };
   useEffect(() => {
-    console.log(token)
-  if (token){
-    dispatch(getCart())
-  }
-    }, [token, dispatch]);
+    console.log(token);
+    if (token) {
+      dispatch(getCart());
+    }
+  }, [token, dispatch]);
 
+  const onPlusItem = id => {
+    dispatch(plusCartItem(id));
+  };
+
+  const onMinusItem = id => {
+    dispatch(minusCartItem(id));
+  };
 
   return (
-    <div>
-      <div className="container main">
-        <div className={styles.title}>
-          <h1>Корзина</h1>
-          <h3>
-            {' '}
-            Home / <span className={styles.route_active}>Product</span>
-          </h3>
-        </div>
-        {totalCount ? (
-          <>
-            <ul className={styles.list}>
-              <li>Блюдо:</li>
-              <li>Ціна:</li>
-              <li>Кількість:</li>
-              <li>Сума:</li>
-            </ul>
-            <div className="content__items">
-              {addedCart.map(obj => (
-                <CartItem
-                  key={obj.id}
-                  id={obj.id}
-                  name={obj.name}
-                  price={obj.price}
-                  size={obj.size}
-                  imageUrl={obj.imageUrl}
-                  totalPrice={items[obj.id].totalPrice}
-                  totalCount={items[obj.id].items.length}
-                  onRemove={onRemoveItem}
-                  // onMinus={onMinusItem}
-                  // onPlus={onPlusItem}
-                />
-              ))}
-            </div>
-            <div className={styles.cart__bottom}>
-              <div className={styles.cart__bottomDetails}>
-                <p>
-                  Кількість замовлень: <b>{totalCount} шт</b>
-                </p>
-                <p>
-                  Сума замовлення: <b>{totalPrice} &#8372;</b>
-                </p>
-              </div>
-              <Link to="/cart/checkout">
-                <button className={styles.button}>Оформити замовлення</button>
-              </Link>
-            </div>
-          </>
-        ) : (
-          <CartEmpty />
-        )}
+    <div className="container main">
+      <div className={styles.title}>
+        <h1>Корзина</h1>
+        <h3>
+          {' '}
+          Home / <span className={styles.route_active}>Cart</span>
+        </h3>
       </div>
+      {totalCount ? (
+        <>
+          <ul className={styles.list}>
+            <li>Страва:</li>
+            <li>Ціна:</li>
+            <li>Кількість:</li>
+            <li>Сума:</li>
+          </ul>
+          {/* <div className="content__items">
+            {addedCart.map(obj => (
+              <CartItem
+                key={obj.id}
+                id={obj.id}
+                name={obj.name}
+                price={obj.price}
+                size={obj.size}
+                imageUrl={obj.imageUrl}
+                quantity={obj.quantity}
+                totalPrice={items[obj.id].totalPrice}
+                totalCount={items[obj.id].items.length}
+                onRemove={onRemoveItem}
+                onMinus={onMinusItem}
+                onPlus={onPlusItem}
+              />
+            ))}
+          </div> */}
+          <div className={styles.cart__bottom}>
+            <div className={styles.cart__bottomDetails}>
+              <p>
+                Кількість замовлень: <b>{totalCount} шт</b>
+              </p>
+              <p>
+                Сума замовлення: <b>{totalPrice},00 &#8372;</b>
+              </p>
+            </div>
+            <Link to="/cart/checkout">
+              <button className={styles.button}>Оформити замовлення</button>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <div className={styles.empty}>
+          <h2>Нажаль, корзина порожня 😕</h2>
+          <p>
+            Зробіть, будь-ласка, замовлення.
+            <br />
+            Для цього перейдіть на головну сторінку.
+          </p>
+          <img src={cartEmptyImg} alt="Empty cart" />
+          <Link to="/">
+            <div className={styles.button}>На головну сторінку</div>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

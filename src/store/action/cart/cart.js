@@ -6,18 +6,18 @@ export const createCartAction = createCart => ({
   type: CREATE_CART_ACTION,
   payload: createCart,
 });
-export const addToCart = Ob => ({
-  type: 'ADD_CART',
-  payload: Ob,
-});
+// export const addToCart = Ob => ({
+//   type: 'ADD_CART',
+//   payload: Ob,
+// });
 export const setCartError = error => ({
   type: SET_CART_ERROR,
   payload: error,
 });
-export const removeCartItem = id => ({
-  type: 'REMOVE_CART_ITEM',
-  payload: id,
-});
+// export const removeCartItem = id => ({
+//   type: 'REMOVE_CART_ITEM',
+//   payload: id,
+// });
 export const getCartAction = data => ({
   type: GET_CART,
   payload: data,
@@ -46,11 +46,13 @@ export const getCart = () => async (dispatch, getState) => {
     await dispatch(setCartError(data));
     return;
   }
-  const userCart = data.reduce((acc, cur) => {
-    acc[cur.itemNo] = cur;
+  const updateCart = data.products.map(({ items }) => items).flat(1);
+  const userCart = updateCart.reduce((acc, cur) => {
+    acc[cur.id] = cur;
     return acc;
   }, {});
   const state = getState();
+  console.log(state, userCart);
   dispatch(
     getCartAction({
       ...state.cart.items,
@@ -58,3 +60,22 @@ export const getCart = () => async (dispatch, getState) => {
     }),
   );
 };
+export const addToCart = Ob => ({
+  type: 'ADD_CART',
+  payload: Ob,
+});
+
+export const removeCartItem = id => ({
+  type: 'REMOVE_CART_ITEM',
+  payload: id,
+});
+
+export const plusCartItem = id => ({
+  type: 'PLUS_CART_ITEM',
+  payload: id,
+});
+
+export const minusCartItem = id => ({
+  type: 'MINUS_CART_ITEM',
+  payload: id,
+});
