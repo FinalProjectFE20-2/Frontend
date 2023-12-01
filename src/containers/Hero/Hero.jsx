@@ -1,7 +1,7 @@
 import style from './Hero.module.scss';
 import Cart from '@/assets/icons/Cart.svg?react';
 import { motion, spring } from 'framer-motion';
-
+import { Link } from 'react-router-dom';
 function Hero() {
   const downAnimation = {
     hidden: { x: -1000, opacity: 0 },
@@ -82,6 +82,12 @@ function Hero() {
           </div>
           <div className={style.red__square}>
             <div className={style.square__container}>
+              {/* <blockquote className={style.quote}>
+                "У ресторані Midas наша кухня перетворюється в золото ваших
+                смаків. Тут кожна страва - це як дотик до чарівництва, що
+                перетворює звичайний вечерю в королівський бенкет. Ласкаво
+                просимо до царства смаку та гостинності!"
+              </blockquote> */}
               <div className={style.square__title}>
                 {' '}
                 Стейк з лосося
@@ -96,13 +102,14 @@ function Hero() {
               </p>
               <div className={style.price__inner}>
                 <p className={style.square__price}>1200 &#8372;</p>
-                <motion.button
+                <Link to="https://midasproject.vercel.app/product/96" className={style.link} />
+                {/* <motion.button
                   type="button"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className={style.square__cart}>
                   <Cart />
-                </motion.button>
+                </motion.button> */}
               </div>
             </div>
           </div>
