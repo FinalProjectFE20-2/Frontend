@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { menuItems } from '@/assets/data.js';
 import { useEffect, useState } from 'react';
 import styles from './ProductCategories.module.scss';
@@ -15,20 +15,29 @@ export const ProductCategories = () => {
   const handleAddToCard = obj => {
     dispatch(addToCart(obj));
   };
+  const navigate = useNavigate();
 
   const findObj = getFindObj(menuItems);
-  useEffect(() => {
 
-    const filterParam = location.pathname==='/categories/action'?"discount=true":`categories=${findObj.title}`
-    fetch(
-      `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-    )
-      .then(products => {
-        return products.json();
-      })
-      .then(data => {
-        setObjProducts(data);
-      });
+  useEffect(() => {
+    if(findObj) {
+      fetch(
+        `https://backend-zeta-sandy.vercel.app/api/products/filter?categories=${findObj.title}`,
+      )
+        .then(products => {
+          return products.json();
+        })
+        .then(data => {
+          setObjProducts(data);
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
+          navigate('/no-page');
+        });
+    } else {
+      navigate('/no-page')
+    }
+
   }, [findObj]);
 
   return (
@@ -52,7 +61,7 @@ export const ProductCategories = () => {
         </ul>
       ) : (
         <h2 className={styles.infoBanner}>
-          Товари для цієї категорії тимчасово видсутні!
+          Товари для цієї категорії тимчасово відсутні!
         </h2>
       )}
     </div>
