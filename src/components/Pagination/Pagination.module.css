@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.highlighted {
+  background-color: #fbd13e;
+  color: black;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fbd13e;
+}
+.btn:not(:last-child) {
+  margin-right: 20px;
+}
+.btn.disabled {
+  border: 1px solid grey;
+}
+
+.ellipsis {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 55px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: 13px;
+}/*# sourceMappingURL=Pagination.module.css.map */

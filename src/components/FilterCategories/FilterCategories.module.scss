@@ -1,0 +1,57 @@
+$color_main: #fbd13e;
+$color_hover: #DBB325;
+
+.highlighted {
+  color: $color_main;
+}
+
+.allDishes {
+  margin: 0 0 24px 50px;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color_hover;
+  }
+}
+
+.inputBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+
+  &.isActive {
+    color: $color_main;
+  }
+}
+
+.input[type="checkbox"] + .label::before {
+  content: "\00a0";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 27px;
+  border: 1px inset white;
+  border-radius: 4px;
+}
+
+.input[type="checkbox"]:checked + .label::before {
+  content: '\2713';
+  padding-top: 2px;
+  background-color: $color_main;
+  color: black;
+  border-color: $color_main;
+}

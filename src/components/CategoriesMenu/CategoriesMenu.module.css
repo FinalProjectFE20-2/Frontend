@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 100;
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    display: none;
+  }
+}
+
+.title {
+  font-weight: 500;
+  color: white;
+}
+@media (max-width: 555px) {
+  .title {
+    display: none;
+  }
+}/*# sourceMappingURL=CategoriesMenu.module.css.map */

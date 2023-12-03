@@ -21,7 +21,6 @@ $font-family_1: Montserrat;
     margin: 0;
     font-family: $font-family_1;
     font-size: 20px;
-    flex-basis: 150px;
 }
 @media (max-width: 467px) {
     .imgWrapper {
@@ -31,10 +30,4 @@ $font-family_1: Montserrat;
         width: 70%;
         margin: 0 auto;
     }
-}
-.img {
-    max-width: 100%;
-}
-.item {
-    list-style: none;
 }
