@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
         element: <Registration />,
       },
       {
-        path: '*',
+        path: '"*" || '404'',
         element: <NoPage />,
       },
       {
