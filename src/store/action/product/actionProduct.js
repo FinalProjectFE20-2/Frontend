@@ -8,10 +8,7 @@ const URL = 'https://backend-zeta-sandy.vercel.app/api';
 const fetchData = async (url, dispatch, actionType) => {
   try {
     const res = await axios.get(url);
-    dispatch({
-      type: actionType,
-      payload: res.data
-    });
+    dispatch({ type: actionType, payload: res.data });
   } catch (error) {
     console.error(`Error fetching data for ${actionType}:`, error);
   }
@@ -26,3 +23,4 @@ export const getAllProductsFetch = () => async (dispatch) => {
   const url = `${URL}/products`;
   await fetchData(url, dispatch, GET_ALL_PRODUCTS);
 };
+
