@@ -18,7 +18,6 @@ const ProductContainer = addedCount => {
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
-        console.log(response.data);
         setitem(response.data);
       })
       .catch(err => {
@@ -28,11 +27,7 @@ const ProductContainer = addedCount => {
 
   useEffect(() => {
     getProduct();
-  }, ' ');
-
-  useEffect(() => {
-    getProduct();
-  }, productId);
+  }, [productId]);
 
   const onAddCart = () => {
     const obj = {
@@ -86,19 +81,14 @@ const ProductContainer = addedCount => {
           <motion.button
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.9 }}
-            className={styles.buttonBasket}>
-            <button onClick={onAddCart} className={styles.btnCart}>
-              <Cart className="svg" />
-            </button>
+            onClick={onAddCart}
+            className={styles.btnCart}>
+            <Cart className="svg" />
           </motion.button>
         </div>
       </div>
     </section>
   );
-};
-
-ProductContainer.propTypes = {
-  productId: PropTypes.string.isRequired,
 };
 
 ProductContainer.defaultProps = {};
