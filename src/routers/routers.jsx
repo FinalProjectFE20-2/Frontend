@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
       { path: '/delivery', element: <Delivery /> },
       { path: '/politics', element: <Politics /> },
       { path: '/terms', element: <Terms /> },
-      /*       { path: '/allProducts', element: <AllProducts /> }, */
+      { path: '/allProducts', element: <AllProducts /> },
       { path: '/product/:productId', element: <Product /> },
       { path: '/categories/:categoriesName', element: <ProductCategories /> },
       {
