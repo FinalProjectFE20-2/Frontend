@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  color: white;
+  gap: 50px;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 468px) {
+  .nav {
+    top: 140px;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100%);
+    padding-top: 20px;
+    -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(25px);
+  }
+  .menu {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .nav {
+    flex: 1;
+  }
+  .menu {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+@media (min-width: 468px) and (max-width: 1200px) {
+  .nav {
+    display: none;
+  }
+}/*# sourceMappingURL=Categories.module.css.map */

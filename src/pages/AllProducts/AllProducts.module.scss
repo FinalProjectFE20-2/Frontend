@@ -1,0 +1,141 @@
+$color_main: #fbd13e;
+$color_hover: #DBB325;
+
+
+
+.newContainer {
+  @media (max-width: 555px) {
+    padding: 0 15px ;
+  }
+}
+
+.sortingContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 25px;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: (1fr 2fr);
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: (1fr 3fr);
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: (1fr);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: (repeat(4, 1fr));
+  gap: 50px 20px;
+  margin: 0 auto 97px;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: (repeat(3, 1fr));
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: (repeat(2, 1fr));
+  }
+
+  @media (max-width: 555px) {
+    grid-template-columns: (repeat(1, 1fr));
+  }
+}
+
+.title {
+  margin-bottom: 40px;
+  color: #FFF;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 90px;
+
+  @media (max-width: 767px) {
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
+
+.filterBtn {
+  display: none;
+  @media (max-width: 992px) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 330px;
+    height: 42px;
+    padding-left: 34px;
+    background-color: $color_main;
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+
+    &.isActive::before {
+      top: 20px;
+      transform: rotate(-135deg);
+    }
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 16px;
+      left: 300px;
+      padding: 2.5px;
+      border: solid black;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      background-color: $color_hover;
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 25px;
+  }
+}
+
+.categoriesModal {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 330px;
+  padding: 24px 20px 0 65px;
+  background-color: black;
+  z-index: 1;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+
+  @media (max-width: 1400px) {
+    margin-left: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+}

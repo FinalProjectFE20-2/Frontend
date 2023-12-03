@@ -1,0 +1,38 @@
+.link {
+  width: 230px;
+  position: relative;
+}
+
+.img {
+  display: block;
+  width: 100%;
+}
+
+.discount {
+  width: 100px;
+  height: 105px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+}
+@media (max-width: 1300px) {
+  .discount {
+    width: 60px;
+    height: 75px;
+  }
+}
+
+.price {
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+@media (max-width: 1300px) {
+  .price {
+    top: 60px;
+    left: 10px;
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=Slider.module.css.map */
