@@ -1,6 +1,8 @@
 import styles from './DropDown.module.scss';
 import { Link } from 'react-router-dom';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
+import { setIsOpen } from '../../../store/action/categories/actionCategories.js';
+import { useDispatch } from 'react-redux';
 
 const Dropdown = ({ submenus, dropdown }) => {
   return (

@@ -112,8 +112,8 @@ export default function Search() {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
-        {links.map(({ link, icon }) => (
-          <li key={link} className={styles.item}>
+        {links.map(({ link, icon, key }) => (
+          <li key={key} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
             ) : (
