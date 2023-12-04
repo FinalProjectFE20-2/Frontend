@@ -129,7 +129,6 @@
   .searchInput {
     width: 100%;
   }
-
   .searchResults {
 
     right: 10px;
@@ -142,12 +141,10 @@
     right: 32px;
   }
 }
-
 @media (max-width: 500px) {
   .list {
     grid-template-columns: repeat(3, 30px);
   }
-
   .searchResults {
     width: 280px;
     left: 0;
@@ -155,7 +152,6 @@
     margin-left: auto;
   }
 }
-
 @media (max-width: 355px) {
   .list {
     gap: 15px;
