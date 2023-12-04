@@ -1,0 +1,37 @@
+$color_main: #fbd13e;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.highlighted {
+  background-color: $color_main;
+  color: black;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color_main;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &.disabled {
+    border: 1px solid grey;
+  }
+}
+
+.ellipsis {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 55px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: 13px;
+}
