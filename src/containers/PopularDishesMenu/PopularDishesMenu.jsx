@@ -19,20 +19,23 @@ const PopularDishesMenu = props => {
 
   const cartItems = useSelector(({ cart }) => cart.items);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Assuming GET_PRODUCTS is a Redux action
-        await dispatch(GET_PRODUCTS());
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      await dispatch(GET_PRODUCTS());
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const delay = 1000;
+  const fetchDataWithDelay = () => {
+    setTimeout(fetchData, delay);
+  };
+  fetchDataWithDelay();
+}, [dispatch, setIsLoading]);
 
-    fetchData();
-  }, [dispatch]); // Include dispatch in the dependency array if it's used inside the effect
 
   return (
     <section className={`${styles.PopularDishes} container`}>

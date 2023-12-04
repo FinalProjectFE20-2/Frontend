@@ -1,11 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.scss';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import {useState, useEffect, Suspense } from 'react';
 import Hero from './containers/Hero/Hero.jsx';
 import PopularDishesMenu from './containers/PopularDishesMenu/PopularDishesMenu.jsx';
 import Discounts from './containers/Discounts/Discounts.jsx';
 import { getAllProducts } from './store/action/product/actionProduct';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -15,12 +16,13 @@ function App() {
 
     dispatch(getAllProducts(perPage, startPage));
   }, [dispatch]);
-
   return (
     <>
-      <Hero />
-      <PopularDishesMenu />
-      <Discounts />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Hero />
+        <PopularDishesMenu />
+        <Discounts />
+      </Suspense>
     </>
   );
 }
