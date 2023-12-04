@@ -38,7 +38,7 @@ export const ProductCategories = () => {
         <SortingProducts products={objProducts.products} />
       ) : (
         <h2 className={styles.infoBanner}>
-          Товари для цієї категорії тимчасово видсутні!
+          Товари для цієї категорії тимчасово відсутні!
         </h2>
       )}
     </div>

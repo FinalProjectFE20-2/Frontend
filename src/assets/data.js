@@ -9,59 +9,59 @@ import img29 from '@/assets/products/29.webp';
 import img30 from '@/assets/products/30.webp';
 
 export const menuItems = [{
-        title: 'Всі страви',
-        url: 'allProducts',
-        img: fire,
-    },
-    {
-        title: 'Гарячі',
-        url: 'categories/hot',
-        submenu: [{
-                title: 'Гарячі страви',
-                url: 'categories/hot_dishes',
-                img: img17,
-            },
-            {
-                title: 'Перші страви',
-                url: 'categories/soups',
-                img: img19,
-            },
-            {
-                title: 'Хінкалі',
-                url: 'categories/khinkali',
-                img: img21,
-            },
-        ],
-    },
-    {
-        title: 'Холодні',
-        url: 'categories/cold',
-        submenu: [{
-                title: 'Холодні закуски',
-                url: 'categories/cold_dishes',
-                img: img25,
-            },
-            {
-                title: 'Салати',
-                url: 'categories/salat',
-                img: img28,
-            },
-
-        ],
-    },
-    {
-        title: 'Меню мангала',
-        url: 'categories/barbecue_menu',
-        img: img30,
-    },
-    {
-        title: 'Десерти',
-        url: 'categories/deserts',
+    title: 'Всі страви',
+    url: 'allProducts',
+    img: fire,
+  },
+  {
+    title: 'Гарячі',
+    url: 'categories/hot',
+    submenu: [{
+        title: 'Гарячі страви',
+        url: 'categories/hot_dishes',
+        img: img17,
+      },
+      {
+        title: 'Перші страви',
+        url: 'categories/soups',
+        img: img19,
+      },
+      {
+        title: 'Хінкалі',
+        url: 'categories/khinkali',
+        img: img21,
+      },
+    ],
+  },
+  {
+    title: 'Холодні',
+    url: 'categories/cold',
+    submenu: [{
+        title: 'Холодні закуски',
+        url: 'categories/cold_dishes',
+        img: img25,
+      },
+      {
+        title: 'Салати',
+        url: 'categories/salat',
         img: img28,
-    },
-    {
-        title: 'Напої',
-        url: 'categories/drinks',
-        img: img29,
-    },
+      },
+
+    ],
+  },
+  {
+    title: 'Меню мангала',
+    url: 'categories/barbecue_menu',
+    img: img30,
+  },
+  {
+    title: 'Десерти',
+    url: 'categories/deserts',
+    img: img28,
+  },
+  {
+    title: 'Напої',
+    url: 'categories/drinks',
+    img: img29,
+  },
 ];

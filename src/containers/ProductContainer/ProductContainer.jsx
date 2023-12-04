@@ -14,14 +14,10 @@ const ProductContainer = addedCount => {
   const [item, setitem] = useState([]);
   const dispatch = useDispatch();
 
-  console.log(productId);
-
   const getProduct = () => {
-    console.log(productId);
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
-        console.log(response.data);
         setitem(response.data);
       })
       .catch(err => {
@@ -93,10 +89,6 @@ const ProductContainer = addedCount => {
       </div>
     </section>
   );
-};
-
-ProductContainer.propTypes = {
-  productId: PropTypes.string.isRequired,
 };
 
 ProductContainer.defaultProps = {};
