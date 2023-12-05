@@ -8,9 +8,11 @@ export default function ProductsCatigories() {
     (acc, item) => {
       if (item.submenu) {
         acc.withSubmenu.push(item);
-      } else if (item.title.toLowerCase() !== 'акції') {
+      } else
+          if (item.title.toLowerCase() !== 'всі страви') {
         acc.withoutSubmenu.push(item);
       } else {
+              console.log(item)
         acc.action = item;
       }
       return acc;
@@ -21,7 +23,7 @@ export default function ProductsCatigories() {
   return (
     <div className={styles.categories}>
       <div>
-        <Action upPrice={30} downprice={20} obj={action} />{' '}
+        <Action  obj={action} />{' '}
       </div>
       <ul className={styles.list}>
         {withSubmenu.map((item, index) => (

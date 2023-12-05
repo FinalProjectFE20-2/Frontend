@@ -15,9 +15,7 @@ export const ProductCategories = () => {
       .then(category => {
         setfindObj(category);
         const filterParam =
-          categoriesId === 'action'
-            ? 'discount=true'
-            : `categories=${category.name}`;
+          `categories=${category.name}`;
         fetch(
           `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
         )
@@ -34,13 +32,9 @@ export const ProductCategories = () => {
   return (
     <div className={`container main ${styles.wrapper}`}>
       <h2 className={styles.title}>{findObj?.name}</h2>
-      {objProducts.products?.length ? (
-        <SortingProducts products={objProducts.products} />
-      ) : (
-        <h2 className={styles.infoBanner}>
-          Товари для цієї категорії тимчасово відсутні!
-        </h2>
-      )}
+
+            <SortingProducts  />
+
     </div>
   );
 };

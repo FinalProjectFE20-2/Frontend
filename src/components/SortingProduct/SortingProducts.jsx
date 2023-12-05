@@ -1,46 +1,81 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../store/action/cart/cart.js";
-import {handleSorting} from "./SortingFunc.js";
 import styles from "./SortingProducts.module.scss"
+import Sorting from '@/components/Sorting/Sorting';
+import {useLocation} from 'react-router-dom';
 
-export const SortingProducts = ({products}) => {
-    const [selected, setSelected] = useState('default')
+export const SortingProducts = () => {
+    const [sortingProducts, setSortingProducts] = useState({})
     const cartItems = useSelector(({cart}) => cart.items);
+
     const dispatch = useDispatch();
+    const location = useLocation();
     const handleAddToCard = obj => {
         dispatch(addToCart(obj));
     };
+    const sortPrices = (value) => {
+        function cheackPrice(value) {
+            return value !== 0 ? 'currentPrice' : 'previousPrice'
+        }
 
+        setSortingProducts((prev) => {
 
+        return   {
+                    ...prev, products: [...prev.products?.sort((a, b) => {
+                        const sortValueA = cheackPrice(a.currentPrice)
+                        const sortValueB = cheackPrice(b.currentPrice)
+                        return value === 'ascending'
+                            ?a[sortValueA] - b[sortValueB]:b[sortValueB] - a[sortValueA]
+                    })]
+                }
+
+        })
+        ;
+
+    }
+    const categoriesId = location.pathname.split('/')[2];
+    useEffect(() => {
+        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
+            .then(data => data.json())
+            .then(category => {
+                const filterParam =
+                    `categories=${category.name}`;
+                fetch(
+                    `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
+                )
+                    .then(products => {
+                        return products.json();
+                    })
+                    .then(data => {
+                        console.log(data)
+                        setSortingProducts(data);
+                    });
+            })
+            .catch(err => {
+            });
+    }, [location]);
     return (
         <div className={styles.wrapper}>
-            <div className={styles.wrapperSelect}>
-                <span className={styles.selectTitle}>Сортувати:</span><select className={styles.select}
-                                           value={selected}
-                                           onChange={e => setSelected(e.target.value)}
-            >
-                <option className={styles.option} value="default">Вибрати по ціні</option>
-                <option value="up">Від меншої ціни</option>
-                <option value="down">Від більшої ціни</option>
-            </select>
-            </div>
-            {selected && <ul className={styles.grid}>
-                {handleSorting(products, selected).map(item => {
-                    return (
-                        <ProductCard
-                            onClickAddCart={handleAddToCard}
-                            key={item.itemNo}
-                            itemNo={item.itemNo}
-                            propsProduct={item}
-                            addedCount={
-                                cartItems[item.itemNo] && cartItems[item.itemNo].items.length
-                            }
-                        />
-                    );
-                })}
-            </ul>}
+
+            {sortingProducts.products && <><Sorting onSortPrices={sortPrices}/>
+                <ul className={styles.grid}>
+                    {sortingProducts.products.map(item => {
+                        return (
+                            <ProductCard
+                                onClickAddCart={handleAddToCard}
+                                key={item.itemNo}
+                                itemNo={item.itemNo}
+                                propsProduct={item}
+                                addedCount={
+                                    cartItems[item.itemNo] && cartItems[item.itemNo].items.length
+                                }
+                            />
+                        );
+                    })}
+                </ul>
+            </>}
         </div>
     )
 }
