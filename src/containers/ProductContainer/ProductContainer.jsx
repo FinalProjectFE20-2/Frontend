@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import styles from './ProductContainer.module.scss';
-import OrderBar from '../../components/OrderBar/OrderBar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Cart from '@/assets/icons/Cart.svg?react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/action/cart/cart';
 import { motion } from 'framer-motion';
 
@@ -14,7 +13,10 @@ const ProductContainer = addedCount => {
   const [item, setitem] = useState([]);
   const dispatch = useDispatch();
 
+  console.log(productId);
+
   const getProduct = () => {
+    console.log(productId);
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
@@ -28,11 +30,7 @@ const ProductContainer = addedCount => {
 
   useEffect(() => {
     getProduct();
-  }, ' ');
-
-  useEffect(() => {
-    getProduct();
-  }, productId);
+  }, [productId]);
 
   const onAddCart = () => {
     const obj = {
@@ -77,28 +75,17 @@ const ProductContainer = addedCount => {
             </span>
           </p>
 
-          {/*           <OrderBar
-            productId={productId}
-            currentPrice={item.currentPrice}
-            previousPrice={item.previousPrice}
-            quantity={item.quantity}
-          /> */}
           <motion.button
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.9 }}
-            className={styles.buttonBasket}>
-            <button onClick={onAddCart} className={styles.btnCart}>
-              <Cart className="svg" />
-            </button>
+            onClick={onAddCart}
+            className={styles.btnCart}>
+            <Cart className="svg" />
           </motion.button>
         </div>
       </div>
     </section>
   );
-};
-
-ProductContainer.propTypes = {
-  productId: PropTypes.string.isRequired,
 };
 
 ProductContainer.defaultProps = {};
