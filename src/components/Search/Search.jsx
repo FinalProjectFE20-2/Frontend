@@ -47,29 +47,22 @@ export default function Search() {
 
   const handleSearch = async (query, isSearchIconClicked) => {
     try {
-      if (
-        !isSearchIconClicked &&
-        (typeof query !== 'string' || query.trim() === '')
-      ) {
-        setSearchResults([]);
-        setSearchResultsVisible(false);
-        return;
-      }
-
-      const response = await axios.post(
-        `${baseUrl}/products/search`,
-        { query },
-        {
-          headers: {
-            Authorization: authToken,
+      if (!isSearchIconClicked && query.trim() !== '') {
+        const response = await axios.post(
+          `${baseUrl}/products/search`,
+          { query },
+          {
+            headers: {
+              Authorization: authToken,
+            },
           },
-        },
-      );
+        );
 
-      setSearchResults(response.data);
-      setSearchResultsVisible(true);
+        setSearchResults(response.data);
+        setSearchResultsVisible(true);
+      }
     } catch (error) {
-      console.error('An error occurred while fetching items:', error);
+      console.error('Product not found:', error);
     }
   };
 
@@ -117,10 +110,10 @@ export default function Search() {
   ];
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ul className={styles.list}>
-        {links.map(({ link, icon }, index) => (
-          <li key={index} className={styles.item}>
+        {links.map(({ link, icon, key }) => (
+          <li key={key} className={styles.item}>
             {link === '/searchResult' ? (
               <a onClick={() => handleSearch(searchQuery, true)}>{icon}</a>
             ) : (

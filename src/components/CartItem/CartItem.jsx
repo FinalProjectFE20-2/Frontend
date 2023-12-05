@@ -1,6 +1,6 @@
 import styles from './CartItem.module.scss';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 
 const CartItem = ({
   id,
@@ -40,7 +40,7 @@ const CartItem = ({
       </div>
       <div className={styles.cartItem__price}>
         <p>Ціна:</p>
-        <b>{price},00 &#8372;</b>
+        <b>{price} &#8372;</b>
       </div>
       <div className={styles.cartItem__count}>
         <button

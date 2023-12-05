@@ -5,6 +5,7 @@ import Header from '@/containers/Header/Header.jsx';
 import Footer from '@/containers/Footer/Footer.jsx';
 import Cart from '@/pages/Cart/Cart';
 import Product from '@/pages/Product/Product';
+import AllProducts from '@/pages/AllProducts/AllProducts';
 import NoPage from '@/pages/NoPage/NoPage';
 import Checkout from '@/containers/Checkout/Checkout.jsx';
 import Feedback from '@/pages/Feedback/Feedback.jsx';
@@ -32,68 +33,27 @@ export const router = createBrowserRouter([
       </>
     ),
     children: [
-      {
-        path: '/',
-        element: <App />,
-      },
-      {
-        path: '/login',
-        element: <Login />,
-      },
-      {
-        path: '/singUp',
-        element: <Registration />,
-      },
-      {
-        path: '*',
-        element: <NoPage />,
-      },
-      {
-        path: '/feedback',
-        element: <Feedback />,
-      },
-      {
-        path: '/contacts',
-        element: <Contacts />,
-      },
-      {
-        path: '/delivery',
-        element: <Delivery />,
-      },
-      {
-        path: '/politics',
-        element: <Politics />,
-      },
-      {
-        path: '/terms',
-        element: <Terms />,
-      },
-      {
-        path: '/product/:productId',
-        element: <Product />,
-      },
+      { path: '/', element: <App /> },
+      { path: '/login', element: <Login /> },
+      { path: '/singUp', element: <Registration /> },
+      { path: '/feedback', element: <Feedback /> },
+      { path: '/contacts', element: <Contacts /> },
+      { path: '/delivery', element: <Delivery /> },
+      { path: '/politics', element: <Politics /> },
+      { path: '/terms', element: <Terms /> },
+      { path: '/allProducts', element: <AllProducts /> },
+      { path: '/product/:productId', element: <Product /> },
       { path: '/categories/:categoriesName', element: <ProductCategories /> },
       {
         element: <PrivateRoute />,
         children: [
-          {
-            path: '/cart',
-            element: <Cart />,
-          },
-          {
-            path: '/cart/checkout',
-            element: <Checkout />,
-          },
-          {
-            path: '/profile',
-            element: <div>Profile</div>,
-          },
-          {
-            path: '/order_history',
-            element: <div>Order History</div>,
-          },
+          { path: '/cart', element: <Cart /> },
+          { path: '/cart/checkout', element: <Checkout /> },
+          { path: '/profile', element: <div>Profile</div> },
+          { path: '/order_history', element: <div>Order History</div> },
         ],
       },
+      { path: '*', element: <NoPage /> },
     ],
   },
 ]);

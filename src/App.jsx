@@ -5,7 +5,7 @@ import {useState, useEffect, Suspense } from 'react';
 import Hero from './containers/Hero/Hero.jsx';
 import PopularDishesMenu from './containers/PopularDishesMenu/PopularDishesMenu.jsx';
 import Discounts from './containers/Discounts/Discounts.jsx';
-import { getAllProducts } from './store/action/product/actionProduct';
+import { getFilteredProductsFetch } from './store/action/product/actionProduct';
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     const perPage = 15;
     const startPage = Math.floor(Math.random() * 5) + 1;
 
-    dispatch(getAllProducts(perPage, startPage));
+    dispatch(getFilteredProductsFetch(perPage, startPage));
   }, [dispatch]);
   return (
     <>

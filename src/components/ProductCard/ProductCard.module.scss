@@ -35,8 +35,20 @@
 
 .price {
   display: inline-block;
-  font-size: 23px;
+  font-size: 19px;
   font-weight: 800;
+}
+
+.active {
+  font-size: 12px;
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  font-size: 19px;
+  font-weight: 800;
+  color: #fbd13e;
 }
 
 .footer {

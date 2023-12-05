@@ -3,21 +3,20 @@ import img17 from '@/assets/products/17.png';
 import img19 from '@/assets/products/19.png';
 import img21 from '@/assets/products/21.png';
 import img25 from '@/assets/products/25.png';
-import img26 from '@/assets/products/26.png';
 import img27 from '@/assets/products/27.png';
 import img28 from '@/assets/products/28.png';
+import img29 from '@/assets/products/29.webp';
+import img30 from '@/assets/products/30.webp';
 
-export const menuItems = [
-  {
-    title: 'Акції',
-    url: 'categories/action',
+export const menuItems = [{
+    title: 'Всі страви',
+    url: 'allProducts',
     img: fire,
   },
   {
     title: 'Гарячі',
     url: 'categories/hot',
-    submenu: [
-      {
+    submenu: [{
         title: 'Гарячі страви',
         url: 'categories/hot_dishes',
         img: img17,
@@ -37,8 +36,7 @@ export const menuItems = [
   {
     title: 'Холодні',
     url: 'categories/cold',
-    submenu: [
-      {
+    submenu: [{
         title: 'Холодні закуски',
         url: 'categories/cold_dishes',
         img: img25,
@@ -48,16 +46,13 @@ export const menuItems = [
         url: 'categories/salat',
         img: img28,
       },
-      {
-        title: 'Соуси',
-        url: 'categories/souse',
-      },
+
     ],
   },
   {
-    title: 'Свіжа випічка',
-    url: 'categories/fresh_pastries',
-    img: img26,
+    title: 'Меню мангала',
+    url: 'categories/barbecue_menu',
+    img: img30,
   },
   {
     title: 'Десерти',
@@ -67,6 +62,6 @@ export const menuItems = [
   {
     title: 'Напої',
     url: 'categories/drinks',
-    img: img27,
+    img: img29,
   },
 ];
