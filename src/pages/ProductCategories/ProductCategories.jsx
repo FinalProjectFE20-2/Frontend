@@ -13,6 +13,7 @@ export const ProductCategories = () => {
     fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
       .then(data => data.json())
       .then(category => {
+          console.log(category)
         setfindObj(category);
         const filterParam =
           `categories=${category.name}`;
@@ -23,6 +24,7 @@ export const ProductCategories = () => {
             return products.json();
           })
           .then(data => {
+
             setObjProducts(data);
           });
       })

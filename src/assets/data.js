@@ -11,7 +11,7 @@ import img30 from '@/assets/products/30.webp';
 export const menuItems = [{
     title: 'Всі страви',
     url: 'allProducts',
-    img: fire,
+    img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/fire_qrnhgz.png',
   },
   {
     title: 'Гарячі',
@@ -19,17 +19,17 @@ export const menuItems = [{
     submenu: [{
         title: 'Гарячі страви',
         url: 'categories/hot_dishes',
-        img: img17,
+        img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/17_warvpc.png',
       },
       {
         title: 'Перші страви',
         url: 'categories/soups',
-        img: img19,
+        img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/19_pyswvs.png',
       },
       {
         title: 'Хінкалі',
         url: 'categories/khinkali',
-        img: img21,
+        img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/21_appj5x.png',
       },
     ],
   },
@@ -39,12 +39,12 @@ export const menuItems = [{
     submenu: [{
         title: 'Холодні закуски',
         url: 'categories/cold_dishes',
-        img: img25,
+        img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859366/25_opmrva.png',
       },
       {
         title: 'Салати',
         url: 'categories/salat',
-        img: img28,
+        img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701860252/image_23_ogsyce.png',
       },
 
     ],
@@ -52,16 +52,16 @@ export const menuItems = [{
   {
     title: 'Меню мангала',
     url: 'categories/barbecue_menu',
-    img: img30,
+    img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/30_c51lvf.webp',
   },
   {
     title: 'Десерти',
     url: 'categories/deserts',
-    img: img28,
+    img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/28_elaazu.png',
   },
   {
     title: 'Напої',
     url: 'categories/drinks',
-    img: img29,
+    img: 'https://res.cloudinary.com/dk4wwlrws/image/upload/v1701859365/29_x9mvwp.webp',
   },
 ];
