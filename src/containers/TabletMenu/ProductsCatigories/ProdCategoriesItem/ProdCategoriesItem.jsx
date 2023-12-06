@@ -8,12 +8,12 @@ export default function ProdCategoriesItem({ item, className, children }) {
   const handleClick = () => {
     dispatch(setIsOpen());
   };
-
+    const categoriUrl = item.id === 'allProducts' ? item.id :`categories/${item.id}`
   return (
     <li className={styles.item}>
       <Link
         className={`${styles.link} ${className}`}
-        to={`categories/${item.id}`}
+        to={categoriUrl}
         onClick={handleClick}>
         {children ? (
           children

@@ -7,7 +7,7 @@ import Dropdown from '../Dropdown/DropDown.jsx';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
 import Arrow from '@/assets/icons/Arrow.svg?react';
 
-const CategoriesItem = ({ items }) => {
+const CategoriesItem = ({ items, categories }) => {
   const [dropdown, setDropdown] = useState(false);
   const ref = useRef();
   const isMobile = useMediaQuery({
@@ -31,10 +31,11 @@ const CategoriesItem = ({ items }) => {
     // eslint-disable-next-line no-unused-expressions
     dropdown && setDropdown(false);
   };
-
+  console.log(items)
+  const categoriUrl = items.id === 'allProducts' ? items.id :`categories/${items.id}`
   return (
     <li className={styles.menuItems} ref={ref} onClick={closeDropdown}>
-      {items.submenu ? (
+      {!items.parentId && items.name!=="Всі страви"  &&  (
         <>
           <button
             className={styles.button}
@@ -46,22 +47,24 @@ const CategoriesItem = ({ items }) => {
             }}>
             {isMobile ? (
               <>
-                <Arrow className={styles.arrow} /> {items.title}
+                <Arrow className={styles.arrow} /> {items.name}
               </>
             ) : (
               <>
-                {items.title} <Arrow />
+                {items.name} <Arrow />
               </>
             )}
           </button>
-          <Dropdown submenus={items.submenu} dropdown={dropdown} />
+          <Dropdown submenus={categories.filter((element)=>{
+            return element.parentId===items.id})} dropdown={dropdown} />
         </>
-      ) : (
-        <ResponsiveComponent submenu={items}>
-          <Link className={styles.link} to={items.url}>
-            {items.title}
-          </Link>
-        </ResponsiveComponent>
+      )}
+      {items.parentId === 'other'  && (
+          <ResponsiveComponent submenu={items}>
+            <Link className={styles.link} to={categoriUrl}>
+              {items.name}
+            </Link>
+          </ResponsiveComponent>
       )}
     </li>
   );
