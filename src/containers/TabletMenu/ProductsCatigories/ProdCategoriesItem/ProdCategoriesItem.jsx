@@ -13,18 +13,18 @@ export default function ProdCategoriesItem({ item, className, children }) {
     <li className={styles.item}>
       <Link
         className={`${styles.link} ${className}`}
-        to={item.url}
+        to={`categories/${item.id}`}
         onClick={handleClick}>
         {children ? (
           children
         ) : (
           <>
             <div className={styles.imgWrapper}>
-              {item.img && (
-                <img className={styles.img} src={item.img} alt={item.title} />
+              {item.imgUrl && (
+                <img className={styles.img} src={item.imgUrl} alt={item.name} />
               )}
             </div>
-            <h2 className={styles.title}>{item.title}</h2>
+            <h2 className={styles.title}>{item.name}</h2>
           </>
         )}
       </Link>
