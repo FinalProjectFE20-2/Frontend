@@ -1,6 +1,6 @@
 
 import ProdCategoriesItem
-  from "../../../containers/TabletMenu/ProductsCatigories/ProdCategoriesItem/ProdCategoriesItem.jsx";
+  from "../../../../containers/TabletMenu/ProductsCatigories/ProdCategoriesItem/ProdCategoriesItem.jsx";
 import { useMediaQuery } from "react-responsive";
 
 export default function ResponsiveComponent({children,submenu,className}){

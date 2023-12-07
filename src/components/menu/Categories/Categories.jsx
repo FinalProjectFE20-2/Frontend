@@ -1,4 +1,4 @@
-import CategoriesItem from './CategoriesItem/CategoriesItem';
+import CategoriesItem from './CategoriesItem/CategoriesItem.jsx';
 import styles from './Categories.module.scss';
 import { menuItems } from '@/assets/data.js';
 import {useEffect, useState} from "react";

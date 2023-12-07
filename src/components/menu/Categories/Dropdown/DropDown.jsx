@@ -13,6 +13,7 @@ const Dropdown = ({submenus, dropdown}) => {
                         className={styles.linkWrapper}
                         submenu={submenu}>
                         <li className={styles.menuItems}>
+                            MenuLink
                             <Link className={styles.link} to={`categories/${submenu.id}`}>
                                 {submenu.name}
                             </Link>

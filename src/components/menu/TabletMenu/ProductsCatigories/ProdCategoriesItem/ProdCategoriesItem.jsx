@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './ProdCategoriesItem.module.scss';
 import { useDispatch } from 'react-redux';
-import { setIsOpen } from '../../../../store/action/categories/actionCategories.js';
+import { setIsOpen } from '../../../../../store/action/categories/actionCategories.js';
 
 export default function ProdCategoriesItem({ item, className, children }) {
   const dispatch = useDispatch();
