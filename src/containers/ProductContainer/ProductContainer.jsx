@@ -10,18 +10,17 @@ import { motion } from 'framer-motion';
 
 const ProductContainer = addedCount => {
   const { productId } = useParams();
-  const [item, setitem] = useState([]);
+  const [item, setItem] = useState([]);
   const dispatch = useDispatch();
 
-  console.log(productId);
 
   const getProduct = () => {
     console.log(productId);
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
-        console.log(response.data);
-        setitem(response.data);
+        setItem(response.data);
+        setIsLoading(false);
       })
       .catch(err => {
         console.log('error', err);
@@ -59,7 +58,8 @@ const ProductContainer = addedCount => {
         </div>
         <div className={styles.desc__box}>
           <p className={styles.mgb}>
-            <span className={styles.desc__title}>Вага: </span>
+            <span className={styles.desc__title}>Вага:{' '}
+            </span>
             <span className={styles.desc__info}>{item.sizes}</span>
           </p>
 
