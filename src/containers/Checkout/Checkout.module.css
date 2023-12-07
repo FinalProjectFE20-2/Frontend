@@ -1,0 +1,426 @@
+@charset "UTF-8";
+.containerCheckoutKosss {
+  width: 96%;
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: Montserrat;
+}
+
+.titleCheckoutKosss h1 {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 55px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.titleCheckoutKosss h1 p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #9EA2AA;
+}
+
+.detailsCheckoutKosss {
+  width: 90%;
+  max-width: 810px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 40px 0;
+}
+.detailsCheckoutKosss h2 {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+  border-bottom: 1px solid #3D3D3D;
+}
+.detailsCheckoutKosss p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+  padding: 40px 0 40px;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestNameWraperInput {
+  position: relative;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestNameWraperInput::before {
+  content: "ІМ'Я";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 30px);
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestNameWraperInput::after {
+  content: "*";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 20px);
+  color: #FBD13E;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestPhoneWraperInput {
+  position: relative;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestPhoneWraperInput::before {
+  content: "Телефон";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 10px);
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestPhoneWraperInput::after {
+  content: "*";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 20px);
+  color: #FBD13E;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestEmailWraperInput {
+  position: relative;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestEmailWraperInput::before {
+  content: "EMAIL";
+  position: absolute;
+  top: 30px;
+  right: 100%;
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestNumberWraperInput {
+  position: relative;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss .guestNumberWraperInput::before {
+  content: "К-сть гостей";
+  position: absolute;
+  top: 30px;
+  right: 100%;
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss p:nth-child(2) {
+  color: #9EA2AA;
+  font-size: 12px;
+  display: flex;
+  width: 80%;
+  margin: 6px 0;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss input[type=text], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=number], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=email] {
+  width: 360px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+.detailsCheckoutKosss .contentContactCheckoutKosss input[type=text] [type=number], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=text] [type=email], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=number] [type=number], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=number] [type=email], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=email] [type=number], .detailsCheckoutKosss .contentContactCheckoutKosss input[type=email] [type=email] {
+  width: 360px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss .deliveryOptionCheckoutKosss {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss .deliveryOptionCheckoutKosss .type_delivery__cost_delivery {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss .deliveryOptionCheckoutKosss .type_delivery__cost_delivery h3 {
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss .deliveryOptionCheckoutKosss span {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss {
+  width: 360px;
+  margin-left: 30%;
+  padding: 90px 0 60px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestAdressWraperInput {
+  position: relative;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestAdressWraperInput::before {
+  content: "ВУЛИЦЯ";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 10px);
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestAdressWraperInput::after {
+  content: "АДРЕСА ДОСТАВКИ";
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  font-weight: 500;
+  size: 13px;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss input {
+  margin-top: 20px;
+  width: 100%;
+  height: 42px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss input:nth-child(3) {
+  width: 100%;
+  height: 100px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss::before {
+  content: "БУДИНОК";
+  position: absolute;
+  top: 30px;
+  right: calc(100% + 10px);
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss::after {
+  content: "КВ.";
+  position: absolute;
+  top: 30px;
+  right: 120px;
+  font-weight: 500;
+  size: 13px;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss input {
+  width: 100px;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestComentWraperInput {
+  height: 100px;
+  position: relative;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestComentWraperInput input {
+  height: 100%;
+}
+.detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestComentWraperInput::before {
+  content: "КОМЕНТАР";
+  position: absolute;
+  top: 50px;
+  right: calc(100% + 10px);
+  font-weight: 500;
+  size: 13px;
+  margin-right: 20px;
+  white-space: nowrap;
+  color: #9EA2AA;
+}
+.detailsCheckoutKosss .detailsPaymentCheckoutKosss h2 {
+  margin-bottom: 30px;
+}
+
+.deliveryOptionCheckoutKosss, .paymentOptionCheckoutKosss {
+  width: 390px;
+  height: 140px;
+  border: 1px dashed #9EA2AA;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.deliveryOptionCheckoutKosss.active, .paymentOptionCheckoutKosss.active {
+  border-color: #FBD13E;
+  background-color: #FBD13E;
+}
+.deliveryOptionCheckoutKosss p, .paymentOptionCheckoutKosss p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.confirmButtonCheckoutKosss {
+  width: 234px;
+  height: 42px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  background: #FBD13E;
+  color: #000000;
+  cursor: pointer;
+  margin-bottom: 95px;
+}
+
+.goCartCheckoutKosss {
+  position: fixed;
+  background-color: #000000;
+  width: 140px;
+  height: 376px;
+  top: 223px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.goCartCheckoutKosss h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1025px) {
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .typeDeliveryCheckoutKosss {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .goCartCheckoutKosss {
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    height: 42px;
+    background-color: #FBD13E;
+    color: #000000;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .confirmButtonCheckoutKosss {
+    margin-bottom: 40px;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss input {
+    margin-top: 40px !important;
+    width: 300px !important;
+  }
+  .detailsCheckoutKosss h2 {
+    text-align: center;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestNameWraperInput::before {
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestNameWraperInput::after {
+    content: "*";
+    top: 10px;
+    left: 35px;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestPhoneWraperInput::before {
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestPhoneWraperInput::after {
+    top: 10px;
+    left: 80px;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestEmailWraperInput::before {
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss .guestNumberWraperInput::before {
+    content: "Кількість гостей";
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss {
+    margin-left: 0;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss {
+    margin-left: 0;
+    width: 300px;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss input {
+    margin-top: 40px;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestAdressWraperInput::before {
+    top: 5px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestAdressWraperInput::after {
+    bottom: 110px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss input {
+    width: 300px;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss::before {
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss::after {
+    top: 10px;
+    right: 70px;
+    color: #FFFFFF;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .numberAppCheckoutKosss input {
+    width: 100px;
+  }
+  .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss .guestComentWraperInput::before {
+    top: 10px;
+    left: 0;
+    color: #FFFFFF;
+  }
+  .paymentOptionCheckoutKosss, .deliveryOptionCheckoutKosss {
+    width: 300px;
+  }
+  .confirmButtonCheckoutKosss {
+    width: 100%;
+  }
+  .detailsCheckoutKosss .contentContactCheckoutKosss, .detailsCheckoutKosss {
+    align-items: center;
+  }
+}/*# sourceMappingURL=Checkout.module.css.map */

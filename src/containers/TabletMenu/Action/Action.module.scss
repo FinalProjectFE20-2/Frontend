@@ -23,15 +23,13 @@ $background-color_1: red;
 }
 @media (max-width: 768px) {
   .link {
-    padding: 10px;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
     gap: 10px;
-
   }
   .priceText {
-    font-size: 70px;
+    font-size: 80px;
   }
 }

@@ -44,11 +44,11 @@ export const router = createBrowserRouter([
       { path: '/allProducts', element: <AllProducts /> },
       { path: '/product/:productId', element: <Product /> },
       { path: '/categories/:categoriesName', element: <ProductCategories /> },
+      { path: '/cart', element: <Cart /> },
+      { path: '/cart/checkout', element: <Checkout /> },
       {
         element: <PrivateRoute />,
         children: [
-          { path: '/cart', element: <Cart /> },
-          { path: '/cart/checkout', element: <Checkout /> },
           { path: '/profile', element: <div>Profile</div> },
           { path: '/order_history', element: <div>Order History</div> },
         ],

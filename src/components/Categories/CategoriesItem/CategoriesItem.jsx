@@ -41,9 +41,7 @@ const CategoriesItem = ({ items }) => {
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => {
-              setDropdown(prev => !prev);
-            }}>
+            onClick={() => setDropdown(prev => !prev)}>
             {isMobile ? (
               <>
                 <Arrow className={styles.arrow} /> {items.title}

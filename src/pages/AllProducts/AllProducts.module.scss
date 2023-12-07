@@ -1,9 +1,11 @@
 $color_main: #fbd13e;
 $color_hover: #DBB325;
 
+
+
 .newContainer {
   @media (max-width: 555px) {
-    padding: 0 15px;
+    padding: 0 15px ;
   }
 }
 
@@ -68,7 +70,6 @@ $color_hover: #DBB325;
 
 .filterBtn {
   display: none;
-
   @media (max-width: 992px) {
     position: relative;
     display: flex;
