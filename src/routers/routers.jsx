@@ -19,6 +19,7 @@ import Registration from '@/pages/Registration/Registration';
 import GoToTop from '@/components/GoToTop/GoToTop.jsx';
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop.jsx';
 import ProductCategories from '@/pages/ProductCategories/ProductCategories.jsx';
+import Thank from '@/pages/Thank/Thank';
 
 // eslint-disable-next-line import/prefer-default-export
 export const router = createBrowserRouter([
@@ -46,6 +47,7 @@ export const router = createBrowserRouter([
       { path: '/categories/:categoriesName', element: <ProductCategories /> },
       { path: '/cart', element: <Cart /> },
       { path: '/cart/checkout', element: <Checkout /> },
+      { path: '/thank', element: <Thank /> },
       {
         element: <PrivateRoute />,
         children: [

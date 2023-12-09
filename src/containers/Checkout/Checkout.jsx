@@ -1,11 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Checkout.module.scss';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const navigate = useNavigate();
+  const user = useSelector(state => state.session.user);
+
+  useEffect(() => {
+    if (user) {
+      if (!email) {
+        setEmail(user.email);
+      }
+      document.getElementById(
+        'nameGuestInput',
+      ).value = `${user.firstName} ${user.lastName}`;
+      document.getElementById('emailGuestInput').value = user.email;
+    }
+  }, [user, email]);
 
   const handleDeliveryMethodChange = method => {
     setDeliveryMethod(method);
@@ -22,6 +38,25 @@ const Checkout = () => {
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue);
     setIsEmailValid(isValid);
   };
+  const [phone, setPhone] = useState('');
+  const handlePhoneChange = event => {
+    const inputValue = event.target.value;
+    const validCharactersRegex = /^[0-9\s-]+$/;
+    if (validCharactersRegex.test(inputValue)) {
+      setPhone(inputValue);
+    }
+  };
+
+  const handleOrderButtonClick = () => {
+    const nameInputValue = document.getElementById('nameGuestInput').value;
+    const phoneInputValue = document.getElementById('phoneGuestInput').value;
+
+    if (nameInputValue && phoneInputValue && deliveryMethod) {
+      navigate('/thank');
+    } else {
+      alert('Введіть контактні дані, та Спосіб доставки');
+    }
+  };
 
   return (
     <div className="container">
@@ -33,15 +68,7 @@ const Checkout = () => {
             <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span>
           </p> */}
         </div>
-        {/*         <div className={styles.goCartCheckoutKosss}>
-          <div>1</div>
-          <div>
-            <h3>Замовлення тут</h3>
-          </div>
-          <div>
-            <p>Розкрити</p>
-          </div>
-        </div> */}
+
         <div className={styles.detailsCheckoutKosss}>
           <div className={styles.detailsContactCheckoutKosss}>
             <h2>01. Контактні данні</h2>
@@ -56,15 +83,22 @@ const Checkout = () => {
                 автоматично
               </p>
               <div className={styles.guestNameWraperInput}>
-                <input type="text" required />
+                <input type="text" required id="nameGuestInput" />
               </div>
               <div className={styles.guestPhoneWraperInput}>
-                <input type="text" required />
+                <input
+                  type="text"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  required
+                  id="phoneGuestInput"
+                />
               </div>
               <div className={styles.guestEmailWraperInput}>
                 <input
                   type="email"
                   value={email}
+                  id="emailGuestInput"
                   onChange={handleEmailChange}
                 />
                 {!isEmailValid && (
@@ -112,11 +146,11 @@ const Checkout = () => {
             </div>
             <div className={styles.deliveryInputCheckoutKosss}>
               <div className={styles.guestAdressWraperInput}>
-                <input type="text" />
+                <input type="text" required />
               </div>
               <div className={styles.numberAppCheckoutKosss}>
-                <input type="text" placeholder="" />
-                <input type="number" placeholder="" />
+                <input type="text" placeholder="" required />
+                <input type="number" placeholder="" required />
               </div>
               <div className={styles.guestComentWraperInput}>
                 <input type="text" placeholder="" />
@@ -143,7 +177,13 @@ const Checkout = () => {
           </div>
         </div>
 
-        <button className={styles.confirmButtonCheckoutKosss}>Замовити</button>
+        <button
+          className={styles.confirmButtonCheckoutKosss}
+          onClick={() => {
+            handleOrderButtonClick();
+          }}>
+          Замовити
+        </button>
       </div>
     </div>
   );
