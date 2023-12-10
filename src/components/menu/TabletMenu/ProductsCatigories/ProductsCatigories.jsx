@@ -2,9 +2,11 @@ import Action from '../Action/Action.jsx';
 import ProdCategoriesItem from './ProdCategoriesItem/ProdCategoriesItem.jsx';
 import styles from './ProductsCatigories.module.scss';
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {getCategories} from "../../../../store/selectors/categoriesSelectors.js";
 
 export default function ProductsCatigories() {
-    const [categories, setCategories] = useState([]);
+    const categories = useSelector(getCategories)
     const {withoutParentId, otherCategory, allDishes} = categories.reduce(
         (acc, item) => {
             if (item.name?.toLowerCase() !== 'всі страви') {
@@ -20,15 +22,7 @@ export default function ProductsCatigories() {
         },
         {withoutParentId: [], otherCategory: [], allDishes: null},
     );
-    useEffect(() => {
-        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/`)
-            .then(data => data.json())
-            .then(category => {
-                setCategories(category)
-            })
-            .catch(err => {
-            });
-    }, []);
+    
     return (
         <div className={styles.categories}>
             {categories.length > 0 && <>

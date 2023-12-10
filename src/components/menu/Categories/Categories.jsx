@@ -1,26 +1,25 @@
 import CategoriesItem from './CategoriesItem/CategoriesItem.jsx';
 import styles from './Categories.module.scss';
-import { menuItems } from '@/assets/data.js';
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {getCategories} from "../../../store/selectors/categoriesSelectors.js";
 
 export default function Categories() {
-    const [categories, setCategories] = useState([]);
+    const categories = useSelector(getCategories)
+    const [filterCategories, setFilterCategories] = useState([])
     useEffect(() => {
-        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/`)
-            .then(data => data.json())
-            .then(category => {
-                setCategories(category)
-            })
-            .catch(err => {
-            });
-    }, []);
-  return (
-    <nav className={styles.nav}>
-      <ul className={styles.menu}>
-        {categories.map((menu, index) => (
-          <CategoriesItem items={menu} categories = {categories} key={index} />
-        ))}
-      </ul>
-    </nav>
-  );
+        setFilterCategories(categories?.filter((element) => {
+            return element.parentId === 'other' || !element.parentId
+        }))
+    }, [categories])
+
+    return (
+        <nav className={styles.nav}>
+            <ul className={styles.menu}>
+                {filterCategories.map((menu, index) => (
+                    <CategoriesItem items={menu}  key={index}/>
+                ))}
+            </ul>
+        </nav>
+    );
 }

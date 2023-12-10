@@ -1,43 +1,28 @@
 import {useLocation} from 'react-router-dom';
-import {useEffect, useState} from 'react';
 import styles from './ProductCategories.module.scss';
 import SortingProducts from '../../components/SortingProduct/SortingProducts.jsx';
-
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCategotiesById} from "../../store/action/categories/actionCategories.js";
+import {getCategoryById} from "../../store/selectors/categoriesSelectors.js";
+import {Suspense, useEffect} from 'react';
 export const ProductCategories = () => {
-    const [objProducts, setObjProducts] = useState({});
-    const [findObj, setfindObj] = useState({});
+    const findObj = useSelector(getCategoryById);
     let location = useLocation();
+    const dispatch = useDispatch();
     const categoriesId = location.pathname.split('/')[2];
 
     useEffect(() => {
-        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
-            .then(data => data.json())
-            .then(category => {
+        dispatch(fetchCategotiesById(categoriesId))
 
-                setfindObj(category);
-                const filterParam =
-                    `categories=${category.name}`;
-                fetch(
-                    `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-                )
-                    .then(products => {
-                        return products.json();
-                    })
-                    .then(data => {
-
-                        setObjProducts(data);
-                    });
-            })
-            .catch(err => {
-            });
     }, [location]);
 
     return (
         <div className={`container main ${styles.wrapper}`}>
-            <h2 className={styles.title}>{findObj?.name}</h2>
+            <Suspense fallback={<div>Loading...</div>}>
+                <h2 className={styles.title}>{findObj?.name}</h2>
 
-            <SortingProducts/>
-
+                <SortingProducts/>
+            </Suspense>
         </div>
     );
 };

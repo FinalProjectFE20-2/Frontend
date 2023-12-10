@@ -6,13 +6,16 @@ import Dropdown from '../Dropdown/DropDown.jsx';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
 import Arrow from '@/assets/icons/Arrow.svg?react';
 import MenuLink from "../../MenuLink/MenuLink.jsx";
+import {useSelector} from "react-redux";
+import {getCategories} from "../../../../store/selectors/categoriesSelectors.js";
 
-const CategoriesItem = ({items, categories}) => {
+const CategoriesItem = ({items}) => {
     const [dropdown, setDropdown] = useState(false);
     const ref = useRef();
     const isMobile = useMediaQuery({
         query: '(max-width: 468px)',
     });
+    const categories = useSelector(getCategories)
     useEffect(() => {
         const handler = event => {
             if (dropdown && ref.current && !ref.current.contains(event.target)) {
@@ -67,7 +70,6 @@ export default CategoriesItem;
 CategoriesItem.propTypes = {
     items: PropTypes.shape({
         submenu: PropTypes.array,
-        title: PropTypes.string.isRequired,
         url: PropTypes.string,
     }).isRequired,
 };
