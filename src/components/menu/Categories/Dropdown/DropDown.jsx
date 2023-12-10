@@ -1,11 +1,12 @@
 import styles from './DropDown.module.scss';
-import {Link} from 'react-router-dom';
 import ResponsiveComponent from '../ResponsiveComponent/ResponsiveComponent.jsx';
+import MenuLink from "../../MenuLink/MenuLink.jsx";
 
 const Dropdown = ({submenus, dropdown}) => {
 
     return (
         <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
+
             {submenus.map((submenu, index) => {
                 return (
                     <ResponsiveComponent
@@ -13,10 +14,8 @@ const Dropdown = ({submenus, dropdown}) => {
                         className={styles.linkWrapper}
                         submenu={submenu}>
                         <li className={styles.menuItems}>
-                            MenuLink
-                            <Link className={styles.link} to={`categories/${submenu.id}`}>
-                                {submenu.name}
-                            </Link>
+                            <MenuLink classLink={styles.link} itemId={submenu.id}> {submenu.name}</MenuLink>
+
                         </li>
                     </ResponsiveComponent>
                 );

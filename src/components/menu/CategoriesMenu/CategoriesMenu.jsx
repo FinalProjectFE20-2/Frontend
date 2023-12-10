@@ -4,9 +4,10 @@ import {useEffect} from 'react';
 import Burger from '@/assets/icons/Burger.svg?react';
 import Close from '@/assets/icons/Close.svg?react';
 import Categories from '../Categories/Categories.jsx';
-import TabletMenu from '../../../containers/TabletMenu/TabletMenu.jsx';
+
 import {useDispatch, useSelector} from "react-redux";
 import {setIsOpen} from "../../../store/action/categories/actionCategories.js";
+import TabletMenu from "../TabletMenu/TabletMenu.jsx";
 
 export default function CategoriesMenu() {
     const isOpen = useSelector(state => state.categories.isOpen)

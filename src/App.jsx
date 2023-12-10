@@ -6,6 +6,7 @@ import Hero from './containers/Hero/Hero.jsx';
 import PopularDishesMenu from './containers/PopularDishesMenu/PopularDishesMenu.jsx';
 import Discounts from './containers/Discounts/Discounts.jsx';
 import { getFilteredProductsFetch } from './store/action/product/actionProduct';
+import {fetchCategories} from "./store/action/categories/actionCategories.js";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     const startPage = Math.floor(Math.random() * 5) + 1;
 
     dispatch(getFilteredProductsFetch(perPage, startPage));
+    dispatch(fetchCategories())
   }, [dispatch]);
   return (
     <>

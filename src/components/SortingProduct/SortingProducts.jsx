@@ -22,14 +22,14 @@ export const SortingProducts = () => {
 
         setSortingProducts((prev) => {
 
-        return   {
-                    ...prev, products: [...prev.products?.sort((a, b) => {
-                        const sortValueA = cheackPrice(a.currentPrice)
-                        const sortValueB = cheackPrice(b.currentPrice)
-                        return value === 'ascending'
-                            ?a[sortValueA] - b[sortValueB]:b[sortValueB] - a[sortValueA]
-                    })]
-                }
+            return {
+                ...prev, products: [...prev.products?.sort((a, b) => {
+                    const sortValueA = cheackPrice(a.currentPrice)
+                    const sortValueB = cheackPrice(b.currentPrice)
+                    return value === 'ascending'
+                        ? a[sortValueA] - b[sortValueB] : b[sortValueB] - a[sortValueA]
+                })]
+            }
 
         })
         ;
@@ -49,7 +49,7 @@ export const SortingProducts = () => {
                         return products.json();
                     })
                     .then(data => {
-                        console.log(data)
+
                         setSortingProducts(data);
                     });
             })

@@ -39,6 +39,9 @@ $border-color_1: transparent;
     color: $color_2;
   }
 }
+.arrow {
+  display: none;
+}
 @media (max-width: 467px) {
   .menuItems {
     border-bottom: 1px solid #3d3d3d;
@@ -73,6 +76,7 @@ $border-color_1: transparent;
     margin: 0 75px 0 35px;
     width: 20px;
     height: 20px;
+display: block;
   }
   .link {
     padding: 16px;

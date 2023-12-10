@@ -5,22 +5,20 @@ import {useEffect, useState} from "react";
 
 export default function ProductsCatigories() {
     const [categories, setCategories] = useState([]);
-    const {withSubmenu, withoutSubmenu,action} = categories.reduce(
+    const {withoutParentId, otherCategory, allDishes} = categories.reduce(
         (acc, item) => {
             if (item.name?.toLowerCase() !== 'всі страви') {
                 if (!item.parentId) {
-                    acc.withSubmenu.push(item);
-                } else if (item.parentId==='other') {
-                    acc.withoutSubmenu.push(item);
+                    acc.withoutParentId.push(item);
+                } else if (item.parentId === 'other') {
+                    acc.otherCategory.push(item);
                 }
+            } else {
+                acc.allDishes = item;
             }
-                 else {
-
-                    acc.action = item;
-                }
             return acc;
         },
-        {withSubmenu: [], withoutSubmenu: [], action: null},
+        {withoutParentId: [], otherCategory: [], allDishes: null},
     );
     useEffect(() => {
         fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/`)
@@ -35,23 +33,27 @@ export default function ProductsCatigories() {
         <div className={styles.categories}>
             {categories.length > 0 && <>
                 <div>
-                    <Action obj={action}/>{' '}
+                    <Action obj={allDishes}/>{' '}
                 </div>
                 <ul className={styles.list}>
-                    {withSubmenu.map((item, index) => (
-                        <li key={index} className={styles.listItem}>
-                            <h2 className={styles.title}>{item.name}</h2>
-                            <ul className={styles.submenuList}>
-                                {categories.filter(element => element.parentId === item.id).map((subItem, index) => (
-                                    <ProdCategoriesItem key={index} item={subItem}/>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
-                    <li className={`${styles.listItem} ${styles.withoutSubmenu}`}>
-                                    <ul>
-                                        {withoutSubmenu.map((item, index) => (
-                                            <ProdCategoriesItem key={index} item={item}/>
+                    {withoutParentId.map((item, index) => {
+                        const subItems = categories.filter(element => element.parentId === item.id).map((subItem, index) => (
+                            <ProdCategoriesItem key={index} item={subItem}/>
+                        ))
+
+                        return (
+                            <li key={index} className={styles.listItem}>
+                                <h2 className={styles.title}>{item.name}</h2>
+                                <ul className={styles.submenuList}>
+                                    {subItems}
+                                </ul>
+                            </li>
+                        )
+                    })}
+                    <li className={`${styles.listItem} ${styles.otherCategory}`}>
+                        <ul>
+                            {otherCategory.map((item, index) => (
+                                <ProdCategoriesItem key={index} item={item}/>
                             ))}
                         </ul>
                     </li>

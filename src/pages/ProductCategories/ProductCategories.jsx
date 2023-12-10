@@ -1,44 +1,45 @@
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {useLocation} from 'react-router-dom';
+import {useEffect, useState} from 'react';
 import styles from './ProductCategories.module.scss';
 import SortingProducts from '../../components/SortingProduct/SortingProducts.jsx';
 
 export const ProductCategories = () => {
-  const [objProducts, setObjProducts] = useState({});
-  const [findObj, setfindObj] = useState({});
-  let location = useLocation();
-  const categoriesId = location.pathname.split('/')[2];
+    const [objProducts, setObjProducts] = useState({});
+    const [findObj, setfindObj] = useState({});
+    let location = useLocation();
+    const categoriesId = location.pathname.split('/')[2];
 
-  useEffect(() => {
-    fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
-      .then(data => data.json())
-      .then(category => {
-          console.log(category)
-        setfindObj(category);
-        const filterParam =
-          `categories=${category.name}`;
-        fetch(
-          `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-        )
-          .then(products => {
-            return products.json();
-          })
-          .then(data => {
+    useEffect(() => {
+        fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
+            .then(data => data.json())
+            .then(category => {
 
-            setObjProducts(data);
-          });
-      })
-      .catch(err => {});
-  }, [location]);
+                setfindObj(category);
+                const filterParam =
+                    `categories=${category.name}`;
+                fetch(
+                    `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
+                )
+                    .then(products => {
+                        return products.json();
+                    })
+                    .then(data => {
 
-  return (
-    <div className={`container main ${styles.wrapper}`}>
-      <h2 className={styles.title}>{findObj?.name}</h2>
+                        setObjProducts(data);
+                    });
+            })
+            .catch(err => {
+            });
+    }, [location]);
 
-            <SortingProducts  />
+    return (
+        <div className={`container main ${styles.wrapper}`}>
+            <h2 className={styles.title}>{findObj?.name}</h2>
 
-    </div>
-  );
+            <SortingProducts/>
+
+        </div>
+    );
 };
 
 export default ProductCategories;
