@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import styles from './ProductContainer.module.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -14,9 +15,7 @@ const ProductContainer = addedCount => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.session.token);
 
-
   const getProduct = () => {
-    console.log(productId);
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
@@ -65,8 +64,7 @@ const ProductContainer = addedCount => {
         </div>
         <div className={styles.desc__box}>
           <p className={styles.mgb}>
-            <span className={styles.desc__title}>Вага:{' '}
-            </span>
+            <span className={styles.desc__title}>Вага: </span>
             <span className={styles.desc__info}>{item.sizes}</span>
           </p>
 

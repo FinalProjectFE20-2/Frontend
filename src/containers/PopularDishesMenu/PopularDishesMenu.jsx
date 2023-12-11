@@ -24,7 +24,6 @@ const PopularDishesMenu = props => {
   };
 
   const cartItems = useSelector(({ cart }) => cart.items);
-  console.log(cartItems, 'CARTITEM');
   useEffect(() => {
     const fetchData = async () => {
       try {

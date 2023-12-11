@@ -25,7 +25,6 @@ const Login = () => {
             const res = await dispatch(
               login({ loginOrEmail: value.email, password: value.password }),
             );
-            console.log(res);
             if (res) {
               navigate('/');
             }

@@ -58,7 +58,6 @@ export const getCartAction = data => ({
 });
 
 export const addProductToCart = (obj, _id) => async dispatch => {
-  console.log(obj, 2);
   const res = await fetch(
     `https://backend-zeta-sandy.vercel.app/api/cart/${_id}`,
     {
@@ -74,7 +73,6 @@ export const addProductToCart = (obj, _id) => async dispatch => {
     dispatch(setCartError(data));
     return;
   }
-  console.log(obj, 3);
   dispatch(addToCart(obj));
 };
 
@@ -98,7 +96,6 @@ export const removeProductFromCart = (id, _id) => async dispatch => {
 };
 
 export const removeOneProductFromCart = (id, _id) => async dispatch => {
-  console.log(_id, 'removeOneProductFromCart');
   const res = await fetch(
     `https://backend-zeta-sandy.vercel.app/api/cart/product/${_id}`,
     {
@@ -145,7 +142,6 @@ export const createCart = userCart => async dispatch => {
       quantity: product.items.length,
     };
   });
-  console.log(created, 5555);
   const res = await fetch('https://backend-zeta-sandy.vercel.app/api/cart', {
     method: 'POST',
     headers: {
@@ -204,8 +200,6 @@ export const getCart = () => async (dispatch, getState) => {
       }
     })
     .flat(1);
-
-  console.log(data);
   const userCart = Object.values(state.cart.items)
     .map(({ items }) => items)
     .flat(1);
