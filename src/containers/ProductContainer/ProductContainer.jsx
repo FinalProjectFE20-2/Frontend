@@ -5,13 +5,14 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Cart from '@/assets/icons/Cart.svg?react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../store/action/cart/cart';
+import { addToCart, addProductToCart } from '../../store/action/cart/cart';
 import { motion } from 'framer-motion';
 
 const ProductContainer = addedCount => {
   const { productId } = useParams();
   const [item, setItem] = useState([]);
   const dispatch = useDispatch();
+  const token = useSelector(state => state.session.token);
 
 
   const getProduct = () => {
@@ -33,6 +34,7 @@ const ProductContainer = addedCount => {
 
   const onAddCart = () => {
     const obj = {
+      _id: item._id,
       id: productId,
       name: item.name,
       size: item.sizes,
@@ -43,6 +45,11 @@ const ProductContainer = addedCount => {
   };
 
   const onClickAddCart = obj => {
+    // dispatch(addToCart(obj));
+    if (token) {
+      dispatch(addProductToCart(obj, obj.id));
+      return;
+    }
     dispatch(addToCart(obj));
   };
 

@@ -16,9 +16,15 @@ export const SortingProducts = () => {
     const isLoading = useSelector(getIsLoading);
     const cartItems = useSelector(({cart}) => cart.items);
     const filterProductsByCategory = useSelector(getProductsByCategory)
-    const handleAddToCard = obj => {
-        dispatch(addToCart(obj));
-    };
+     const token = useSelector(state => state.session.token);
+     const handleAddToCard = obj => {
+       // dispatch(addToCart(obj));
+       if (token) {
+         dispatch(addProductToCart(obj, obj._id));
+         return;
+       }
+       dispatch(addToCart(obj));
+     };
     const sortPrices = (value) => {
 
 

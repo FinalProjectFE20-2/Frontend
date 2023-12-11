@@ -1,3 +1,5 @@
+import { getCart, createCart, updateCart } from '../cart/cart';
+
 export const SET_USER = 'SET_USER';
 export const SET_USER_ERROR = 'SET_USER_ERROR';
 export const SET_TOKEN = 'SET_TOKEN';
@@ -13,9 +15,54 @@ const setToken = token => ({
   type: SET_TOKEN,
   payload: token,
 });
-export const login = user => async dispatch => {
+export const login = user => async (dispatch, getState) => {
   const res = await fetch(
     'https://backend-zeta-sandy.vercel.app/api/customers/login',
+    // 'https://localhost:4000/api/customers/login',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    },
+  );
+  const data = await res.json();
+  console.log(res);
+  if (!res.ok) {
+    console.log(res, 1);
+    dispatch(setUserError(data));
+    return;
+  }
+
+  await sessionStorage.setItem('token', data.token);
+  await dispatch(setToken(data.token));
+  await dispatch(getUser());
+  const userCart = await dispatch(getCart());
+  console.log(userCart, 'userCart');
+  const state = await getState();
+  const cart = Object.values(state.cart.items);
+  console.log({ customerId: state.session.user._id, products: cart });
+  if (!userCart) {
+    if (cart.length > 0) {
+      dispatch(
+        createCart({ customerId: state.session.user._id, products: cart }),
+      );
+    }
+    if (!cart.length) {
+      dispatch(
+        createCart({ customerId: state.session.user._id, products: [] }),
+      );
+    }
+  }
+  if (userCart) {
+    dispatch(updateCart({ products: cart }));
+  }
+  return true;
+};
+export const singUp = user => async dispatch => {
+  const res = await fetch(
+    'https://backend-zeta-sandy.vercel.app/api/customers',
     {
       method: 'POST',
       headers: {
@@ -26,27 +73,22 @@ export const login = user => async dispatch => {
   );
   const data = await res.json();
   if (!res.ok) {
-    dispatch(setUserError(data));
-    return;
+    await dispatch(setUserError(data));
   }
-  sessionStorage.setItem('token', data.token);
-  dispatch(setToken(data.token));
-  return true;
+  await dispatch(setUser(data));
 };
-export const singUp = user => async dispatch => {
+export const getUser = () => async dispatch => {
   const res = await fetch(
-    'https://backend-zeta-sandy.vercel.app/api/customers/',
-    // 'http://localhost:4000/api/customers',
+    'https://backend-zeta-sandy.vercel.app/api/customers/customer',
     {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `${sessionStorage.getItem('token')}`,
       },
-      body: JSON.stringify(user),
     },
   );
   const data = await res.json();
-  console.log(data);
   if (!res.ok) {
     await dispatch(setUserError(data));
   }
