@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState, useRef } from 'react';
-import { addToCart } from '@/store/action/cart/cart';
+import { addToCart, addProductToCart } from '@/store/action/cart/cart';
 import { getAllProductsFetch } from '@/store/action/product/actionProduct';
 import FilterCategories from '@/components/FilterCategories/FilterCategories';
 import Sorting from '@/components/Sorting/Sorting';
@@ -20,42 +20,66 @@ export default function AllProducts() {
   const [visibleFilter, setVisibleFilter] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(({ cart }) => cart.items);
-  const productsFromStore = useSelector(state => state.products.allProducts || []);
+  const productsFromStore = useSelector(
+    state => state.products.allProducts || [],
+  );
   const openModalRef = useRef(null);
 
-  useEffect(() => { //отправляем запрос на сервер
+  useEffect(() => {
+    //отправляем запрос на сервер
     dispatch(getAllProductsFetch());
   }, [dispatch]);
 
   useEffect(() => {
     setProducts(productsFromStore); // получаем с сервера все продукты
-    setCategories(Array.from(new Set(productsFromStore.map(item => item.categories)))); // получаем все категории продуктов
+    setCategories(
+      Array.from(new Set(productsFromStore.map(item => item.categories))),
+    ); // получаем все категории продуктов
   }, [productsFromStore]);
 
-  useEffect(() => { // фильтруем продукты по категориям
-    setProducts(filteredCategories.length
-      ? productsFromStore.filter(item => filteredCategories.includes(item.categories))
-      : productsFromStore
-    )
+  useEffect(() => {
+    // фильтруем продукты по категориям
+    setProducts(
+      filteredCategories.length
+        ? productsFromStore.filter(item =>
+            filteredCategories.includes(item.categories),
+          )
+        : productsFromStore,
+    );
   }, [filteredCategories]);
 
-  useEffect(() => { // показываем 12 блюд
-    setShowProducts(products.slice((currentPagePagination - 1) * PRODUCTS_PER_PAGE, currentPagePagination * PRODUCTS_PER_PAGE))
+  useEffect(() => {
+    // показываем 12 блюд
+    setShowProducts(
+      products.slice(
+        (currentPagePagination - 1) * PRODUCTS_PER_PAGE,
+        currentPagePagination * PRODUCTS_PER_PAGE,
+      ),
+    );
   }, [products, currentPagePagination]);
 
-  useEffect(() => { // получаем массив страниц пагинации
+  useEffect(() => {
+    // получаем массив страниц пагинации
     const temp = [];
-    for (let index = 1; index <= Math.ceil(products.length / PRODUCTS_PER_PAGE); index++) {
-      temp.push(index)
-    };
+    for (
+      let index = 1;
+      index <= Math.ceil(products.length / PRODUCTS_PER_PAGE);
+      index++
+    ) {
+      temp.push(index);
+    }
     setTotalPagesPagination(temp);
 
     setCurrentPagePagination(1); // переходим на 1 страницу при изменении кол-ва блюд
   }, [products]);
 
-  useEffect(() => { // закрывать модалку, если кликнуть вне ее
+  useEffect(() => {
+    // закрывать модалку, если кликнуть вне ее
     function handleClickOutside(event) {
-      if (openModalRef.current && !openModalRef.current.contains(event.target)) {
+      if (
+        openModalRef.current &&
+        !openModalRef.current.contains(event.target)
+      ) {
         setVisibleFilter(false);
       }
     }
@@ -67,31 +91,37 @@ export default function AllProducts() {
     };
   }, []);
 
-  const sortPrices = (value) => {
-    setProducts( value === 'ascending'
-      ? [...products.sort((a, b) => a.previousPrice - b.previousPrice)]
-      : [...products.sort((a, b) => b.previousPrice - a.previousPrice)]
+  const sortPrices = value => {
+    setProducts(
+      value === 'ascending'
+        ? [...products.sort((a, b) => a.previousPrice - b.previousPrice)]
+        : [...products.sort((a, b) => b.previousPrice - a.previousPrice)],
     );
-  }
-
+  };
+  const token = useSelector(state => state.session.token);
   const handleAddToCard = obj => {
-    dispatch(addToCart(obj));
+    // dispatch(addToCart(obj));
+    if (token) {
+      dispatch(addProductToCart(obj, obj._id));
+      return;
+    }
   };
 
-  console.log(visibleFilter)
+  console.log(visibleFilter);
 
   return (
     <div className={`container main ${styles.newContainer}`}>
       <h1 className={styles.title}>Всі страви</h1>
 
-      <div className={styles.sortingContainer}  ref={openModalRef}>
+      <div className={styles.sortingContainer} ref={openModalRef}>
         <button
-          className={`${styles.filterBtn} ${visibleFilter ? styles.isActive : ''}`}
-          onClick={() => setVisibleFilter(!visibleFilter)}
-        >
+          className={`${styles.filterBtn} ${
+            visibleFilter ? styles.isActive : ''
+          }`}
+          onClick={() => setVisibleFilter(!visibleFilter)}>
           Категорії меню
         </button>
-        {visibleFilter &&
+        {visibleFilter && (
           <div className={styles.categoriesModal}>
             <FilterCategories
               categories={categories}
@@ -99,8 +129,8 @@ export default function AllProducts() {
               setFilteredCategories={setFilteredCategories}
             />
           </div>
-        }
-        <Sorting onSortPrices={sortPrices}/>
+        )}
+        <Sorting onSortPrices={sortPrices} />
       </div>
 
       <div className={styles.innerContainer}>
@@ -112,9 +142,8 @@ export default function AllProducts() {
           />
         </div>
 
-
-        {products?.length
-        ? (<ul className={styles.grid}>
+        {products?.length ? (
+          <ul className={styles.grid}>
             {showProducts?.map(item => (
               <ProductCard
                 onClickAddCart={handleAddToCard}
@@ -141,5 +170,4 @@ export default function AllProducts() {
       />
     </div>
   );
-};
-
+}

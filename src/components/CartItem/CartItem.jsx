@@ -1,8 +1,8 @@
 import styles from './CartItem.module.scss';
 import { Link } from 'react-router-dom';
 
-
 const CartItem = ({
+  _id,
   id,
   name,
   price,
@@ -16,15 +16,15 @@ const CartItem = ({
   onPlus,
 }) => {
   const handleRemoveClick = () => {
-    onRemove(id);
+    onRemove(id, _id);
   };
 
   const handlePlusItem = () => {
-    onPlus(id);
+    onPlus(id, _id);
   };
 
   const handleMinusItem = () => {
-    onMinus(id);
+    onMinus(id, _id);
   };
 
   return (

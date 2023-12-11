@@ -45,14 +45,15 @@ export const router = createBrowserRouter([
       { path: '/allProducts', element: <AllProducts /> },
       { path: '/product/:productId', element: <Product /> },
       { path: '/categories/:categoriesName', element: <ProductCategories /> },
-      { path: '/cart', element: <Cart /> },
-      { path: '/cart/checkout', element: <Checkout /> },
+
       { path: '/thank', element: <Thank /> },
       {
         element: <PrivateRoute />,
         children: [
           { path: '/profile', element: <div>Profile</div> },
           { path: '/order_history', element: <div>Order History</div> },
+          { path: '/cart', element: <Cart /> },
+          { path: '/cart/checkout', element: <Checkout /> },
         ],
       },
       { path: '*', element: <NoPage /> },

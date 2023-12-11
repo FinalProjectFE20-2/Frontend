@@ -12,6 +12,7 @@ const ProductCard = ({ itemNo, onClickAddCart, propsProduct, addedCount }) => {
     : products.find(product => product.itemNo === itemNo);
   const onAddCart = () => {
     const obj = {
+      _id: product._id,
       id: parseInt(itemNo),
       name: product.name,
       size: product.sizes,
