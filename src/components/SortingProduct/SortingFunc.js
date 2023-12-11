@@ -1,11 +1,3 @@
-export function handleSorting(arr, type) {
-    return arr.sort(function (a, b) {
-        if (type === "up") {
-            return (a.previousPrice - b.previousPrice)
-        }
-        else {
-            return (b.previousPrice - a.previousPrice)
-        }
-
-    });
+export function cheackPrice(value) {
+    return value !== 0 ? 'currentPrice' : 'previousPrice'
 }
