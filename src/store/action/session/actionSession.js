@@ -18,7 +18,6 @@ const setToken = token => ({
 export const login = user => async (dispatch, getState) => {
   const res = await fetch(
     'https://backend-zeta-sandy.vercel.app/api/customers/login',
-    // 'https://localhost:4000/api/customers/login',
     {
       method: 'POST',
       headers: {
@@ -28,9 +27,8 @@ export const login = user => async (dispatch, getState) => {
     },
   );
   const data = await res.json();
-  console.log(res);
   if (!res.ok) {
-    console.log(res, 1);
+
     dispatch(setUserError(data));
     return;
   }
@@ -39,10 +37,8 @@ export const login = user => async (dispatch, getState) => {
   await dispatch(setToken(data.token));
   await dispatch(getUser());
   const userCart = await dispatch(getCart());
-  console.log(userCart, 'userCart');
   const state = await getState();
   const cart = Object.values(state.cart.items);
-  console.log({ customerId: state.session.user._id, products: cart });
   if (!userCart) {
     if (cart.length > 0) {
       dispatch(
