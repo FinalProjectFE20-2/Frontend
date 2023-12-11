@@ -1,48 +1,30 @@
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {useLocation} from 'react-router-dom';
 import styles from './ProductCategories.module.scss';
 import SortingProducts from '../../components/SortingProduct/SortingProducts.jsx';
-
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCategotiesById} from "../../store/action/categories/actionCategories.js";
+import {getCategoryById} from "../../store/selectors/categoriesSelectors.js";
+import {Suspense, useEffect} from 'react';
 export const ProductCategories = () => {
-  const [objProducts, setObjProducts] = useState({});
-  const [findObj, setfindObj] = useState({});
-  let location = useLocation();
-  const categoriesId = location.pathname.split('/')[2];
+    const findObj = useSelector(getCategoryById);
+    let location = useLocation();
+    const dispatch = useDispatch();
+    const categoriesId = location.pathname.split('/')[2];
 
-  useEffect(() => {
-    fetch(`https://backend-zeta-sandy.vercel.app/api/catalog/${categoriesId}`)
-      .then(data => data.json())
-      .then(category => {
-        setfindObj(category);
-        const filterParam =
-          categoriesId === 'action'
-            ? 'discount=true'
-            : `categories=${category.name}`;
-        fetch(
-          `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-        )
-          .then(products => {
-            return products.json();
-          })
-          .then(data => {
-            setObjProducts(data);
-          });
-      })
-      .catch(err => {});
-  }, [location]);
+    useEffect(() => {
+        dispatch(fetchCategotiesById(categoriesId))
 
-  return (
-    <div className={`container main ${styles.wrapper}`}>
-      <h2 className={styles.title}>{findObj?.name}</h2>
-      {objProducts.products?.length ? (
-        <SortingProducts products={objProducts.products} />
-      ) : (
-        <h2 className={styles.infoBanner}>
-          Товари для цієї категорії тимчасово відсутні!
-        </h2>
-      )}
-    </div>
-  );
+    }, [location]);
+
+    return (
+        <div className={`container main ${styles.wrapper}`}>
+            <Suspense fallback={<div>Loading...</div>}>
+                <h2 className={styles.title}>{findObj?.name}</h2>
+
+                <SortingProducts/>
+            </Suspense>
+        </div>
+    );
 };
 
 export default ProductCategories;

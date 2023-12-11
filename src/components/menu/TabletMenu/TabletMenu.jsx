@@ -1,6 +1,6 @@
 import styles from './TabletMenu.module.scss';
-import ProductsCatigories from './ProductsCatigories/ProductsCatigories';
-import HeaderContainer from '../../components/HeaderContainer/HeaderContainer.jsx';
+import ProductsCatigories from './ProductsCatigories/ProductsCatigories.jsx';
+import HeaderContainer from '../../HeaderContainer/HeaderContainer.jsx';
 
 export default function TabletMenu() {
   return (

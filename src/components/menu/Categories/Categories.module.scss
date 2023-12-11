@@ -10,7 +10,7 @@ $background-color_1: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100
   justify-content: center;
 }
 
-@media (max-width: 466px) {
+@media (max-width: 470px) {
   .nav {
     top: 140px;
     height: 100%;
@@ -37,7 +37,7 @@ $background-color_1: linear-gradient(317deg, rgb(0, 0, 0) 0%, rgb(9, 36, 80) 100
     gap: 0;
   }
 }
-@media (min-width: 468px) and (max-width: 1200px) {
+@media (min-width: 470px) and (max-width: 1200px) {
   .nav {
     display: none;
   }
