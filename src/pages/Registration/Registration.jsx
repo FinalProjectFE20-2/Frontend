@@ -7,6 +7,7 @@ import { singUp } from '../../store/action/session/actionSession';
 import { ImEye } from 'react-icons/im';
 import { ImEyeBlocked } from 'react-icons/im';
 import { redirect, useNavigate } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -142,6 +143,9 @@ const Registration = () => {
             <button type="submit" className="btn btn-light">
               Відправити
             </button>
+            <p>
+              Вже зареєстровані <NavLink className={styles.link} to="/login">Увійти</NavLink>
+            </p>
           </Form>
         )}
       </Formik>
