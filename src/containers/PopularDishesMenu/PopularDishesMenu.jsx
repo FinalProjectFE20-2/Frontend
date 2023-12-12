@@ -22,7 +22,7 @@ const PopularDishesMenu = props => {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      await dispatch(GET_PRODUCTS());
+      dispatch({ type: 'GET_PRODUCTS' });
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
