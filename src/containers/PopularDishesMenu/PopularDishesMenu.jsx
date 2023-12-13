@@ -5,7 +5,7 @@ import { addToCart } from '../../store/action/cart/cart';
 import CardSkeleton from '../../components/CardSkeleton/СardSkeleton';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { GET_PRODUCTS } from './../../store/action/product/actionProduct';
+
 
 const PopularDishesMenu = props => {
   const dispatch = useDispatch();

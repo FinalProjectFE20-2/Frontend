@@ -14,7 +14,7 @@ export default function CategoriesMenu() {
     minWidth: 467,
     maxWidth: 1200,
   });
-  const isDeckstop = useMediaQuery({
+  const isDesktop = useMediaQuery({
     minWidth: 1200,
   });
   const handleClick = () => {
@@ -33,7 +33,7 @@ export default function CategoriesMenu() {
         <h2 className={styles.title}>МЕНЮ</h2>
         {isOpen && menu}
       </div>
-      {isDeckstop && <Categories />}
+      {isDesktop && <Categories />}
     </>
   );
 }
