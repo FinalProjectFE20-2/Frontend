@@ -19,23 +19,18 @@ const PopularDishesMenu = props => {
 
   const cartItems = useSelector(({ cart }) => cart.items);
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      dispatch({ type: 'GET_PRODUCTS' });
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  const delay = 1000;
-  const fetchDataWithDelay = () => {
-    setTimeout(fetchData, delay);
-  };
-  fetchDataWithDelay();
-}, [dispatch, setIsLoading]);
-
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        } catch (error) {
+          console.error('Ошибка при получении продуктов:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      fetchData();
+    }, [dispatch]);
 
   return (
     <section className={`${styles.PopularDishes} container`}>
