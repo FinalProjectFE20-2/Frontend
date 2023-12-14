@@ -400,7 +400,7 @@
         margin-left: 0;
     }
     .detailsCheckoutKosss .detailsDeliveryCheckoutKosss .deliveryInputCheckoutKosss{
-      margin-left: 0;
+      margin-left: 10px;
       width: 300px;
       input{
         margin-top: 40px;
@@ -453,4 +453,17 @@
   }
   
   }
-  
+  .titleCheckoutKosss a:hover{
+color: #FBD13E !important;
+  }
+  @media screen and (max-width: 450px){
+    .titleCheckoutKosss h1{
+      font-size: 40px;
+    }
+     .typeDeliveryCheckoutKosss, .detailsPaymentCheckoutKosss, .detailsContactCheckoutKosss{
+      margin-left: 10px;
+    }
+    .detailsContactCheckoutKosss h2, .titleCheckoutKosss{
+      margin-left: -20px;
+    }
+  }
