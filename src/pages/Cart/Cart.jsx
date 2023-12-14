@@ -4,6 +4,9 @@ import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  removeProductFromCart,
+  removeOneProductFromCart,
+  addOneProductToCart,
   removeCartItem,
   plusCartItem,
   minusCartItem,
@@ -18,16 +21,16 @@ const Cart = () => {
     return items[key].items[0];
   });
 
-  const onRemoveItem = id => {
-    dispatch(removeCartItem(id));
+  const onRemoveItem = (id, _id) => {
+    dispatch(removeProductFromCart(id, _id));
   };
 
-  const onPlusItem = id => {
-    dispatch(plusCartItem(id));
+  const onPlusItem = (id, _id) => {
+    dispatch(addOneProductToCart(id, _id));
   };
 
-  const onMinusItem = id => {
-    dispatch(minusCartItem(id));
+  const onMinusItem = (id, _id) => {
+    dispatch(removeOneProductFromCart(id, _id));
   };
 
   return (
@@ -49,6 +52,7 @@ const Cart = () => {
           <div className="content__items">
             {addedCart.map(obj => (
               <CartItem
+                _id={obj._id}
                 key={obj.id}
                 id={obj.id}
                 name={obj.name}

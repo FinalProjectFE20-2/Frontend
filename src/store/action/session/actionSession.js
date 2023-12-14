@@ -1,3 +1,5 @@
+import { getCart, createCart, updateCart } from '../cart/cart';
+
 export const SET_USER = 'SET_USER';
 export const SET_USER_ERROR = 'SET_USER_ERROR';
 export const SET_TOKEN = 'SET_TOKEN';
@@ -13,7 +15,7 @@ const setToken = token => ({
   type: SET_TOKEN,
   payload: token,
 });
-export const login = user => async dispatch => {
+export const login = user => async (dispatch, getState) => {
   const res = await fetch(
     'https://backend-zeta-sandy.vercel.app/api/customers/login',
     {
@@ -26,17 +28,37 @@ export const login = user => async dispatch => {
   );
   const data = await res.json();
   if (!res.ok) {
+
     dispatch(setUserError(data));
     return;
   }
-  sessionStorage.setItem('token', data.token);
-  dispatch(setToken(data.token));
+
+  await sessionStorage.setItem('token', data.token);
+  await dispatch(setToken(data.token));
+  await dispatch(getUser());
+  const userCart = await dispatch(getCart());
+  const state = await getState();
+  const cart = Object.values(state.cart.items);
+  if (!userCart) {
+    if (cart.length > 0) {
+      dispatch(
+        createCart({ customerId: state.session.user._id, products: cart }),
+      );
+    }
+    if (!cart.length) {
+      dispatch(
+        createCart({ customerId: state.session.user._id, products: [] }),
+      );
+    }
+  }
+  if (userCart) {
+    dispatch(updateCart({ products: cart }));
+  }
   return true;
 };
 export const singUp = user => async dispatch => {
   const res = await fetch(
-    'https://backend-zeta-sandy.vercel.app/api/customers/',
-    // 'http://localhost:4000/api/customers',
+    'https://backend-zeta-sandy.vercel.app/api/customers',
     {
       method: 'POST',
       headers: {
@@ -46,7 +68,23 @@ export const singUp = user => async dispatch => {
     },
   );
   const data = await res.json();
-  console.log(data);
+  if (!res.ok) {
+    await dispatch(setUserError(data));
+  }
+  await dispatch(setUser(data));
+};
+export const getUser = () => async dispatch => {
+  const res = await fetch(
+    'https://backend-zeta-sandy.vercel.app/api/customers/customer',
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${sessionStorage.getItem('token')}`,
+      },
+    },
+  );
+  const data = await res.json();
   if (!res.ok) {
     await dispatch(setUserError(data));
   }

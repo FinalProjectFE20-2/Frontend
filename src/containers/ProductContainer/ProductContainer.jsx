@@ -1,25 +1,26 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import styles from './ProductContainer.module.scss';
-import OrderBar from '../../components/OrderBar/OrderBar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Cart from '@/assets/icons/Cart.svg?react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../store/action/cart/cart';
+import { useDispatch } from 'react-redux';
+import { addToCart, addProductToCart } from '../../store/action/cart/cart';
 import { motion } from 'framer-motion';
 
 const ProductContainer = addedCount => {
   const { productId } = useParams();
-  const [item, setitem] = useState([]);
+  const [item, setItem] = useState([]);
   const dispatch = useDispatch();
+  const token = useSelector(state => state.session.token);
 
   const getProduct = () => {
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
-        console.log(response.data);
-        setitem(response.data);
+        setItem(response.data);
+        setIsLoading(false);
       })
       .catch(err => {
         console.log('error', err);
@@ -28,14 +29,11 @@ const ProductContainer = addedCount => {
 
   useEffect(() => {
     getProduct();
-  }, ' ');
-
-  useEffect(() => {
-    getProduct();
-  }, productId);
+  }, [productId]);
 
   const onAddCart = () => {
     const obj = {
+      _id: item._id,
       id: productId,
       name: item.name,
       size: item.sizes,
@@ -46,6 +44,11 @@ const ProductContainer = addedCount => {
   };
 
   const onClickAddCart = obj => {
+    // dispatch(addToCart(obj));
+    if (token) {
+      dispatch(addProductToCart(obj, obj.id));
+      return;
+    }
     dispatch(addToCart(obj));
   };
 
@@ -77,28 +80,17 @@ const ProductContainer = addedCount => {
             </span>
           </p>
 
-          {/*           <OrderBar
-            productId={productId}
-            currentPrice={item.currentPrice}
-            previousPrice={item.previousPrice}
-            quantity={item.quantity}
-          /> */}
           <motion.button
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.9 }}
-            className={styles.buttonBasket}>
-            <button onClick={onAddCart} className={styles.btnCart}>
-              <Cart className="svg" />
-            </button>
+            onClick={onAddCart}
+            className={styles.btnCart}>
+            <Cart className="svg" />
           </motion.button>
         </div>
       </div>
     </section>
   );
-};
-
-ProductContainer.propTypes = {
-  productId: PropTypes.string.isRequired,
 };
 
 ProductContainer.defaultProps = {};

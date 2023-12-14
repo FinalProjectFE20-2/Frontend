@@ -8,7 +8,7 @@ import categoriesReducer from "./categoriesReducer.js";
 const rootReducer = combineReducers({
   products: productReducer,
   cart: cartReducer,
-  categories:categoriesReducer,
+  categories: categoriesReducer,
   session: sessionReducer,
 });
 

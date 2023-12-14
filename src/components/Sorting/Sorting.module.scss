@@ -1,0 +1,80 @@
+@mixin text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.65px;
+  text-transform: uppercase;
+}
+
+@mixin arrow {
+  content: ' ';
+  position: absolute;
+  right: 2px;
+  padding: 2.5px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+.sorting {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-left: auto;
+
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+  }
+  @media (max-width: 390px) {
+    flex-direction: column;
+    align-items: start;
+
+  }
+}
+
+.subtitle {
+  color: #9EA2AA;
+  @include text;
+  @media (max-width: 390px) {
+  padding-left: 20px;
+
+  }
+}
+
+.myControlClassName {
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: #FFF !important;
+  @include text ;
+  cursor: pointer !important;
+}
+
+.arrowClosed {
+  @include arrow;
+  top: 11px;
+  transform: rotate(45deg);
+}
+
+.arrowOpen {
+  @include arrow;
+  top: 15px;
+  transform: rotate(-135deg);
+}
+
+.myMenuClassName {
+  background-color: black !important;
+  border: none !important;
+}
+
+.myMenuClassName > div {
+  padding-left: 20px;
+  background-color: black !important;
+  color: #fff !important;
+
+  &:hover {
+    background-color: black;
+    color: #DBB325 !important;
+  }
+}

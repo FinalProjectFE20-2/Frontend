@@ -1,5 +1,8 @@
 .hero {
-  padding-bottom: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 100px;
 
   @media(max-width: 1410px) {
     padding-top: 50px;
@@ -211,7 +214,9 @@
   margin: 0 auto;
   padding: 0 15px;
 }
-
+// .quote{
+//   font-size: 18px;
+// }
 .square__title {
   padding-top: 37px;
   font-size: 25px;

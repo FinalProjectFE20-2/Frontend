@@ -1,62 +1,30 @@
-import { useLocation } from 'react-router-dom';
-import { menuItems } from '@/assets/data.js';
-import { useEffect, useState } from 'react';
+import {useLocation} from 'react-router-dom';
 import styles from './ProductCategories.module.scss';
-import ProductCard from '../../components/ProductCard/ProductCard.jsx';
-import { addToCart } from '../../store/action/cart/cart.js';
-import { useSelector, useDispatch } from 'react-redux';
-import { getFindObj } from './getFindObj.js';
-
+import SortingProducts from '../../components/SortingProduct/SortingProducts.jsx';
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCategotiesById} from "../../store/action/categories/actionCategories.js";
+import {getCategoryById} from "../../store/selectors/categoriesSelectors.js";
+import {Suspense, useEffect} from 'react';
 export const ProductCategories = () => {
-  const [objProducts, setObjProducts] = useState({});
-  const cartItems = useSelector(({ cart }) => cart.items);
-  let location = useLocation();
-  const dispatch = useDispatch();
-  const handleAddToCard = obj => {
-    dispatch(addToCart(obj));
-  };
+    const findObj = useSelector(getCategoryById);
+    let location = useLocation();
+    const dispatch = useDispatch();
+    const categoriesId = location.pathname.split('/')[2];
 
-  const findObj = getFindObj(menuItems);
-  useEffect(() => {
+    useEffect(() => {
+        dispatch(fetchCategotiesById(categoriesId))
 
-    const filterParam = location.pathname==='/categories/action'?"discount=true":`categories=${findObj.title}`
-    fetch(
-      `https://backend-zeta-sandy.vercel.app/api/products/filter?${filterParam}`,
-    )
-      .then(products => {
-        return products.json();
-      })
-      .then(data => {
-        setObjProducts(data);
-      });
-  }, [findObj]);
+    }, [location]);
 
-  return (
-    <div className={`container main ${styles.wrapper}`}>
-      <h2 className={styles.title}>{findObj?.title}</h2>
-      {objProducts.products?.length ? (
-        <ul className={styles.grid}>
-          {objProducts.products?.map(item => {
-            return (
-              <ProductCard
-                onClickAddCart={handleAddToCard}
-                key={item.itemNo}
-                itemNo={item.itemNo}
-                propsProduct={item}
-                addedCount={
-                  cartItems[item.itemNo] && cartItems[item.itemNo].items.length
-                }
-              />
-            );
-          })}
-        </ul>
-      ) : (
-        <h2 className={styles.infoBanner}>
-          Товари для цієї категорії тимчасово видсутні!
-        </h2>
-      )}
-    </div>
-  );
+    return (
+        <div className={`container main ${styles.wrapper}`}>
+            <Suspense fallback={<div>Loading...</div>}>
+                <h2 className={styles.title}>{findObj?.name}</h2>
+
+                <SortingProducts/>
+            </Suspense>
+        </div>
+    );
 };
 
 export default ProductCategories;

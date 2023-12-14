@@ -1,9 +1,13 @@
+import React, { useState } from 'react';
 import { redirect, useNavigate } from 'react-router';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { ImEye } from 'react-icons/im';
+import { ImEyeBlocked } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
 import styles from './Login.module.scss';
 import { login } from '../../store/action/session/actionSession';
+import { NavLink } from 'react-router-dom';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -12,6 +16,7 @@ const LoginSchema = Yup.object().shape({
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isPasswordShown, setPasswordShown] = useState(false);
   return (
     <div className="main">
       <Formik
@@ -25,7 +30,6 @@ const Login = () => {
             const res = await dispatch(
               login({ loginOrEmail: value.email, password: value.password }),
             );
-            console.log(res);
             if (res) {
               navigate('/');
             }
@@ -55,10 +59,25 @@ const Login = () => {
               {errors.password && touched.password && (
                 <div className={styles.errors}>{errors.password}</div>
               )}
+              {isPasswordShown && (
+                <ImEye
+                  className={styles.fieldIcon}
+                  onClick={() => setPasswordShown(false)}
+                />
+              )}
+              {!isPasswordShown && (
+                <ImEyeBlocked
+                  className={styles.fieldIcon}
+                  onClick={() => setPasswordShown(true)}
+                />
+              )}
             </div>
             <button type="submit" className="btn btn-light">
               Відправити
             </button>
+            <p>
+              Не маєте акаунту <NavLink className={styles.link} to="/singUp">Зареєструватися</NavLink>
+            </p>
           </Form>
         )}
       </Formik>
