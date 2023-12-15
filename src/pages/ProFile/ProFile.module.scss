@@ -1,0 +1,52 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 450px;
+  cursor: pointer;
+}
+.profileLine {
+  border: 1px solid;
+  padding: 12px 15px;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+}
+
+.profileOrderList {
+  // margin: 20px auto;
+  // padding: 12px 20px 12px;
+  // font-size: 13px;
+  // font-weight: 700;
+  // line-height: 22px;
+  // letter-spacing: 0.1em;
+  // text-align: center;
+  // background: #fbd13e;
+  // color: #000000;
+  // cursor: pointer;
+  border: 1px solid;
+  font-weight: 600;
+  padding: 12px 15px;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  background: #fbd13e;
+  color: #000000;
+  // &:hover {
+  //   background-color: #dbb325;
+  // }
+}
+.profileLogOut {
+  font-size: 20px;
+  // border: 1px solid;
+  // padding: 12px 15px;
+  // border-radius: 5px;
+  // position: relative;
+  // text-align: center;
+  font-weight: 600;
+  color: rgb(255, 0, 0);
+  &:hover {
+    background-color: #dbb325;
+  }
+}

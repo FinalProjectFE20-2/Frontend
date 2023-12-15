@@ -11,7 +11,7 @@ const setUserError = error => ({
   type: SET_USER_ERROR,
   payload: error,
 });
-const setToken = token => ({
+export const setToken = token => ({
   type: SET_TOKEN,
   payload: token,
 });
