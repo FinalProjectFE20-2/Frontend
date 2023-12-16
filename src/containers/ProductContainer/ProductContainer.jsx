@@ -20,7 +20,6 @@ const ProductContainer = addedCount => {
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
         setItem(response.data);
-        setIsLoading(false);
       })
       .catch(err => {
         console.log('error', err);
