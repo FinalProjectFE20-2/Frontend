@@ -2,20 +2,38 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ currentPagePagination, totalPagesPagination, setCurrentPagePagination }) => {
+const Pagination = ({
+  currentPagePagination,
+  totalPagesPagination,
+  setCurrentPagePagination,
+}) => {
   const [showPagination, setShowPagination] = useState([]);
 
-  useEffect(() => { // показываем +/-1 страницу от текущей, а также первую и последнюю
+  useEffect(() => {
+    // показываем +/-1 страницу от текущей, а также первую и последнюю
     const MAX_PAGES = 5;
     if (totalPagesPagination.length > MAX_PAGES) {
       let tempArr = [];
       if (currentPagePagination === 1) {
         tempArr = [1, 2, '. . .', totalPagesPagination.length];
       } else if (currentPagePagination === totalPagesPagination.length) {
-        tempArr = [1, '. . .', totalPagesPagination.length - 1, totalPagesPagination.length];
+        tempArr = [
+          1,
+          '. . .',
+          totalPagesPagination.length - 1,
+          totalPagesPagination.length,
+        ];
       } else {
-        const nearCurrent = [currentPagePagination - 1, currentPagePagination, currentPagePagination + 1];
-        const availablePages = new Set([1, totalPagesPagination.length, ...nearCurrent]);
+        const nearCurrent = [
+          currentPagePagination - 1,
+          currentPagePagination,
+          currentPagePagination + 1,
+        ];
+        const availablePages = new Set([
+          1,
+          totalPagesPagination.length,
+          ...nearCurrent,
+        ]);
         tempArr = Array.from(availablePages).sort((a, b) => a - b);
 
         if (tempArr[1] !== 2) {
@@ -32,24 +50,25 @@ const Pagination = ({ currentPagePagination, totalPagesPagination, setCurrentPag
   }, [totalPagesPagination, currentPagePagination]);
 
   const decreasePage = () => {
-    setCurrentPagePagination(currentPagePagination - 1)
-  }
+    setCurrentPagePagination(currentPagePagination - 1);
+  };
 
-  const changePage = (number) => {
-    setCurrentPagePagination(number)
-  }
+  const changePage = number => {
+    setCurrentPagePagination(number);
+  };
 
   const increasePage = () => {
-    setCurrentPagePagination(currentPagePagination + 1)
-  }
+    setCurrentPagePagination(currentPagePagination + 1);
+  };
 
   return (
     <div className={styles.container}>
       <button
         disabled={currentPagePagination < 2}
         onClick={() => decreasePage()}
-        className={`${styles.btn} ${currentPagePagination < 2 ? styles.disabled : ''}`}
-      >
+        className={`${styles.btn} ${
+          currentPagePagination < 2 ? styles.disabled : ''
+        }`}>
         {'<'}
       </button>
       {showPagination.map((item, index) => (
@@ -59,8 +78,9 @@ const Pagination = ({ currentPagePagination, totalPagesPagination, setCurrentPag
           ) : (
             <button
               onClick={() => changePage(item)}
-              className={`${styles.btn} ${currentPagePagination === item ? styles.highlighted : ''}`}
-            >
+              className={`${styles.btn} ${
+                currentPagePagination === item ? styles.highlighted : ''
+              }`}>
               {item}
             </button>
           )}
@@ -69,8 +89,11 @@ const Pagination = ({ currentPagePagination, totalPagesPagination, setCurrentPag
       <button
         disabled={currentPagePagination == totalPagesPagination.length}
         onClick={() => increasePage()}
-        className={`${styles.btn} ${currentPagePagination == totalPagesPagination.length ? styles.disabled : ''}`}
-      >
+        className={`${styles.btn} ${
+          currentPagePagination == totalPagesPagination.length
+            ? styles.disabled
+            : ''
+        }`}>
         {'>'}
       </button>
     </div>

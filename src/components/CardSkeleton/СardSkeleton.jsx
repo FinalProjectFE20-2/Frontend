@@ -1,10 +1,9 @@
-import React from 'react';
 import ContentLoader from 'react-content-loader';
-import styles from "./CardSkeleton.module.scss"
+import styles from './CardSkeleton.module.scss';
 
 const CardSkeleton = () => (
   <ContentLoader
-  className={styles.grid}
+    className={styles.grid}
     speed={4}
     width={236}
     height={445}

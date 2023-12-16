@@ -44,7 +44,6 @@ const ProductContainer = () => {
   };
 
   const onClickAddCart = obj => {
-    // dispatch(addToCart(obj));
     if (token) {
       dispatch(addProductToCart(obj, obj.id));
       return;
@@ -55,9 +54,6 @@ const ProductContainer = () => {
   return (
     <section className={`${styles.productContainer} container`}>
       <h2 className={styles.title}>{item.name}</h2>
-      {/*       <h3 className={styles.route_road}>
-        Home / <span className={styles.route_active}>Product</span>
-      </h3> */}
       <div className={styles.grid}>
         <div>
           <img className={styles.img} src={item.imageUrls} alt={item.name} />

@@ -7,10 +7,6 @@ const Delivery = () => {
       <div className={styles.containerDeliveryKosss}>
         <div className={styles.titleDeliveryKosss}>
           <h1>Доставка та оплата</h1>
-          {/*           <p>
-            Головна /
-            <span style={{ color: '#9EA2AA' }}>Доставка та оплата</span>
-          </p> */}
         </div>
         <div className={styles.contantDeliveryKosss}>
           <div className={styles.delivDeliveryKosss}>

@@ -141,28 +141,6 @@ export default function Search() {
           </div>
         ))}
       </div>
-      {}
-      {/* {selectedItem && (
-        <div className={styles.itemDetails}>
-          {selectedItem.imageUrls?.length > 0 && (
-            <img
-              src={selectedItem.imageUrls[0]}
-              alt={selectedItem.name}
-              style={{ width: '100%' }}
-            />
-          )}
-          <h2 className={styles.title}>{selectedItem.name}</h2>
-          <p className={styles.desc}>{selectedItem.manufacturer}</p>
-          <p className={styles.weight}>Вага: {selectedItem.sizes}</p>
-          <p className={styles.price}>
-            Цiна:{' '}
-            {selectedItem.currentPrice !== 0
-              ? selectedItem.currentPrice
-              : selectedItem.previousPrice}
-          </p>
-          <h5 className={styles.categories}>{selectedItem.categories}</h5>
-        </div>
-      )} */}
     </div>
   );
 }
