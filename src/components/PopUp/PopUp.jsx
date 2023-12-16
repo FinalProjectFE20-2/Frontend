@@ -1,13 +1,12 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 function PopUp() {
   return (
     <div>
       <NavLink to="profile">Profile</NavLink>
-      <button >Logout</button>
+      <button>Logout</button>
     </div>
-  )
+  );
 }
 
-export default PopUp
+export default PopUp;

@@ -1,8 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import style from './Hero.module.scss';
-// import Cart from '@/assets/icons/Cart.svg?react';
-const Cart = lazy(() => import('@/assets/icons/Cart.svg?react'));
-import { motion, spring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ClockLoader from 'react-spinners/ClockLoader';
 function Hero() {
