@@ -4,18 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, addProductToCart } from '../../store/action/cart/cart';
 import CardSkeleton from '../../components/CardSkeleton/СardSkeleton';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { GET_PRODUCTS } from './../../store/action/product/actionProduct';
+import { getFilteredProductsFetch } from './../../store/action/product/actionProduct';
 
-const PopularDishesMenu = props => {
+const PopularDishesMenu = () => {
   const dispatch = useDispatch();
-  const { productId } = useParams();
-  const [item, setItem] = useState([]);
   const products = useSelector(state => state.products.products || []);
   const [isLoading, setIsLoading] = useState(true);
   const token = useSelector(state => state.session.token);
   const handleAddToCard = obj => {
-    // dispatch(addToCart(obj));
     if (token) {
       dispatch(addProductToCart(obj, obj._id));
       return;
@@ -24,22 +20,24 @@ const PopularDishesMenu = props => {
   };
 
   const cartItems = useSelector(({ cart }) => cart.items);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(GET_PRODUCTS());
+        await dispatch(getFilteredProductsFetch(15, 3));
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
         setIsLoading(false);
       }
     };
+
     const delay = 1000;
     const fetchDataWithDelay = () => {
       setTimeout(fetchData, delay);
     };
     fetchDataWithDelay();
-  }, [dispatch, setIsLoading]);
+  }, [setIsLoading]);
 
   return (
     <section className={`${styles.PopularDishes} container`}>
