@@ -9,11 +9,12 @@ import { useDispatch } from 'react-redux';
 import { addToCart, addProductToCart } from '../../store/action/cart/cart';
 import { motion } from 'framer-motion';
 
-const ProductContainer = addedCount => {
+const ProductContainer = () => {
   const { productId } = useParams();
   const [item, setItem] = useState([]);
   const dispatch = useDispatch();
   const token = useSelector(state => state.session.token);
+  const cartItems = useSelector(({ cart }) => cart.items);
 
   const getProduct = () => {
     axios
@@ -85,6 +86,9 @@ const ProductContainer = addedCount => {
             onClick={onAddCart}
             className={styles.btnCart}>
             <Cart className="svg" />
+            {cartItems[item.itemNo] && (
+              <i>{cartItems[item.itemNo].items.length}</i>
+            )}
           </motion.button>
         </div>
       </div>
