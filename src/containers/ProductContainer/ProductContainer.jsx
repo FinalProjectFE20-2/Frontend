@@ -55,7 +55,7 @@ const ProductContainer = () => {
     <section className={`${styles.productContainer} container`}>
       <h2 className={styles.title}>{item.name}</h2>
       <div className={styles.grid}>
-        <div>
+        <div className={styles.imgContainer}>
           <img className={styles.img} src={item.imageUrls} alt={item.name} />
         </div>
         <div className={styles.desc__box}>
