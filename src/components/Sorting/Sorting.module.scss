@@ -21,15 +21,17 @@
   width: fit-content;
   margin-left: auto;
 
-
   @media (max-width: 767px) {
     margin-left: 0;
+  }
+
+  @media (max-width: 555px) {
+    margin: 0 auto;
   }
 
   @media (max-width: 390px) {
     flex-direction: column;
     align-items: start;
-
   }
 }
 

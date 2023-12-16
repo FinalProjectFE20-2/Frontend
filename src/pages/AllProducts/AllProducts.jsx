@@ -104,6 +104,7 @@ export default function AllProducts() {
       dispatch(addProductToCart(obj, obj._id));
       return;
     }
+    dispatch(addToCart(obj));
   };
 
   return (
