@@ -16,9 +16,8 @@ const Checkout = () => {
       if (!email) {
         setEmail(user.email);
       }
-      document.getElementById(
-        'nameGuestInput',
-      ).value = `${user.firstName} ${user.lastName}`;
+      document.getElementById('nameGuestInput').value =
+        `${user.firstName} ${user.lastName}`;
       document.getElementById('emailGuestInput').value = user.email;
     }
   }, [user, email]);
@@ -63,10 +62,10 @@ const Checkout = () => {
       <div className={styles.containerCheckoutKosss}>
         <div className={styles.titleCheckoutKosss}>
           <h1>Оформлення замовлення</h1>
-          {/*           <p>
-            Головна / Корзина /{' '}
+          <p>
+            <a href="/"> Головна </a> / <a href="/cart"> Корзина</a> /
             <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span>
-          </p> */}
+          </p>
         </div>
 
         <div className={styles.detailsCheckoutKosss}>
