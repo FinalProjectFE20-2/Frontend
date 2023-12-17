@@ -59,33 +59,18 @@ function Hero() {
                   className={style.email}>
                   <a href="https//delivery@midas.rest">delivery@midas.rest</a>
                 </motion.div>
-
-                <Link to="/product/96">
-                  <div className={`${style.content__card} ${style.link}`}>
-                    <img
-                      className={style.card__image}
-                      src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698434539/yvkrgaboad3herqpxabt.png"
-                      alt="tiramisu"
-                    />
-                    <p className={style.card__title}>Тірамісу</p>
-                    <div className={style.card__weight}>430 г</div>
-                    <div className={style.card__inner}>
-                      <p className={style.card__price}>370 &#8372;</p>
-                    </div>
-                  </div>
-                </Link>
               </div>
             </div>
 
             <div className={style.right__content}>
-              <div>
-                <img
-                  className={style.image}
-                  src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png"
-                  alt="image"
-                />
-                <div className={style.right__decor}></div>
-              </div>
+              {/* <div> */}
+              <img
+                className={style.image}
+                src="https://res.cloudinary.com/dk4wwlrws/image/upload/v1698595233/Desktop/y30jarxv137369wyjnto.png"
+                alt="image"
+              />
+              <div className={style.right__decor}></div>
+              {/* </div> */}
               <Link to="/product/14">
                 <div className={style.red__square}>
                   <div className={style.square__container}>

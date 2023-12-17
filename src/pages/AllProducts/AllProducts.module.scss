@@ -17,6 +17,12 @@ $color_hover: #DBB325;
   @media (max-width: 767px) {
     display: block;
   }
+
+  @media (max-width: 555px) {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
 }
 
 .innerContainer {
@@ -55,7 +61,7 @@ $color_hover: #DBB325;
 .title {
   margin-bottom: 40px;
   color: #FFF;
-  font-size: 80px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 500;
   line-height: 90px;
@@ -63,6 +69,12 @@ $color_hover: #DBB325;
   @media (max-width: 767px) {
     font-size: 40px;
     line-height: 45px;
+  }
+
+  @media (max-width: 555px) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    text-align: center;
   }
 }
 
@@ -73,7 +85,7 @@ $color_hover: #DBB325;
     position: relative;
     display: flex;
     align-items: center;
-    width: 330px;
+    width: 320px;
     height: 42px;
     padding-left: 34px;
     background-color: $color_main;
