@@ -118,7 +118,7 @@ export const updateCart = updateCart => async dispatch => {
   const update = updateCart.products.map(product => {
     return {
       product: product.items[0]._id,
-      quantity: product.items.length,
+      cartQuantity: product.items.length,
     };
   });
   const res = await fetch(`https://backend-zeta-sandy.vercel.app/api/cart`, {
@@ -127,7 +127,7 @@ export const updateCart = updateCart => async dispatch => {
       'Content-Type': 'application/json',
       Authorization: `${sessionStorage.getItem('token')}`,
     },
-    body: JSON.stringify(update),
+    body: JSON.stringify({ ...updateCart, products: update }),
   });
   const data = await res.json();
   if (!res.ok) {
@@ -139,7 +139,7 @@ export const createCart = userCart => async dispatch => {
   const created = userCart.products.map(product => {
     return {
       product: product.items[0]._id,
-      quantity: product.items.length,
+      cartQuantity: product.items.length,
     };
   });
   const res = await fetch('https://backend-zeta-sandy.vercel.app/api/cart', {
@@ -169,6 +169,7 @@ export const addOneProductToCart = (id, _id) => async dispatch => {
     },
   );
   const data = await res.json();
+
   if (!res.ok) {
     dispatch(setCartError(data));
     return;
@@ -191,19 +192,25 @@ export const getCart = () => async (dispatch, getState) => {
   const state = getState();
 
   if (!data) {
-    return data;
+    return data
   }
   const updateCart = data.products
     .map(item => {
-      if (item.product || item.items) {
-        return item.product || item.items;
-      }
+        return item.product
     })
-    .flat(1);
+    const newArray = updateCart.map(item => ({
+      id:  parseInt(item.itemNo),
+      imageUrl: item.imageUrls[0],
+      name: item.name,
+      price: item.previousPrice,
+      size: item.sizes,
+      _id: item._id,
+    }));
   const userCart = Object.values(state.cart.items)
     .map(({ items }) => items)
     .flat(1);
-  const transformedArray = [...updateCart, ...userCart].reduce((acc, item) => {
+
+  const transformedArray = [...newArray, ...userCart].reduce((acc, item) => {
     if (item.id in acc) {
       acc[item.id].items.push(item);
       acc[item.id].totalPrice = acc[item.id].totalPrice + item.price;
@@ -212,7 +219,8 @@ export const getCart = () => async (dispatch, getState) => {
       acc[item.id] = {
         items: [
           {
-            id: parseInt(item.id),
+            id: +item.id,
+            _id: item._id,
             name: item.name,
             size: item.size,
             imageUrl: item.imageUrl,

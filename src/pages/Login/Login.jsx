@@ -4,20 +4,21 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { ImEye } from 'react-icons/im';
 import { ImEyeBlocked } from 'react-icons/im';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Login.module.scss';
 import { login } from '../../store/action/session/actionSession';
 import { NavLink } from 'react-router-dom';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(2, 'Too Short').required('required'),
+  password: Yup.string().min(7, 'Too Short').required('required'),
 });
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPasswordShown, setPasswordShown] = useState(false);
-
+  const error = useSelector(state => state.session.error);
+  console.error(error, 'error');
   return (
     <div className="main">
       <Formik
@@ -73,9 +74,17 @@ const Login = () => {
                 />
               )}
             </div>
-            <button type="submit" className="btn btn-light">
-              Відправити
-            </button>
+            <div className={styles.errorsWrapper}>
+              {error && (
+                <span className={styles.error}>
+                  Invalid email and password
+                </span>
+              )}
+
+              <button type="submit" className={styles.btn}>
+                Відправити
+              </button>
+            </div>
             <p>
               Не маєте акаунту{' '}
               <NavLink className={styles.link} to="/singUp">

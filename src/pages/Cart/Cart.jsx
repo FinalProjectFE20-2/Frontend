@@ -16,11 +16,11 @@ const Cart = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.session.token);
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
-
+console.log(items, 11111)
   const addedCart = Object.keys(items).map(key => {
     return items[key].items[0];
   });
-
+  console.log(addedCart, 22222)
   const onRemoveItem = (id, _id) => {
     if (token) {
       dispatch(removeProductFromCart(id, _id));
@@ -34,7 +34,7 @@ const Cart = () => {
       dispatch(addOneProductToCart(id, _id));
       return;
     }
-    dispatch(plusCartItem(id));
+    dispatch(plusCartItem(id,));
   };
 
   const onMinusItem = (id, _id) => {
@@ -72,8 +72,8 @@ const Cart = () => {
                 size={obj.size}
                 imageUrl={obj.imageUrl}
                 quantity={obj.quantity}
-                totalPrice={items[obj.id].totalPrice}
-                totalCount={items[obj.id].items.length}
+                totalPrice={items[obj.id]?.totalPrice}
+                totalCount={items[obj.id]?.items?.length}
                 onRemove={onRemoveItem}
                 onMinus={onMinusItem}
                 onPlus={onPlusItem}

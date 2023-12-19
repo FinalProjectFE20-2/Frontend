@@ -40,7 +40,26 @@
   color: rgb(255, 0, 0);
 
   &:hover {
-    color: #FBD13E;
-    transition: color .3s;
+    color: #fbd13e;
+    transition: color 0.3s;
   }
+}
+
+.errorsWrapper {
+  position: relative;
+  margin-top: 30px;
+}
+.error {
+  position: absolute;
+  color: rgb(255, 0, 0);
+  top: -30px;
+  left: 0px;
+}
+.btn {
+  width: 100%;
+  background-color: rgb(211, 212, 213);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 12px;
 }
