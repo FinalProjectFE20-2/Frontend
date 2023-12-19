@@ -55,9 +55,8 @@ const Checkout = ({ items }) => {
     const nameInputValue = document.getElementById('nameGuestInput').value;
     const phoneInputValue = document.getElementById('phoneGuestInput').value;
 
-    // Проверяем, что все необходимые данные заполнены
+
     if (nameInputValue && phoneInputValue && deliveryMethod) {
-      // Собираем данные заказа
       const orderData = {
         name: nameInputValue,
         phone: phoneInputValue,
@@ -74,10 +73,8 @@ const Checkout = ({ items }) => {
         })),
       };
 
-      // Сохраняем данные заказа в локальное хранилище
       localStorage.setItem('orderData', JSON.stringify(orderData));
 
-      // Переходим на страницу "спасибо"
       navigate('/thank');
     } else {
       alert('Введіть контактні дані та спосіб доставки');
@@ -85,7 +82,6 @@ const Checkout = ({ items }) => {
   };
 
   useEffect(() => {
-    // Обновляем addedCart при изменении items
     const addedCart = items
       ? Object.keys(items).map(key => items[key].items[0])
       : [];
