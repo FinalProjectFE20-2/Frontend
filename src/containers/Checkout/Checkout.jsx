@@ -4,7 +4,8 @@ import styles from './Checkout.module.scss';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-const Checkout = () => {
+const Checkout = ({ items }) => {
+  const [addedCart, setAddedCart] = useState([]);
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [email, setEmail] = useState('');
@@ -48,16 +49,51 @@ const Checkout = () => {
     }
   };
 
+
+
   const handleOrderButtonClick = () => {
     const nameInputValue = document.getElementById('nameGuestInput').value;
     const phoneInputValue = document.getElementById('phoneGuestInput').value;
 
+    // Проверяем, что все необходимые данные заполнены
     if (nameInputValue && phoneInputValue && deliveryMethod) {
+      // Собираем данные заказа
+      const orderData = {
+        name: nameInputValue,
+        phone: phoneInputValue,
+        deliveryMethod,
+        paymentMethod,
+        items: addedCart.map(obj => ({
+          id: obj.id,
+          name: obj.name,
+          price: obj.price,
+          size: obj.size,
+          imageUrl: obj.imageUrl,
+          quantity: obj.quantity,
+          totalPrice: items ? items[obj.id].totalPrice : 0,
+        })),
+      };
+
+      // Сохраняем данные заказа в локальное хранилище
+      localStorage.setItem('orderData', JSON.stringify(orderData));
+
+      // Переходим на страницу "спасибо"
       navigate('/thank');
     } else {
-      alert('Введіть контактні дані, та Спосіб доставки');
+      alert('Введіть контактні дані та спосіб доставки');
     }
   };
+
+  useEffect(() => {
+    // Обновляем addedCart при изменении items
+    const addedCart = items
+      ? Object.keys(items).map(key => items[key].items[0])
+      : [];
+    setAddedCart(addedCart);
+  }, [items]);
+
+
+
 
   return (
     <div className="container">
