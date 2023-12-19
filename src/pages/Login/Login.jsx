@@ -17,6 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPasswordShown, setPasswordShown] = useState(false);
+
   return (
     <div className="main">
       <Formik
@@ -53,7 +54,7 @@ const Login = () => {
               <Field
                 name="password"
                 placeholder="Пароль"
-                type="password"
+                type={isPasswordShown ? 'text' : 'password'}
                 className={styles.password}
               />
               {errors.password && touched.password && (
@@ -76,7 +77,10 @@ const Login = () => {
               Відправити
             </button>
             <p>
-              Не маєте акаунту <NavLink className={styles.link} to="/singUp">Зареєструватися</NavLink>
+              Не маєте акаунту{' '}
+              <NavLink className={styles.link} to="/singUp">
+                Зареєструватися
+              </NavLink>
             </p>
           </Form>
         )}

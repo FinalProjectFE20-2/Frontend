@@ -9,18 +9,18 @@ import { useDispatch } from 'react-redux';
 import { addToCart, addProductToCart } from '../../store/action/cart/cart';
 import { motion } from 'framer-motion';
 
-const ProductContainer = addedCount => {
+const ProductContainer = () => {
   const { productId } = useParams();
   const [item, setItem] = useState([]);
   const dispatch = useDispatch();
   const token = useSelector(state => state.session.token);
+  const cartItems = useSelector(({ cart }) => cart.items);
 
   const getProduct = () => {
     axios
       .get(`https://backend-zeta-sandy.vercel.app/api/products/${productId}`)
       .then(response => {
         setItem(response.data);
-        setIsLoading(false);
       })
       .catch(err => {
         console.log('error', err);
@@ -44,7 +44,6 @@ const ProductContainer = addedCount => {
   };
 
   const onClickAddCart = obj => {
-    // dispatch(addToCart(obj));
     if (token) {
       dispatch(addProductToCart(obj, obj.id));
       return;
@@ -55,11 +54,8 @@ const ProductContainer = addedCount => {
   return (
     <section className={`${styles.productContainer} container`}>
       <h2 className={styles.title}>{item.name}</h2>
-      {/*       <h3 className={styles.route_road}>
-        Home / <span className={styles.route_active}>Product</span>
-      </h3> */}
       <div className={styles.grid}>
-        <div>
+        <div className={styles.imgContainer}>
           <img className={styles.img} src={item.imageUrls} alt={item.name} />
         </div>
         <div className={styles.desc__box}>
@@ -86,6 +82,9 @@ const ProductContainer = addedCount => {
             onClick={onAddCart}
             className={styles.btnCart}>
             <Cart className="svg" />
+            {cartItems[item.itemNo] && (
+              <i>{cartItems[item.itemNo].items.length}</i>
+            )}
           </motion.button>
         </div>
       </div>

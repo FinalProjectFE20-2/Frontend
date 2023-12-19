@@ -100,14 +100,12 @@ export default function AllProducts() {
   };
   const token = useSelector(state => state.session.token);
   const handleAddToCard = obj => {
-    // dispatch(addToCart(obj));
     if (token) {
       dispatch(addProductToCart(obj, obj._id));
       return;
     }
+    dispatch(addToCart(obj));
   };
-
-  console.log(visibleFilter);
 
   return (
     <div className={`container main ${styles.newContainer}`}>

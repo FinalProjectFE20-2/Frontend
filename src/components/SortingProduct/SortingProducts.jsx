@@ -24,7 +24,6 @@ export const SortingProducts = () => {
   const filterProductsByCategory = useSelector(getProductsByCategory);
   const token = useSelector(state => state.session.token);
   const handleAddToCard = obj => {
-    // dispatch(addToCart(obj));
     if (token) {
       dispatch(addProductToCart(obj, obj._id));
       return;

@@ -20,9 +20,6 @@ const Feedback = () => {
       <div className={styles.containerFeedbackKosss}>
         <div className={styles.titleFeedbackKosss}>
           <h1>Зворотній зв'язок</h1>
-          {/*           <p>
-            Головна /<span style={{ color: '#9EA2AA' }}>Зворотній зв'язок</span>
-          </p> */}
         </div>
         <div className={styles.formFeedbackKosss}>
           <div className={styles.comentFeedbackKosss}>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './Checkout.module.scss';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const Checkout = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
@@ -16,9 +17,8 @@ const Checkout = () => {
       if (!email) {
         setEmail(user.email);
       }
-      document.getElementById(
-        'nameGuestInput',
-      ).value = `${user.firstName} ${user.lastName}`;
+      document.getElementById('nameGuestInput').value =
+        `${user.firstName} ${user.lastName}`;
       document.getElementById('emailGuestInput').value = user.email;
     }
   }, [user, email]);
@@ -63,10 +63,7 @@ const Checkout = () => {
       <div className={styles.containerCheckoutKosss}>
         <div className={styles.titleCheckoutKosss}>
           <h1>Оформлення замовлення</h1>
-          {/*           <p>
-            Головна / Корзина /{' '}
-            <span style={{ color: '#9EA2AA' }}>Оформлення замовлення</span>
-          </p> */}
+          <Breadcrumbs />
         </div>
 
         <div className={styles.detailsCheckoutKosss}>

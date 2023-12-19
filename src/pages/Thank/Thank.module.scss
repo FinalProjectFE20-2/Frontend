@@ -1,8 +1,10 @@
 .thank {
   text-align: center;
+  padding: 50px;
 }
 
 .title {
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
 }
@@ -12,5 +14,6 @@
 
   &:hover {
     color: #FBD13E;
+    transition: color .3s;
   }
 }

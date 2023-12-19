@@ -8,6 +8,12 @@
       text-align: left;
       padding-bottom: 10px;
 
+      @media (max-width: 555px) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        text-align: center;
+      }
+
       p {
         font-size: 13px;
         font-weight: 500;

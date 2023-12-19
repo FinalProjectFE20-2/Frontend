@@ -21,23 +21,26 @@
   width: fit-content;
   margin-left: auto;
 
-
   @media (max-width: 767px) {
     margin-left: 0;
   }
+
+  @media (max-width: 555px) {
+    margin: 0 auto;
+  }
+
   @media (max-width: 390px) {
     flex-direction: column;
     align-items: start;
-
   }
 }
 
 .subtitle {
   color: #9EA2AA;
   @include text;
-  @media (max-width: 390px) {
-  padding-left: 20px;
 
+  @media (max-width: 390px) {
+    padding-left: 20px;
   }
 }
 
@@ -47,7 +50,7 @@
   background-color: transparent !important;
   border: none !important;
   color: #FFF !important;
-  @include text ;
+  @include text;
   cursor: pointer !important;
 }
 
@@ -68,10 +71,11 @@
   border: none !important;
 }
 
-.myMenuClassName > div {
+.myMenuClassName>div {
   padding-left: 20px;
   background-color: black !important;
   color: #fff !important;
+  text-align: left;
 
   &:hover {
     background-color: black;

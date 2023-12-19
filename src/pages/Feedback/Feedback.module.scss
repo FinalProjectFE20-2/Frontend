@@ -1,107 +1,140 @@
 .containerFeedbackKosss {
-    width: 96%;
-    max-width: 1600px;
-    margin: 0 auto;
-    font-family: Montserrat;
+  width: 96%;
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: Montserrat;
 
-    .titleFeedbackKosss{
-      h1 {
-        font-size: 50px;
+  .titleFeedbackKosss {
+    h1 {
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 55px;
+      letter-spacing: 0em;
+      text-align: left;
+      padding-bottom: 10px;
+
+      @media (max-width: 555px) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 13px;
         font-weight: 500;
-        line-height: 55px;
+        line-height: 16px;
         letter-spacing: 0em;
         text-align: left;
-        padding-bottom: 10px;
-        p {
-          font-size: 13px;
-          font-weight: 500;
-          line-height: 16px;
-          letter-spacing: 0em;
-          text-align: left;
-          color: #9EA2AA;
-        }
+        color: #9EA2AA;
       }
-      
+    }
+
+  }
+}
+
+
+.formFeedbackKosss {
+  padding-top: 110px;
+
+  .comentFeedbackKosss {
+    position: relative;
+
+    input {
+      width: 610px;
+      height: 130px;
+    }
+
+    &::after {
+      content: "ВАШЕ ПИТАННЯ, ПОБАЖАННЯ, ВІДГУК ";
+      position: absolute;
+      bottom: 150px;
+      left: 0;
+      font-weight: 500;
+      size: 13px;
+      color: #9EA2AA;
+    }
+
+    &::before {
+      content: "ВАШ EMAIL";
+      position: absolute;
+      top: 150px;
+      left: 0;
+      font-weight: 500;
+      size: 13px;
+      color: #9EA2AA;
     }
   }
-  
-  
-  .formFeedbackKosss{
-    padding-top: 110px;
+}
 
-    .comentFeedbackKosss{
-     position: relative;
-        input{
-            width: 610px;
-            height: 130px;
-        }
-        &::after {
-            content: "ВАШЕ ПИТАННЯ, ПОБАЖАННЯ, ВІДГУК ";
-            position: absolute;
-            bottom: 150px;
-            left: 0;
-            font-weight: 500;
-            size: 13px;
-            color: #9EA2AA;}
-        &::before {
-            content: "ВАШ EMAIL";
-            position: absolute;
-            top: 150px;
-            left: 0;
-            font-weight: 500;
-            size: 13px;
-            color: #9EA2AA;}}}
-    .emailFeedbackKosss{
-        position: relative;
-        input{
-            width: 360px;
-            height: 42px;
-            margin: 60px 0 40px;
-        }
-        
-  }
-  .confirmButtonFeedbackKosss {
-    width: 190px;
+.emailFeedbackKosss {
+  position: relative;
+
+  input {
+    width: 360px;
     height: 42px;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: 0.1em;
-    text-align: center;
-    background: #FBD13E;
-    color: #000000;
-    cursor: pointer;
-    margin-bottom: 95px;
+    margin: 60px 0 40px;
   }
 
-@media screen and (max-width: 1050px){
-    .formFeedbackKosss{
-      padding-top: 80px;}
 }
-@media screen and (max-width: 769px){
-  .formFeedbackKosss .comentFeedbackKosss{
-          input{
-           width: 360px;
-           height: 230px;} 
-          &::after {
-            bottom: 250px;}
-          &::before {
-            top: 250px;}
+
+.confirmButtonFeedbackKosss {
+  width: 190px;
+  height: 42px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  background: #FBD13E;
+  color: #000000;
+  cursor: pointer;
+  margin-bottom: 95px;
+}
+
+@media screen and (max-width: 1050px) {
+  .formFeedbackKosss {
+    padding-top: 80px;
   }
-  .emailFeedbackKosss p{
-    width: 280px;}
 }
-@media screen and (max-width: 400px){
-  .formFeedbackKosss{
+
+@media screen and (max-width: 769px) {
+  .formFeedbackKosss .comentFeedbackKosss {
+    input {
+      width: 360px;
+      height: 230px;
+    }
+
+    &::after {
+      bottom: 250px;
+    }
+
+    &::before {
+      top: 250px;
+    }
+  }
+
+  .emailFeedbackKosss p {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .formFeedbackKosss {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .comentFeedbackKosss, .emailFeedbackKosss, .confirmButtonFeedbackKosss{
+
+    .comentFeedbackKosss,
+    .emailFeedbackKosss,
+    .confirmButtonFeedbackKosss {
       width: 90%;
-      input{
-        width: 100%;}
+
+      input {
+        width: 100%;
+      }
     }
-    .confirmButtonFeedbackKosss{
+
+    .confirmButtonFeedbackKosss {
       margin-bottom: 50px;
     }
   }

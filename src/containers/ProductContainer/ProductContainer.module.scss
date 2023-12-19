@@ -1,10 +1,20 @@
 .productContainer {
   padding-bottom: 115px;
+
+  @media (max-width: 1300px) {
+    padding-bottom: 50px;
+  }
 }
 
 .title {
   font-size: 50px;
   line-height: 55px;
+
+  @media (max-width: 990px) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    text-align: center;
+  }
 }
 
 .route_road {
@@ -20,15 +30,16 @@
 .grid {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: (repeat(2, 1fr));
+  grid-template-columns: (1fr 1.5fr);
   column-gap: 60px;
 
   @media (max-width: 1300px) {
     column-gap: 30px;
   }
 
-  @media (max-width: 1000px) {
-    grid-template-columns: (repeat(1, 1fr));
+  @media (max-width: 800px) {
+    grid-template-columns: minmax(250px, 320px);
+    justify-content: center;
   }
 }
 
@@ -129,7 +140,7 @@
 }
 
 .desc__box {
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     margin-top: 20px;
   }
 }

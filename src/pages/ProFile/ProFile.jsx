@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setToken, setUser } from '../../store/action/session/actionSession';
 import { NavLink } from 'react-router-dom';
-import styles from './ProFile.module.scss'
+import styles from './ProFile.module.scss';
 
 function ProFile() {
   const user = useSelector(state => state.session.user);
@@ -16,16 +16,16 @@ function ProFile() {
     navigate('/');
   };
   return (
-    <div className={styles.profile}>
-      <p className={styles.profileLine}>First name: {user.firstName}</p>
-      <p className={styles.profileLine}>Last name: {user.lastName}</p>
+    <div className={`${styles.profile} container main`}>
+      <p className={styles.profileLine}>Ім'я: {user.firstName}</p>
+      <p className={styles.profileLine}>Прізвище: {user.lastName}</p>
       <p className={styles.profileLine}>Login: {user.login}</p>
       <p className={styles.profileLine}>Email: {user.email}</p>
       <NavLink className={styles.profileOrderList} to="/order_history">
-        Order list
+        Історія замовлень
       </NavLink>
       <button className={styles.profileLogOut} onClick={handelLogout}>
-        LogOut
+        Вихід
       </button>
     </div>
   );

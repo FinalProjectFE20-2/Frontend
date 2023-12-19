@@ -27,6 +27,7 @@ const CartItem = ({
     onMinus(id, _id);
   };
 
+  console.log(_id, id, totalPrice, totalCount, 11111)
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItem__img}>

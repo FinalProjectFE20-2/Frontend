@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrderList } from '../../store/action/orderListActon/orderListActon';
+import styles from './OrderList.module.scss';
 
 function OrderList() {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ function OrderList() {
   useEffect(() => {
     dispatch(getOrderList());
   }, []);
-  return <div>OrderList</div>;
+  return <div className={`${styles.order} container main`}>OrderList</div>;
 }
 
 export default OrderList;

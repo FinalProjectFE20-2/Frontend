@@ -52,7 +52,7 @@ export const login = user => async (dispatch, getState) => {
     }
   }
   if (userCart) {
-    dispatch(updateCart({ products: cart }));
+    dispatch(updateCart({ customerId: state.session.user._id, products: cart }));
   }
   return true;
 };
@@ -73,6 +73,7 @@ export const singUp = user => async dispatch => {
   }
   await dispatch(setUser(data));
 };
+
 export const getUser = () => async dispatch => {
   const res = await fetch(
     'https://backend-zeta-sandy.vercel.app/api/customers/customer',
