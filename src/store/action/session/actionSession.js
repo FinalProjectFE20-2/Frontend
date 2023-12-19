@@ -28,11 +28,10 @@ export const login = user => async (dispatch, getState) => {
   );
   const data = await res.json();
   if (!res.ok) {
-
     dispatch(setUserError(data));
     return;
   }
-
+  dispatch(setUserError(null));
   await sessionStorage.setItem('token', data.token);
   await dispatch(setToken(data.token));
   await dispatch(getUser());
@@ -52,7 +51,9 @@ export const login = user => async (dispatch, getState) => {
     }
   }
   if (userCart) {
-    dispatch(updateCart({ customerId: state.session.user._id, products: cart }));
+    dispatch(
+      updateCart({ customerId: state.session.user._id, products: cart }),
+    );
   }
   return true;
 };

@@ -26,6 +26,7 @@ const SignupSchema = Yup.object().shape({
   login: Yup.string().min(3, 'Too Short').required('required'),
 });
 const Registration = () => {
+  const [isConfirmShown, setConfirmShown] = useState(false);
   const [isPasswordShown, setPasswordShown] = useState(false);
   const error = useSelector(state => state.session.error);
   const navigate = useNavigate();
@@ -111,22 +112,22 @@ const Registration = () => {
               <Field
                 name="confirmPassword"
                 placeholder="Підтвердіть пароль"
-                type={isPasswordShown ? 'text' : 'password'}
+                type={isConfirmShown ? 'text' : 'password'}
                 className={styles.input}
               />
               {errors.confirmPassword && touched.confirmPassword && (
                 <div className={styles.errors}>{errors.confirmPassword}</div>
               )}
-              {isPasswordShown && (
+              {isConfirmShown && (
                 <ImEye
                   className={styles.fieldIcon}
-                  onClick={() => setPasswordShown(false)}
+                  onClick={() => setConfirmShown(false)}
                 />
               )}
-              {!isPasswordShown && (
+              {!isConfirmShown && (
                 <ImEyeBlocked
                   className={styles.fieldIcon}
-                  onClick={() => setPasswordShown(true)}
+                  onClick={() => setConfirmShown(true)}
                 />
               )}
             </div>
@@ -144,7 +145,10 @@ const Registration = () => {
               Відправити
             </button>
             <p>
-              Вже зареєстровані <NavLink className={styles.link} to="/login">Увійти</NavLink>
+              Вже зареєстровані{' '}
+              <NavLink className={styles.link} to="/login">
+                Увійти
+              </NavLink>
             </p>
           </Form>
         )}
