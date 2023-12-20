@@ -10,7 +10,11 @@ function OrderList() {
   useEffect(() => {
     dispatch(getOrderList());
   }, []);
-  return <div className={`${styles.order} container main`}>OrderList</div>;
+  return (
+    <div className={`${styles.order} container main`}>
+      <h1 className={styles.title}>Історія замовлень</h1>
+    </div>
+  );
 }
 
 export default OrderList;
