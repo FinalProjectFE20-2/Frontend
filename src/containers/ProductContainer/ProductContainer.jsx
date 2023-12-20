@@ -77,11 +77,11 @@ const ProductContainer = () => {
           </p>
 
           <motion.button
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={onAddCart}
             className={styles.btnCart}>
-            <Cart className="svg" />
+            <Cart />
             {cartItems[item.itemNo] && (
               <i>{cartItems[item.itemNo].items.length}</i>
             )}
