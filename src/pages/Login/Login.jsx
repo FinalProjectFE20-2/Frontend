@@ -76,12 +76,10 @@ const Login = () => {
             </div>
             <div className={styles.errorsWrapper}>
               {error && (
-                <span className={styles.error}>
-                  Invalid email and password
-                </span>
+                <span className={styles.error}>Invalid email and password</span>
               )}
 
-              <button type="submit" className={styles.btn}>
+              <button type="submit" className={`${styles.btn} btn btn-light`}>
                 Відправити
               </button>
             </div>
